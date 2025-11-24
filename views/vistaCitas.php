@@ -16,8 +16,12 @@
 
             </form>
             <form action="index.php" method="post">
-                <input type="submit" name="especialidad" value="Pedir cita">
+                <input type="submit" name="especialidades" value="Pedir cita">
 
+            </form>
+
+            <form action="index.php" method="post">
+                <input type="submit" name="usuario" value="Volver">
             </form>
         </div>
     </header>

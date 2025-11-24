@@ -3,10 +3,13 @@
 require_once "models/ConexionDB.php";
 require_once "models/UsuarioDDBB.php";
 require_once "models/Usuario.php";
+require_once "models/EspecialidadDDBB.php";
+require_once "models/MedicoDDBB.php";
 
 //Conexion
 $conexion = new UsuarioDDBB();
-
+$conexionEspecialidad = new EspecialidadDDBB();
+$conexionMedico = new MedicoDDBB();
 
 //PHP Mailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -31,14 +34,25 @@ if(!isset($_SESSION["ruta"]) || empty($_SESSION["ruta"]) || isset($_POST["login"
     $_SESSION["ruta"] = "landingpage";
 }
 
-if(isset($_POST["especialidad"])){
-    $_SESSION["ruta"] = "especialidad";
+if(isset($_POST["especialidades"])){
+    $_SESSION["ruta"] = "especialidades";
+}
+
+if(isset($_POST["horas"])){
+    $_SESSION["ruta"] = "horas";
 }
 
 if(isset($_POST["citas"])){
     $_SESSION["ruta"] = "citas";
 }
 
+if(isset($_POST["fechas"])){
+    $_SESSION["ruta"] = "fechas";
+}
+
+if(isset($_POST["medicos"])){
+    $_SESSION["ruta"] = "medicos";
+}
 
 if(isset($_POST["landingpage"])){
     $_SESSION["ruta"] = "landingpage";
@@ -182,9 +196,50 @@ if($_SESSION["ruta"] == "citas"){
     require_once "./views/vistaCitas.php";
 }
 
-//Especialidad
-if($_SESSION["ruta"] == "especialidad"){
+//Especialidades
+if($_SESSION["ruta"] == "especialidades"){
+    if(isset($_POST["especialidad"])){
+        $_SESSION["especialidad"] = $_POST["especialidad"];
+        $_SESSION["ruta"] = 'medicos';
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
+
+    $consulta=$conexionEspecialidad->getEspecialidades();
+
     require_once "./views/vistaEspecialidad.php";
+}
+
+
+//Médicos
+if($_SESSION["ruta"] == "medicos"){
+    if(isset($_POST["doctor"])){
+        $_SESSION['idMedico'] = $_POST["idM"];
+        $_SESSION["ruta"] = 'fechas';
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
+    $idEspecialidad=$conexionEspecialidad->getId($_SESSION["especialidad"]);
+    $consulta = $conexionMedico->getMedicosEspecialidad($idEspecialidad);
+    require_once "./views/vistaMedicos.php";
+}
+
+//Fecha
+if($_SESSION["ruta"] == "fechas"){
+    if(isset($_POST["seleccionarFecha"])){
+        $_SESSION["fecha"]=$_POST["fecha"];
+        $_SESSION["ruta"]='horas';
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+    require_once "./views/vistaFecha.php";
+}
+
+//horas
+if($_SESSION["ruta"] == "horas"){
+    require_once "./views/vistaHora.php";
 }
 
 

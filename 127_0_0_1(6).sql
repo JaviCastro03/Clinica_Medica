@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 14:21:57
+-- Tiempo de generación: 24-11-2025 a las 20:09:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -51,6 +51,16 @@ CREATE TABLE `especialidades` (
   `nombre` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `especialidades`
+--
+
+INSERT INTO `especialidades` (`id`, `nombre`) VALUES
+(1, 'Ginecología'),
+(2, 'Traumatología'),
+(3, 'Odontología'),
+(4, 'Neurología');
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +78,13 @@ CREATE TABLE `medicos` (
   `rol` int(11) DEFAULT NULL,
   `idEspecialidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `medicos`
+--
+
+INSERT INTO `medicos` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`, `idEspecialidad`) VALUES
+(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +109,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`) VALUES
 (5, '78475412h', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1),
-(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$n1n/vspb0FSYlHzgAEIDpuf7idh/3EnWkD5J8YNT.sBVUaIncdVAW', 1);
+(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$n1n/vspb0FSYlHzgAEIDpuf7idh/3EnWkD5J8YNT.sBVUaIncdVAW', 1),
+(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3);
 
 --
 -- Índices para tablas volcadas
@@ -143,19 +161,19 @@ ALTER TABLE `citas`
 -- AUTO_INCREMENT de la tabla `especialidades`
 --
 ALTER TABLE `especialidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

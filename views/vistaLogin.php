@@ -12,6 +12,10 @@
         <div>
             <h1>Login</h1>
         </div>
+        <?php if(isset($_SESSION["mensaje"])){
+            echo $_SESSION["mensaje"];
+            unset($_SESSION["mensaje"]);
+        } ?>
     </header>
     <section>
         <form action="index.php" method="post">

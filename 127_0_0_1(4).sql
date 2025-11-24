@@ -24,6 +24,7 @@ DROP DATABASE IF EXISTS `clinica`;
 CREATE DATABASE IF NOT EXISTS `clinica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `clinica`;
 
+git remote add upstream https://github.com/antoniobolivar/Proyecto-Cl-nica.git
 -- --------------------------------------------------------
 
 --

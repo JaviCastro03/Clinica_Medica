@@ -63,6 +63,49 @@ if($_SESSION["ruta"] == "usuario"){
 
 //Login
 if($_SESSION["ruta"] == "login"){
+    if ($_SERVER["REQUEST_METHOD"] == "POST"&&(!empty($_POST['iniciarSesion']))) {
+        if (!$conexion->emailExiste($_POST["email"])) {
+            $_SESSION["mensaje"] = "<p id='error'>Credenciales incorrectas.</p>";
+            header("Location: index.php");
+            exit();
+        } else {
+            $usuario = $conexion->getUsuario($_POST["email"]);
+
+            if (password_verify($_POST["password"], $usuario->password)) {
+                if (isset($_POST["rlogin"])) {
+                    setcookie("email", $usuario->email, time() + (86400));
+                    setcookie("password", $_POST["password"], time() + (86400));
+                    setcookie("recordar", "checked", time() + (86400));
+                } else {
+                    setcookie("email", "", time() + (86400));
+                    setcookie("password", "", time() + (86400));
+                    setcookie("recordar", "", time() + (86400));
+                }
+                if($conexion->getRol($usuario->email)!=2){
+                    $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
+                    $_SESSION["ruta"] = 'usuario';
+                    $_SESSION["mensaje"] = "<p>Sesión iniciada correctamente.</p>";
+                    header("Location: index.php");
+                    exit;
+                }
+                else{
+                    $_SESSION["mensaje"] = "<p >Este usuario no está verificado.</p>";
+                    header("Location: index.php");
+                    exit();
+                }
+
+            } else {
+                $_SESSION["mensaje"] = "<p>Credenciales incorrectas.</p>";
+                header("Location: index.php");
+                exit;
+            }
+
+
+        }
+
+
+    }
+
     require_once "./views/vistaLogin.php";
 }
 

@@ -83,4 +83,75 @@ class UsuarioDDBB
 
     }
 
+    public function emailExiste($email){
+
+        $sql="SELECT id FROM Usuarios WHERE email=:email";
+        $consulta=$this->conexion->prepare($sql);
+        $consulta->bindParam(':email',$email);
+        $consulta->execute();
+        if($fila=$consulta->fetch()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+
+
+    }
+    public function getUsuario($email)
+    {
+        $sql = "SELECT dni, apellidos, nombre, email, password,rol FROM usuarios WHERE email = :email";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':email', $email, PDO::PARAM_STR);
+        $consulta->execute();
+
+        $fila = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            $usuario = new Usuario(
+                $fila['dni'],
+                $fila['apellidos'],
+                $fila['nombre'],
+                $fila['email'],
+                $fila['password'],
+                $fila['rol']
+            );
+            return $usuario;
+        } else {
+            return null;
+        }
+    }
+    public function getIDUsuario($email)
+    {
+        $sql = "SELECT id FROM usuarios WHERE email = :email";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':email', $email, PDO::PARAM_STR);
+        $consulta->execute();
+
+        $fila = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            return $fila['id'];
+        } else {
+            return null;
+        }
+    }
+    public function getRol($email)
+    {
+        $sql = "SELECT rol FROM usuarios WHERE email = :email";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':email', $email);
+        $consulta->execute();
+
+        $fila = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            return $fila['rol'];
+        } else {
+            return null;
+        }
+    }
+
 }

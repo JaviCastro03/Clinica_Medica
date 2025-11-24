@@ -12,7 +12,12 @@
         <div>
             <h1>Panel de usuario</h1>
         </div>
+        <?php if(isset($_SESSION["mensaje"])){
+            echo $_SESSION["mensaje"];
+            unset($_SESSION["mensaje"]);
+        } ?>
     </header>
+
     <?php if($idU!=0){
         echo '<form method="POST" action="./controllers/logout.php">
         <input type="submit" value="Cerrar sesion">

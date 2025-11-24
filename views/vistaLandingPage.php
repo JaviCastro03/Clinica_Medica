@@ -11,6 +11,10 @@
     <header>
         <div>
             <h1>Landing Page</h1>
+            <?php if(isset($_SESSION["mensaje"])){
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            } ?>
         </div>
         <div>
             <form action="index.php" method="post">

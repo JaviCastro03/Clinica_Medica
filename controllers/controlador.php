@@ -31,6 +31,15 @@ if(!isset($_SESSION["ruta"]) || empty($_SESSION["ruta"]) || isset($_POST["login"
     $_SESSION["ruta"] = "landingpage";
 }
 
+if(isset($_POST["especialidad"])){
+    $_SESSION["ruta"] = "especialidad";
+}
+
+if(isset($_POST["citas"])){
+    $_SESSION["ruta"] = "citas";
+}
+
+
 if(isset($_POST["landingpage"])){
     $_SESSION["ruta"] = "landingpage";
 }
@@ -57,8 +66,13 @@ if($_SESSION["ruta"] == "landingpage"){
 //Panel de usuario
 if($_SESSION["ruta"] == "usuario"){
     //Va a haber dos vistas, usuario invitado y usuario logueado
+    if($idU != 0){
+        require_once "./views/vistaUsuario.php";
+    }
+    else{
+        require_once "./views/vistaUsuarioInvitado.php";
+    }
 
-    require_once "./views/vistaUsuario.php";
 }
 
 //Login
@@ -72,7 +86,7 @@ if($_SESSION["ruta"] == "login"){
             $usuario = $conexion->getUsuario($_POST["email"]);
 
             if (password_verify($_POST["password"], $usuario->password)) {
-                if (isset($_POST["rlogin"])) {
+               /* if (isset($_POST["rlogin"])) {
                     setcookie("email", $usuario->email, time() + (86400));
                     setcookie("password", $_POST["password"], time() + (86400));
                     setcookie("recordar", "checked", time() + (86400));
@@ -80,7 +94,7 @@ if($_SESSION["ruta"] == "login"){
                     setcookie("email", "", time() + (86400));
                     setcookie("password", "", time() + (86400));
                     setcookie("recordar", "", time() + (86400));
-                }
+                }*/
                 if($conexion->getRol($usuario->email)!=2){
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuario';
@@ -163,6 +177,18 @@ if($_SESSION["ruta"] == "registro"){
     require_once "./views/vistaRegistro.php";
 
 }
+//Citas
+if($_SESSION["ruta"] == "citas"){
+    require_once "./views/vistaCitas.php";
+}
+
+//Especialidad
+if($_SESSION["ruta"] == "especialidad"){
+    require_once "./views/vistaEspecialidad.php";
+}
+
+
+//Función enviar correo
 function enviarCorreoGmail($email, $asunto, $mensaje){
     try{
 

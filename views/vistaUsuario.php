@@ -18,17 +18,15 @@
         } ?>
     </header>
 
-    <?php if($idU!=0){
-        echo '<form method="POST" action="./controllers/logout.php">
-        <input type="submit" value="Cerrar sesion">
-        </form>';
-    }
-    else{
-        echo'<form method="POST" action="index.php">
-        <input type="submit" name="login" value="Iniciar Sesión">
-    </form>';
-    }?>
 
+        <form method="POST" action="./controllers/logout.php">
+        <input type="submit" value="Cerrar sesion">
+        </form>
+
+
+    <form action="index.php" method="post">
+        <input type="submit" name="citas" value="Mis citas">
+    </form>
 
 </body>
 </html>

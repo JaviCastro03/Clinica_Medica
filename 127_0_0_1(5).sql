@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 10:44:29
+-- Tiempo de generación: 24-11-2025 a las 14:21:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `clinica`;
 CREATE DATABASE IF NOT EXISTS `clinica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `clinica`;
-
 
 -- --------------------------------------------------------
 
@@ -92,7 +91,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`) VALUES
-(5, '78475412h', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1);
+(5, '78475412h', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1),
+(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$n1n/vspb0FSYlHzgAEIDpuf7idh/3EnWkD5J8YNT.sBVUaIncdVAW', 1);
 
 --
 -- Índices para tablas volcadas
@@ -155,7 +155,7 @@ ALTER TABLE `medicos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

@@ -5,11 +5,13 @@ require_once "models/UsuarioDDBB.php";
 require_once "models/Usuario.php";
 require_once "models/EspecialidadDDBB.php";
 require_once "models/MedicoDDBB.php";
+require_once "models/CitaDDBB.php";
 
 //Conexion
 $conexion = new UsuarioDDBB();
 $conexionEspecialidad = new EspecialidadDDBB();
 $conexionMedico = new MedicoDDBB();
+$conexionCita = new CitaDDBB();
 
 //PHP Mailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -68,6 +70,10 @@ if(isset($_POST["login"])){
 
 if(isset($_POST["registro"])){
     $_SESSION["ruta"] = "registro";
+}
+
+if(isset($_POST["confirmarCita"])){
+    $_SESSION["ruta"] = "confirmarCita";
 }
 
 
@@ -193,6 +199,7 @@ if($_SESSION["ruta"] == "registro"){
 }
 //Citas
 if($_SESSION["ruta"] == "citas"){
+    $consulta = $conexionCita->getCitas($idU);
     require_once "./views/vistaCitas.php";
 }
 
@@ -228,6 +235,8 @@ if($_SESSION["ruta"] == "medicos"){
 
 //Fecha
 if($_SESSION["ruta"] == "fechas"){
+    $fechaHoy = new DateTime();
+    $fechaFormateada = $fechaHoy->format('Y-m-d');
     if(isset($_POST["seleccionarFecha"])){
         $_SESSION["fecha"]=$_POST["fecha"];
         $_SESSION["ruta"]='horas';
@@ -239,11 +248,24 @@ if($_SESSION["ruta"] == "fechas"){
 
 //horas
 if($_SESSION["ruta"] == "horas"){
+    if(isset($_POST["hora"])){
+        $_SESSION["hora"]=$_POST["hora"];
+        $_SESSION["ruta"]='confirmarCita';
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
+
+    $consulta=$conexionCita->getHoras();
     require_once "./views/vistaHora.php";
 }
 
+if($_SESSION["ruta"] == "confirmarCita"){
+    require_once "./views/vistaConfirmarCita.php";
+}
 
-//Función enviar correo
+
+//Función enviar
 function enviarCorreoGmail($email, $asunto, $mensaje){
     try{
 

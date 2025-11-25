@@ -11,6 +11,27 @@
     <header>
         <div>
             <h1>Mis citas</h1>
+            <?php echo
+            "<table>
+                <tr>
+                    <th>Especialidad</th>
+                    <th>Médico</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                </tr>";
+            while ($fila=$consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                echo "<tr>";
+                echo "<td>".$fila["nombreEspecialidad"]."</td>";
+                echo "<td>".$fila["nombreMedico"]." ".$fila["apellidos"] ."</td>";
+                echo "<td>".$fila["fecha"]."</td>";
+                echo "<td>".$fila["hora"]."</td>";
+            }
+
+            echo"</table>"; ?>
+
+
+
             <form action="index.php" method="post">
                 <input type="submit" name="usuario" value="Volver al panel de usuario">
 

@@ -14,7 +14,37 @@
         </div>
     </header>
     <section>
-        <?php echo "<h2>Día: ".$_SESSION['fecha']."</h2>"; ?>
+        <?php echo "<h2>Día: ".$_SESSION['fecha']."</h2>";
+            if($consulta!=null){
+                echo "<table border='1'>";
+                $cont = 0;
+                while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                    // Abrir fila si es el primer elemento de la fila
+                    if ($cont % 4 == 0) {
+                        echo "<tr>";
+                    }
+
+                    echo "<td>";
+                    echo "<form action='index.php' method='POST'>";
+                    echo "<input type='submit' name='hora' value='" . $fila['hora'] . "'>";
+                    echo "</form>";
+                    echo "</td>";
+
+                    $cont++;
+
+                    // Cerrar fila cuando YA tienes 3 columnas
+                    if ($cont % 4 == 0) {
+                        echo "</tr>";
+                    }
+                }
+                echo "</table>";
+            }
+            else{
+                "<h2>No hay horas disponibles</h2>";
+            }
+        ?>
+
         <form action="index.php" method="post">
             <input type="submit" name="fechas" value="Volver">
         </form>

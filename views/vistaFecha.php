@@ -16,7 +16,7 @@
     <section>
         <?php echo "<h2>Id médico: ".$_SESSION['idMedico']."</h2>"; ?>
         <form action="index.php" method="post">
-            <input type="date" name="fecha">
+            <input type="date" min="<?php echo $fechaFormateada ?>" value="<?php echo $fechaFormateada ?>" name="fecha">
             <input type="submit" name="seleccionarFecha" value="Siguiente">
         </form>
 

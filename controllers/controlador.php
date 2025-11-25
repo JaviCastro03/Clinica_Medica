@@ -199,6 +199,7 @@ if($_SESSION["ruta"] == "registro"){
 }
 //Citas
 if($_SESSION["ruta"] == "citas"){
+
     $consulta = $conexionCita->getCitas($idU);
     require_once "./views/vistaCitas.php";
 }

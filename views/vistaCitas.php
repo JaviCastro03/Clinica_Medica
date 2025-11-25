@@ -16,8 +16,9 @@
                 echo $_SESSION["mensaje"];
                 unset($_SESSION["mensaje"]);
             }
-            echo
-            "<table>
+            if($consulta!=null){
+                echo
+                "<table>
                 <tr>
                     <th>Especialidad</th>
                     <th>Médico</th>
@@ -25,17 +26,22 @@
                     <th>Hora</th>
                     <th>Estado</th>
                 </tr>";
-            while ($fila=$consulta->fetch(PDO::FETCH_ASSOC)) {
+                while ($fila=$consulta->fetch(PDO::FETCH_ASSOC)) {
 
-                echo "<tr>";
-                echo "<td>".$fila["nombreEspecialidad"]."</td>";
-                echo "<td>".$fila["nombreMedico"]." ".$fila["apellidos"] ."</td>";
-                echo "<td>".$fila["fecha"]."</td>";
-                echo "<td>".$fila["hora"]."</td>";
-                echo "<td>".$fila["estado"]."</td>";
+                    echo "<tr>";
+                    echo "<td>".$fila["nombreEspecialidad"]."</td>";
+                    echo "<td>".$fila["nombreMedico"]." ".$fila["apellidos"] ."</td>";
+                    echo "<td>".$fila["fecha"]."</td>";
+                    echo "<td>".$fila["hora"]."</td>";
+                    echo "<td>".$fila["estado"]."</td>";
+                }
+
+                echo"</table>";
             }
-
-            echo"</table>"; ?>
+            else{
+                echo "<h2>No tienes citas</h2>";
+            }
+             ?>
 
 
 

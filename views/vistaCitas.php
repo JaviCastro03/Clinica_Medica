@@ -11,13 +11,19 @@
     <header>
         <div>
             <h1>Mis citas</h1>
-            <?php echo
+            <?php
+            if(isset($_SESSION["mensaje"])){
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            }
+            echo
             "<table>
                 <tr>
                     <th>Especialidad</th>
                     <th>Médico</th>
                     <th>Fecha</th>
                     <th>Hora</th>
+                    <th>Estado</th>
                 </tr>";
             while ($fila=$consulta->fetch(PDO::FETCH_ASSOC)) {
 
@@ -26,6 +32,7 @@
                 echo "<td>".$fila["nombreMedico"]." ".$fila["apellidos"] ."</td>";
                 echo "<td>".$fila["fecha"]."</td>";
                 echo "<td>".$fila["hora"]."</td>";
+                echo "<td>".$fila["estado"]."</td>";
             }
 
             echo"</table>"; ?>

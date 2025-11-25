@@ -154,4 +154,17 @@ class UsuarioDDBB
         }
     }
 
+    public function getEmail($idUsuario)
+    {
+        $sql = "SELECT email FROM usuarios WHERE id = :idUsuario";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':idUsuario', $idUsuario);
+        $consulta->execute();
+        if ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            return $fila['email'];
+        } else {
+            return null;
+        }
+    }
+
 }

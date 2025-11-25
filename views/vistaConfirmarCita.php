@@ -17,6 +17,10 @@
         <?php echo "<h2>Hora: ".$_SESSION['hora']."</h2>" ?>
 
         <form action="index.php" method="post">
+            <input type="submit" name="confirmarCita" value="Confirmar cita">
+        </form>
+
+        <form action="index.php" method="post">
             <input type="submit" name="horas" value="Volver">
         </form>
     </header>

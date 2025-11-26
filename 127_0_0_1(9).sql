@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2025 a las 21:42:51
+-- Tiempo de generación: 26-11-2025 a las 12:01:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,11 +32,10 @@ USE `clinica`;
 
 DROP TABLE IF EXISTS `citas`;
 CREATE TABLE `citas` (
-  `id` int(11) NOT NULL,
-  `idMedico` int(11) DEFAULT NULL,
+  `idMedico` int(11) NOT NULL,
   `idPaciente` int(11) DEFAULT NULL,
-  `fecha` varchar(11) DEFAULT NULL,
-  `idhora` int(11) DEFAULT NULL,
+  `fecha` varchar(11) NOT NULL,
+  `idhora` int(11) NOT NULL,
   `idEspecialidad` int(11) DEFAULT NULL,
   `estado` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -165,8 +164,7 @@ INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`,
 -- Indices de la tabla `citas`
 --
 ALTER TABLE `citas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cita_medico` (`idMedico`),
+  ADD PRIMARY KEY (`idMedico`,`fecha`,`idhora`),
   ADD KEY `fk_cita_paciente` (`idPaciente`),
   ADD KEY `fk_citas_horas` (`idhora`),
   ADD KEY `fk_citas_especialidades` (`idEspecialidad`);
@@ -203,12 +201,6 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `citas`
---
-ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidades`

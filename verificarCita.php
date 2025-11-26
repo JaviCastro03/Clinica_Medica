@@ -7,12 +7,12 @@ $conexion = new CitaDDBB();
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-    if (isset($_GET["idCita"]) && $conexion->setEstado("Confirmada", $_GET["idCita"])) {
+    if (isset($_GET["idMedicoC"]) && $conexion->setEstado("Confirmada", $_GET["fechaC"],$_GET["idMedicoC"],$_GET["idhora"])) {
 
 
         echo "Verificación exitosa <br>";
         echo "Serás redirigido en 5 segundos...";
-        $_SESSION["mensaje"] = "<p id='success'>Usuario registrado correctamente</p>";
+        $_SESSION["mensaje"] = "<p id='success'>Cita registrada correctamente</p>";
 
         header("Refresh: 5; URL=index.php");
         exit;

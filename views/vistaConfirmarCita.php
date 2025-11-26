@@ -12,6 +12,10 @@
         <div>
             <h1>Confirmar cita</h1>
         </div>
+        <?php  if(isset($_SESSION['mensaje'])){
+            echo $_SESSION['mensaje'];
+            unset($_SESSION['mensaje']);
+        } ?>
         <?php echo "<h2>Especialidad: ".$_SESSION['especialidad']."</h2>" ?>
             <?php echo "<h2>Fecha: ".$_SESSION['fecha']."</h2>" ?>
         <?php echo "<h2>Hora: ".$_SESSION['hora']."</h2>" ?>

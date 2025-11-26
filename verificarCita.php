@@ -7,7 +7,7 @@ $conexion = new CitaDDBB();
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-    if (isset($_GET["idCita"]) && $conexion->setEstado("Confirmada", $_GET["idCita"])) {
+    if (isset($_GET["idMedicoC"]) && $conexion->setEstado("Confirmada", $_GET["fechaC"],$_GET["idMedicoC"],$_GET["idhora"])) {
 
 
         echo "Verificación exitosa <br>";

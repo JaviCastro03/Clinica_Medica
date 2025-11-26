@@ -199,6 +199,19 @@ if($_SESSION["ruta"] == "registro"){
 }
 //Citas
 if($_SESSION["ruta"] == "citas"){
+    if(isset($_POST["cancelarCita"]) && isset($_POST["idMedicoC"]) && isset($_POST["idhoraC"])&&isset($_POST["fechaC"])){
+       if($conexionCita->borrarCita($_POST["fechaC"], $_POST["idMedicoC"], $_POST["idhoraC"])){
+           $_SESSION["mensaje"] = "<p>Cita cancelada correctamente.</p>";
+           header("Location: " . $_SERVER['PHP_SELF']);
+           exit;
+       }
+       else{
+           $_SESSION["mensaje"] = "<p>No se ha podido cancelar la cita.</p>";
+           header("Location: " . $_SERVER['PHP_SELF']);
+           exit;
+       }
+
+    }
 
     $consulta = $conexionCita->getCitas($idU);
     require_once "./views/vistaCitas.php";
@@ -261,23 +274,28 @@ if($_SESSION["ruta"] == "horas"){
     require_once "./views/vistaHora.php";
 }
 
+//Confirmar cita
 if($_SESSION["ruta"] == "confirmarCita"){
     if(isset($_POST["confirmarCita"])){
         $estado='Por verificar';
         $idHora=$conexionCita->getIdHora($_SESSION['hora']);
         $idEspecialidad=$conexionEspecialidad->getId($_SESSION["especialidad"]);
-        $conexionCita->insertarCita($idU,$_SESSION['idMedico'],$_SESSION["fecha"],$idHora,$estado,$idEspecialidad);
-        $idCita=$conexionCita->getIdCita($_SESSION['idMedico'],$idHora,$_SESSION["fecha"]);
-        $token=hash('sha512', rand(1,15000));
-        $mensaje="Has recibido este correo porque has solicitado una cita médica, 
-            pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/verificarCita.php?idCita=".$idCita."&token=".$token;
-        if(enviarCorreoGmail($conexion->getEmail($idU),"Verificación de cita",$mensaje)){
-            $_SESSION['mensaje'] ='<script>alert("Correo enviado para verificar la cita")</script>';
+        if($conexionCita->insertarCita($idU,$_SESSION['idMedico'],$_SESSION["fecha"],$idHora,$estado,$idEspecialidad)){
+            $token=hash('sha512', rand(1,15000));
+            $mensaje="Has recibido este correo porque has solicitado una cita médica, 
+            pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/verificarCita.php?idMedicoC=".$_SESSION['idMedico']."&fechaC=".$_SESSION["fecha"]."&idhora=".$idHora."&token=".$token;
+            if(enviarCorreoGmail($conexion->getEmail($idU),"Verificación de cita",$mensaje)){
+                $_SESSION['mensaje'] ='<script>alert("Correo enviado para verificar la cita")</script>';
+            }
+            else{
+                $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
+            }
+            $_SESSION["ruta"] = 'citas';
         }
         else{
-            $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
+            $_SESSION['mensaje']="<p>No se ha podido registrar la cita.</p>";
         }
-        $_SESSION["ruta"] = 'citas';
+
 
 
         header("Location: index.php");

@@ -79,6 +79,7 @@ class UsuarioDDBB
         }
         catch (PDOException $e){
             $_SESSION['error']="Error: ".$e->getMessage();
+            return false;
         }
 
     }
@@ -120,6 +121,43 @@ class UsuarioDDBB
             );
             return $usuario;
         } else {
+            return null;
+        }
+    }
+
+    public function actualizarPassword($idU, $password){
+        $sql = "UPDATE usuarios SET password=:password WHERE id = :idU";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':password', $password);
+        $consulta->bindParam(':idU', $idU);
+        return $consulta->execute();
+    }
+
+    public function actualizarDatosUsuario($dni, $apellidos, $nombre, $idU){
+        $sql = "UPDATE usuarios SET dni=:dni,apellidos=:apellidos,nombre=:nombre where id = :idU";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':dni', $dni);
+        $consulta->bindParam(':apellidos', $apellidos);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':idU', $idU);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function getInfoUsuario($idU){
+        $sql = "SELECT * FROM usuarios WHERE id = :idU";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':idU', $idU);
+        $consulta->execute();
+        if($consulta->rowCount()>0){
+            return $consulta;
+        }
+        else{
             return null;
         }
     }

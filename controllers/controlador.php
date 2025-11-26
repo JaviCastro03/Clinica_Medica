@@ -40,6 +40,10 @@ if(isset($_POST["especialidades"])){
     $_SESSION["ruta"] = "especialidades";
 }
 
+if(isset($_POST["editarUsuario"])){
+    $_SESSION["ruta"] = "editarUsuario";
+}
+
 if(isset($_POST["horas"])){
     $_SESSION["ruta"] = "horas";
 }
@@ -85,7 +89,20 @@ if($_SESSION["ruta"] == "landingpage"){
 
 //Panel de usuario
 if($_SESSION["ruta"] == "usuario"){
+    if(isset($_SESSION["hash"])){
+        $hash = $_SESSION["hash"];
+        if($conexion->actualizarPassword($idU, $hash)){
+            $_SESSION["mensaje"]="<p>Contraseña actualizada correctamente</p>";
+        }
+        else{
+            $_SESSION["mensaje"]="<p>Contraseña actualizada correctamente</p>";
+        }
+        unset($_SESSION["hash"]);
+        header("Location: index.php");
+        exit;
+    }
     //Va a haber dos vistas, usuario invitado y usuario logueado
+    $consulta=$conexion->getInfoUsuario($idU);
     if($idU != 0){
         require_once "./views/vistaUsuario.php";
     }
@@ -93,6 +110,38 @@ if($_SESSION["ruta"] == "usuario"){
         require_once "./views/vistaUsuarioInvitado.php";
     }
 
+
+
+
+}
+
+//Editar información del usuario
+if($_SESSION["ruta"] == "editarUsuario"){
+
+    if(isset($_POST["cambiarPassword"])){
+        $token=hash('sha512', rand(1,15000));
+        $mensaje="Has recibido este correo porque has solicitado una cita médica, 
+            pincha en el siguiente enlace para confirmar tu cita: http://localhost/clinica/cambiarPassword.php?idU".$idU."&token=".$token;
+        if(enviarCorreoGmail($conexion->getEmail($idU),"Verificación de cita",$mensaje)){
+            $_SESSION['mensaje'] ='<script>alert("Correo enviado para verificar el cambio de contraseña")</script>';
+        }
+        else{
+            $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
+        }
+    }
+
+    if(isset($_POST["editarInfoUsuario"])){
+        if($conexion->actualizarDatosUsuario($_POST["dni"], $_POST["apellidos"], $_POST["nombre"], $idU)){
+            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+            $_SESSION["ruta"] = "usuario";
+        }else{
+            $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
+        }
+        header("Location: index.php");
+        exit();
+    }
+    $consulta= $conexion->getInfoUsuario($idU);
+    require_once "./views/vistaEditarUsuario.php";
 }
 
 //Login

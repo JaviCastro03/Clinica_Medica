@@ -204,5 +204,18 @@ class UsuarioDDBB
             return null;
         }
     }
+    public function getNombreUsuario($idUsuario){
+        $sql = "SELECT nombre FROM usuarios WHERE id = :idUsuario";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':idUsuario', $idUsuario);
+        $consulta->execute();
+        if ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            return $fila['nombre'];
+        }
+        else{
+            return null;
+        }
+    }
+
 
 }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Ever Young | Clínica Médica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image" href="./images/logo/logoSinLetras.png">
+</head>
+<body>
+
+    <!-- BLOQUE: HEADER -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="./images/logo/logo.webp" alt="Logo 4Ever Young">
+        </div>
+
+        <!-- BLOQUE: NAV -->
+        <input type="checkbox" id="menu-toggle" class="nav__toggle">
+            <label for="menu-toggle" class="nav__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+        <nav class="nav">
+            <a href="#" class="nav__item nav__item--active">Inicio</a>
+            <a href="#servicios" class="nav__item">Servicios</a>
+            <a href="#mis-citas" class="nav__item">Mis Citas</a>
+            
+            <!-- ELEMENTO: Grupo de Autenticación -->
+            <div class="nav__auth-group">
+                <a href="#login" class="nav__auth-link">Iniciar Sesión</a>
+                <a href="#registro" class="nav__auth-link">Registrarse</a>
+            </div>
+            
+            <!-- BOTON PEDIR CITA -->
+            <button class="button">
+            <div class="wrap">
+                <p>
+                <span>✧</span>
+                <span>✦</span>
+                Solicitar Cita
+                </p>
+            </div>
+            </button>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        
+        <!-- BLOQUE VIDEO-->
+        <div class="video-background">
+            <video id="background-video" autoplay muted loop playsinline poster="./images/video.webp">
+                <source src="./images/videoMain.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+
+            <div class="video-overlay"></div>
+
+            <div class="content">
+                <h1>El Destello de tu Próxima Salud.</h1>
+                <p class="subtitle">Atención integral y personalizada para toda la familia, la clave para tu bienestar duradero.</p>
+
+                <div class="cta-buttons">
+                    <a href="#filosofia" class="btn btn-primary-hero">Descubre Nuestra Filosofía 4EY</a>
+                    <a href="#servicios" class="btn btn-secondary-hero">Ver Todos los Servicios</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE: SERVICIOS -->
+        <section id="servicios" class="services">
+            <h2 class="services__title">Especialidades Médicas</h2>
+            <div class="services__card-grid">
+                <div class="card"><p class="card-title">Ginecología</p><p class="small-desc">Salud integral de la mujer.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Traumatología</p><p class="small-desc">Tratamiento de lesiones óseas y musculares.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Odontología</p><p class="small-desc">Cuidado avanzado de la salud bucal.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Neurología</p><p class="small-desc">Diagnóstico de trastornos neurológicos.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Oncología</p><p class="small-desc">Atención especializada contra el cáncer.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Urología</p><p class="small-desc">Salud del sistema urinario.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Pediatría</p><p class="small-desc">Atención para niños y jóvenes.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Cardiología</p><p class="small-desc">Cuidado para el corazón y circulación.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Dermatología</p><p class="small-desc">Salud de la piel, cabello y uñas.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Endocrinología</p><p class="small-desc">Especialistas en glándulas y hormonas.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Oftalmología</p><p class="small-desc">Diagnóstico y cuidado visual.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+                <div class="card"><p class="card-title">Cirugía General</p><p class="small-desc">Procedimientos quirúrgicos esenciales.</p><div class="go-corner"><div class="go-star">✦</div></div></div>
+            </div>
+        </section>
+
+         <!-- BLOQUE: GALERIA -->
+          <section class="seccion" id="galeria">
+            <h2 class="seccion-titulo">Profesionales Dedicados a tu Salud</h2>
+            <div class="gal">
+                <img src="./images/gallery/1.avif" alt="1">
+                <img src="./images/gallery/2.avif" alt="2">
+                <img src="./images/gallery/3.avif" alt="3">
+                <img src="./images/gallery/4.avif" alt="4">
+            </div>
+        </section>
+
+        <!-- BLOQUE: FILOSOFIA -->
+        <section id="filosofia" class="philosophy">
+            <div class="philosophy__container">
+                <h2 class="philosophy__title">Nuestra Filosofía y Compromiso 4EY</h2>
+                
+                <div class="philosophy__content">
+                    <div class="philosophy__card philosophy__card--vision">
+                        <h3>Visión: Bienestar Integral</h3>
+                        <p>Ser la clínica de referencia en medicina preventiva y estética, fusionando tecnología avanzada con un enfoque humano y personalizado. Creemos que la salud duradera se basa en el equilibrio físico, mental y emocional.</p>
+                    </div>
+                    
+                    <div class="philosophy__card philosophy__card--mission">
+                        <h3>Misión: Cuidado Personalizado</h3>
+                        <p>Proporcionar atención médica de la más alta calidad, con programas diseñados a medida que no solo tratan síntomas, sino que optimizan la vitalidad y el bienestar de cada paciente a largo plazo. Tu salud es nuestra prioridad.</p>
+                    </div>
+                </div>
+
+                <div class="policy-links">
+                    <h4>Conoce la base de nuestro cuidado:</h4>
+                    <a href="#calidad" class="btn btn-policy">Política de Calidad</a>
+                    <a href="#privacidad" class="btn btn-policy">Política de Privacidad</a>
+                    <a href="#etica" class="btn btn-policy">Código de Ética Médica</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOQUE: SECCION FINAL -->
+        <section id="contacto" class="cta-section">
+            <div class="cta-icon">
+                <span><img src="./images/logo/logoSinLetras.png" alt=""></span>
+            </div>
+            <h2 class="cta-section__title">Da el Primer Paso hacia tu Bienestar.</h2>
+            <p class="cta-section__subtitle">
+                ¿Tienes dudas sobre una especialidad? Contacta con nuestro equipo para una consulta informativa gratuita.
+            </p>
+            <a href="mailto:clinica4everyoung@gmail.com" class="btn btn--secondary btn--large">Hablemos Ahora</a>        
+        </section>
+
+    </main>
+
+    <!-- BLOQUE: FOOTER -->
+    <footer class="footer">
+        <p class="footer__text">&copy; 2025 4Ever Young. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

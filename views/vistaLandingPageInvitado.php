@@ -4,46 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4Ever Young | Clínica Médica</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./views/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image" href="./images/logo/logoSinLetras.png">
+    <link rel="icon" type="image" href="./views/images/logo/logoSinLetras.png">
 </head>
 <body>
 
     <!-- BLOQUE: HEADER -->
     <header class="header">
         <div class="header__logo">
-            <img src="./images/logo/logo.webp" alt="Logo 4Ever Young">
+            <img src="./views/images/logo/logo.webp" alt="Logo 4Ever Young">
         </div>
 
         <!-- BLOQUE: NAV -->
         <input type="checkbox" id="menu-toggle" class="nav__toggle">
-            <label for="menu-toggle" class="nav__hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+        <label for="menu-toggle" class="nav__hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
 
         <nav class="nav">
-            <a href="#" class="nav__item nav__item--active">Inicio</a>
-            <a href="#servicios" class="nav__item">Servicios</a>
-            <a href="#mis-citas" class="nav__item">Mis Citas</a>
-            
+            <form action="index.php" method="post">
+                <button type="submit" class="nav__item nav__item--active" name="landingpage" >Inicio</button>
+            </form>
+            <button><a href="#servicios" class="nav__item">Servicios</a></button>
+            <form action="index.php" method="post">
+                <button type="submit" class="nav__item" name="login" >Mis citas</button>
+            </form>
+
+
             <!-- ELEMENTO: Grupo de Autenticación -->
             <div class="nav__auth-group">
-                <a href="#login" class="nav__auth-link">Iniciar Sesión</a>
-                <a href="#registro" class="nav__auth-link">Registrarse</a>
+                <form action="index.php" method="post">
+                    <button type="submit" class="nav__item" name="login" >Panel de Usuario</button>
+                </form>
             </div>
-            
+
             <!-- BOTON PEDIR CITA -->
             <button class="button">
-            <div class="wrap">
-                <p>
-                <span>✧</span>
-                <span>✦</span>
-                Solicitar Cita
-                </p>
-            </div>
+                <div class="wrap">
+                    <p>
+                        <span>✧</span>
+                        <span>✦</span>
+                        Solicitar Cita
+                    </p>
+                </div>
             </button>
         </nav>
     </header>
@@ -53,8 +59,8 @@
         
         <!-- BLOQUE VIDEO-->
         <div class="video-background">
-            <video id="background-video" autoplay muted loop playsinline poster="./images/video.webp">
-                <source src="./images/videoMain.mp4" type="video/mp4">
+            <video id="background-video" autoplay muted loop playsinline poster="../views/images/video.webp">
+                <source src="./views/images/videoMain.mp4" type="video/mp4">
                 Tu navegador no soporta la etiqueta de video.
             </video>
 
@@ -94,10 +100,10 @@
           <section class="seccion" id="galeria">
             <h2 class="seccion-titulo">Profesionales Dedicados a tu Salud</h2>
             <div class="gal">
-                <img src="./images/gallery/1.avif" alt="1">
-                <img src="./images/gallery/2.avif" alt="2">
-                <img src="./images/gallery/3.avif" alt="3">
-                <img src="./images/gallery/4.avif" alt="4">
+                <img src="./views/images/gallery/1.avif" alt="1">
+                <img src="./views/images/gallery/2.avif" alt="2">
+                <img src="./views/images/gallery/3.avif" alt="3">
+                <img src="./views/images/gallery/4.avif" alt="4">
             </div>
         </section>
 
@@ -130,7 +136,7 @@
         <!-- BLOQUE: SECCION FINAL -->
         <section id="contacto" class="cta-section">
             <div class="cta-icon">
-                <span><img src="./images/logo/logoSinLetras.png" alt=""></span>
+                <span><img src="./views/images/logo/logoSinLetras.png" alt=""></span>
             </div>
             <h2 class="cta-section__title">Da el Primer Paso hacia tu Bienestar.</h2>
             <p class="cta-section__subtitle">

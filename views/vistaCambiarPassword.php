@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+<?php if(isset($_SESSION['mensaje'])){
+    echo $_SESSION['mensaje'];
+    unset($_SESSION['mensaje']);
+} ?>
 <h1>Cambiar contraseña</h1>
 <form method="POST" action="cambiarPassword.php">
     <input type="password" name="npassword" placeholder="Nueva contraseña">

@@ -82,7 +82,13 @@ if (isset($_POST["confirmarCita"])) {
 
 //Landingpage
 if ($_SESSION["ruta"] == "landingpage") {
-    require_once "./views/vistaLandingPage.php";
+    if($idU != 0){
+        require_once "./views/vistaLandingPage.php";
+    }
+    else{
+        require_once "./views/vistaLandingPageInvitado.php";
+    }
+
 }
 
 //Panel de usuario
@@ -92,7 +98,7 @@ if ($_SESSION["ruta"] == "usuario") {
         if ($conexion->actualizarPassword($idU, $hash)) {
             $_SESSION["mensaje"] = "<p>Contraseña actualizada correctamente</p>";
         } else {
-            $_SESSION["mensaje"] = "<p>Contraseña actualizada correctamente</p>";
+            $_SESSION["mensaje"] = "<p>Error al cambiar contraseña, vuelve a intentarlo más tarde</p>";
         }
         unset($_SESSION["hash"]);
         header("Location: index.php");
@@ -115,7 +121,7 @@ if ($_SESSION["ruta"] == "editarUsuario") {
     if (isset($_POST["cambiarPassword"])) {
         $token = hash('sha512', rand(1, 15000));
         $mensaje = "Has recibido este correo porque has solicitado una cita médica, 
-            pincha en el siguiente enlace para confirmar tu cita: http://localhost/clinica/cambiarPassword.php?idU" . $idU . "&token=" . $token;
+            pincha en el siguiente enlace para confirmar tu cita: http://localhost/clinica/cambiarPassword.php?email=".$conexion->getEmail($idU)."&token=".$token;
         if (enviarCorreoGmail($conexion->getEmail($idU), "Verificación de cita", $mensaje)) {
             $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de contraseña")</script>';
         } else {

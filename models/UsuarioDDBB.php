@@ -125,11 +125,11 @@ class UsuarioDDBB
         }
     }
 
-    public function actualizarPassword($idU, $password){
-        $sql = "UPDATE usuarios SET password=:password WHERE id = :idU";
+    public function actualizarPassword($email, $password){
+        $sql = "UPDATE usuarios SET password=:password WHERE email = :email";
         $consulta = $this->conexion->prepare($sql);
         $consulta->bindParam(':password', $password);
-        $consulta->bindParam(':idU', $idU);
+        $consulta->bindParam(':email', $email);
         return $consulta->execute();
     }
 

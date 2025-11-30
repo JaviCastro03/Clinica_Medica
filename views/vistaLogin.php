@@ -33,6 +33,9 @@
     <form action="index.php" method="post">
         <input type="submit" name="landingpage" value="Seguir como invitado">
     </form>
+    <form action="olvidarPassword.php" method="post">
+        <input type="submit" name="landingpage" value="¿Has olvidado tu contraseña?">
+    </form>
 
 </body>
 </html>

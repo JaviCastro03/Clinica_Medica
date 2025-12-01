@@ -301,6 +301,28 @@ strong {
 }
 
 
+.button-table {
+    display: flex;
+    height: 1.8rem;
+    width: 9rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transition: all 0.25s linear;
+    cursor: pointer;
+    border: none;
+    background: var(--color-green);
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+.button-table:hover {
+    box-shadow: 0px 0px 5px var(--color-text-grey),
+    -9px -9px 33px #ffffff;
+}
+
+
 /* ----------------------------------- */
 /* 5. VIDEO */
 /* ----------------------------------- */
@@ -902,22 +924,46 @@ strong {
 
 .tabla{
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 7rem;
+
 }
 
+
+
 .tabla th{
+    padding: 0.6rem;
     background-color: var(--color-blue-soft);
     color: white;
     border-bottom: var(--color-white);
 
 }
-
-.tabla tr:nth-child(odd) {
-    background: var(--color-white);
+.tabla td{
+    padding: 0.6rem;
 }
+
+.tabla td button {
+    margin: 0 auto;
+    display: block;
+}
+
+
 .tabla tr:nth-child(even) {
     background: var(--color-white);
 }
+
+.tabla tr:nth-child(odd) {
+    background: var(--color-border);
+}
+.button-table:hover {
+    box-shadow: 0px 0px 5px var(--color-text-grey),
+    0px 0px 15px #ffffff;
+}
+
+
 /* ----------------------------------- */
 /* 11. FOOTER */
 /* ----------------------------------- */

@@ -97,7 +97,8 @@
                         echo "<td>".$fila['email']."</td>";
                         echo "<td> <form action='index.php' method='post'>
                     <input type='hidden' name='idM' value='".$fila['id']."'>
-                    <input type='submit' name='doctor' value='Seleccionar'>
+             
+                    <button class='button-table' type='submit' name='doctor'>Seleccionar</button>
                 </form></td>";
                         echo "</tr>";
 

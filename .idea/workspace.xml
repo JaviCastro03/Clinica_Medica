@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/127_0_0_1(9).sql" beforeDir="false" afterPath="$PROJECT_DIR$/127_0_0_1(10).sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olvidarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/olvidarPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaCitas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCitas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaEspecialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEspecialidad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaLandingPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaLandingPageInvitado.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPageInvitado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaMedicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaMedicos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuario.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +102,7 @@
       <updated>1764315918503</updated>
       <workItem from="1764315919637" duration="6443000" />
       <workItem from="1764514323677" duration="17053000" />
-      <workItem from="1764577343057" duration="203000" />
+      <workItem from="1764577343057" duration="7589000" />
     </task>
     <servers />
   </component>

@@ -94,5 +94,8 @@ function enviarCorreoGmail($email, $asunto, $mensaje)
         <input type="email" name="email" placeholder="Email">
         <input type ="submit" name="enviarCorreo" value ="Enviar">
     </form>
+    <form method="post" action="index.php">
+        <input type="submit" value ="Volver">
+    </form>
 </body>
 </html>

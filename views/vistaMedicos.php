@@ -37,7 +37,7 @@
         <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
-                <button type="submit" class="nav__item" name="usuario" >Panel de Usuario</button>
+                <button type="submit" class="nav__item" name="usuario" >Mi cuenta</button>
             </form>
         </div>
 
@@ -105,7 +105,7 @@
                     echo "</table>";
                 }
                 else{
-                    echo"<h2>No hay médicos</h2>";
+                    echo"<h1>No hay médicos</h1>";
                 }
 
                 ?>

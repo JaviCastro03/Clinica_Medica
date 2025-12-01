@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2025 a las 12:01:33
+-- Tiempo de generación: 01-12-2025 a las 09:25:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,6 +40,15 @@ CREATE TABLE `citas` (
   `estado` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`idMedico`, `idPaciente`, `fecha`, `idhora`, `idEspecialidad`, `estado`) VALUES
+(7, 5, '2025-11-26', 9, 5, 'Por verificar'),
+(7, 8, '2025-11-26', 10, 5, 'Por verificar'),
+(7, 6, '2025-12-04', 24, 5, 'Por verificar');
+
 -- --------------------------------------------------------
 
 --
@@ -49,19 +58,20 @@ CREATE TABLE `citas` (
 DROP TABLE IF EXISTS `especialidades`;
 CREATE TABLE `especialidades` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL
+  `nombre` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `especialidades`
 --
 
-INSERT INTO `especialidades` (`id`, `nombre`) VALUES
-(1, 'Ginecología'),
-(2, 'Traumatología'),
-(3, 'Odontología'),
-(4, 'Neurología'),
-(5, 'Oncología');
+INSERT INTO `especialidades` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Ginecología', 'Salud integral de la mujer.'),
+(2, 'Traumatología', 'Tratamiento de lesiones óseas y musculares.'),
+(3, 'Odontología', 'Cuidado avanzado de la salud bucal.'),
+(4, 'Neurología', 'Diagnóstico de trastornos neurológicos.'),
+(5, 'Oncología', 'Atención especializada contra el cáncer.');
 
 -- --------------------------------------------------------
 
@@ -153,8 +163,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`) VALUES
 (5, '78475412h', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1),
-(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$n1n/vspb0FSYlHzgAEIDpuf7idh/3EnWkD5J8YNT.sBVUaIncdVAW', 1),
-(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3);
+(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$mevUr4OtQ1i2a4AJ68q/j.J/iFmmBT2q2Mh8TzI6mhNceWxmnkMv2', 1),
+(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3),
+(8, '78107726W', 'Luis Miguel ', 'Prieto Pareja', 'luismiluismpp@gmail.com', '$2y$10$xBVOb6zSOd7dHec9zXKP.et1Iq1In5r9hRpQyScQHNoLpprXoKuMy', 1);
 
 --
 -- Índices para tablas volcadas
@@ -224,7 +235,7 @@ ALTER TABLE `medicos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas

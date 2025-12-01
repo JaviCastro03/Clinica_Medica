@@ -2,47 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Ever Young | Clínica Médica</title>
+    <link rel="stylesheet" href="./views/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image" href="./views/images/logo/logoSinLetras.png">
 </head>
 <body>
-    <header>
-        <div>
-            <h1>Médicos</h1>
+<header class="header">
+    <div class="header__logo">
+        <img src="./views/images/logo/logo.webp" alt="Logo 4Ever Young">
+    </div>
+
+    <!-- BLOQUE: NAV -->
+    <input type="checkbox" id="menu-toggle" class="nav__toggle">
+    <label for="menu-toggle" class="nav__hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="nav">
+        <form action="index.php" method="post">
+            <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
+        </form>
+        <form action="index.php" method="post">
+            <button id="#servicios" type="submit" class="nav__item" name="landingpage" >Servicios</button>
+        </form>
+        <form action="index.php" method="post">
+            <button type="submit" class="nav__item nav__item--active" name="citas" >Mis citas</button>
+        </form>
+
+
+        <!-- ELEMENTO: Grupo de Autenticación -->
+        <div class="nav__auth-group">
+            <form action="index.php" method="post">
+                <button type="submit" class="nav__item" name="usuario" >Panel de Usuario</button>
+            </form>
         </div>
-    </header>
 
-    <?php
-        echo "<h2>Especialidad: ".$_SESSION['especialidad']."</h2>";
+        <!-- BOTON PEDIR CITA -->
+        <button class="button">
+            <div class="wrap">
+                <p>
+                    <span>✧</span>
+                    <span>✦</span>
+                    Solicitar Cita
+                </p>
+            </div>
+        </button>
+    </nav>
+</header>
+    <section>
+        <section id="servicios" class="services">
+            <h2 class="services__title">Médicos</h2>
+            <div class="stepper-wrapper">
+                <div class="stepper-item completed ">
+                    <div class="step-counter ">1</div>
+                    <div class="step-name">Especialidades</div>
+                </div>
+                <div class="stepper-item active">
+                    <div class="step-counter">2</div>
+                    <div class="step-name">Médicos</div>
+                </div>
+                <div class="stepper-item ">
+                    <div class="step-counter">3</div>
+                    <div class="step-name">Fecha</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="step-counter">4</div>
+                    <div class="step-name">Hora</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="step-counter">5</div>
+                    <div class="step-name">Confirmar</div>
+                </div>
+            </div>
+            <div>
+                <?php
 
-        if($consulta!=null){
-            echo "<table border='1'>";
-            echo "<tr>";
-            echo "<th>Nombre</th>";
-            echo "<th>Apellido</th>";
-            echo "<th>Email</th>";
-            echo "</tr>";
-            while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
-                echo "<tr>";
-                echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['apellidos']."</td>";
-                echo "<td>".$fila['email']."</td>";
-                echo "<td> <form action='index.php' method='post'>
+
+                if($consulta!=null){
+                    echo "<table class='tabla'>";
+                    echo "<tr>";
+                    echo "<th>Nombre</th>";
+                    echo "<th>Apellido</th>";
+                    echo "<th>Email</th>";
+                    echo "<th></th>";
+                    echo "</tr>";
+                    while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
+                        echo "<tr>";
+                        echo "<td>".$fila['nombre']."</td>";
+                        echo "<td>".$fila['apellidos']."</td>";
+                        echo "<td>".$fila['email']."</td>";
+                        echo "<td> <form action='index.php' method='post'>
                     <input type='hidden' name='idM' value='".$fila['id']."'>
                     <input type='submit' name='doctor' value='Seleccionar'>
                 </form></td>";
-                echo "</tr>";
+                        echo "</tr>";
 
-            }
-            echo "</table>";
-        }
-        else{
-            echo"<h2>No hay médicos</h2>";
-        }
+                    }
+                    echo "</table>";
+                }
+                else{
+                    echo"<h2>No hay médicos</h2>";
+                }
 
-    ?>
+                ?>
+
+            </div>
+        </section>
+    </section>
 
     <form action="index.php" method="post">
         <input type="submit" name="especialidades" value="Volver">

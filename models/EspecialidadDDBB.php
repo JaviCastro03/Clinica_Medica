@@ -24,7 +24,7 @@ class EspecialidadDDBB
     }
 
     public function getEspecialidades(){
-        $sql = "SELECT nombre From especialidades";
+        $sql = "SELECT nombre, descripcion From especialidades";
         $consulta = $this->conexion->prepare($sql);
         $consulta->execute();
         if($consulta->rowCount() > 0){

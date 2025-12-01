@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/olvidarPassword.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cambiarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/cambiarPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/gallery/1.avif" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/gallery/1.avif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/gallery/2.avif" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/gallery/2.avif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/gallery/3.avif" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/gallery/3.avif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/gallery/4.avif" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/gallery/4.avif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/logo/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/logo/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/logo/logo.webp" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/logo/logo.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/logo/logoSinLetras.png" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/logo/logoSinLetras.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/video/video.webp" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/video/video.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/images/videoMain.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/views/images/videoMain.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPageInvitado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingPage/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/EspecialidadDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/EspecialidadDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaCambiarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCambiarPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaCitas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCitas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaEspecialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEspecialidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLandingPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaMedicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaMedicos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaUsuarioInvitado.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuarioInvitado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/127_0_0_1(9).sql" beforeDir="false" afterPath="$PROJECT_DIR$/127_0_0_1(10).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +62,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/xampp/htdocs/clinica/views",
+    "last_opened_file_path": "C:/xampp/htdocs/clinica",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,6 +73,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\clinica" />
       <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -118,7 +96,8 @@
       <option name="presentableId" value="Default" />
       <updated>1764315918503</updated>
       <workItem from="1764315919637" duration="6443000" />
-      <workItem from="1764514323677" duration="16133000" />
+      <workItem from="1764514323677" duration="17053000" />
+      <workItem from="1764577343057" duration="203000" />
     </task>
     <servers />
   </component>

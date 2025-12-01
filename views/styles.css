@@ -4,6 +4,7 @@
 :root {
     --color-blue-dark:#364a60;
     --color-blue-hard: #123C69;
+    --color-danger: #f15656;
     --color-blue-soft: #2A88B3;
     --color-green: #5CB85C;
     --color-white: #FFFFFF;
@@ -304,7 +305,7 @@ strong {
 .button-table {
     display: flex;
     height: 1.8rem;
-    width: 9rem;
+    min-width: 6rem;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -929,6 +930,7 @@ strong {
     border-radius: 6px;
     overflow: hidden;
     height: 7rem;
+    border: 1px solid var(--color-blue-soft);
 
 }
 
@@ -962,7 +964,17 @@ strong {
     box-shadow: 0px 0px 5px var(--color-text-grey),
     0px 0px 15px #ffffff;
 }
+.div__button-table{
+    padding: 2rem 0;
+}
+.button__back{
+    background-color: var(--color-blue-hard);
+}
 
+.button__danger{
+    background-color: var(--color-danger);
+    padding: 0 7px;
+}
 
 /* ----------------------------------- */
 /* 11. FOOTER */

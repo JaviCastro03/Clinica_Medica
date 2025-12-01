@@ -120,17 +120,28 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
     if (isset($_POST["cambiarPassword"])) {
         $token = hash('sha512', rand(1, 15000));
-        $mensaje = "Has recibido este correo porque has solicitado una cita médica, 
-            pincha en el siguiente enlace para confirmar tu cita: http://localhost/clinica/cambiarPassword.php?email=".$conexion->getEmail($idU)."&token=".$token;
-        if (enviarCorreoGmail($conexion->getEmail($idU), "Verificación de cita", $mensaje)) {
+        $mensaje = "Has recibido este correo porque has solicitado cambiar tu contraseña, 
+            pincha en el siguiente enlace para confirmar tu cambio de contraseña: http://localhost/clinica/controllers/verificar/cambiarPassword.php?email=".$conexion->getEmail($idU)."&token=".$token;
+        if (enviarCorreoGmail($conexion->getEmail($idU), "Cambio de contraseña", $mensaje)) {
             $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de contraseña")</script>';
         } else {
             $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
         }
     }
 
+    if(isset($_POST["cambiarEmail"])){
+        $token = hash('sha512', rand(1, 15000));
+        $mensaje = "Has recibido este correo porque has solicitado un cambio de email, 
+            pincha en el siguiente enlace para confirmar tu cambio de email: http://localhost/clinica/controllers/verificar/cambiarEmail.php?email=".$conexion->getEmail($idU)."&token=".$token;
+        if (enviarCorreoGmail($conexion->getEmail($idU), "Cambio de email", $mensaje)) {
+            $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de email")</script>';
+        } else {
+            $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
+        }
+    }
+
     if (isset($_POST["editarInfoUsuario"])) {
-        if ($conexion->actualizarDatosUsuario($_POST["dni"], $_POST["apellidos"], $_POST["nombre"], $idU)) {
+        if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU)) {
             $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
@@ -222,7 +233,7 @@ if ($_SESSION["ruta"] == "registro") {
 
             $token = hash('sha512', rand(1, 15000));
             $mensaje = "Has recibido este correo porque has solicitado registrarte en la aplicación, 
-            pincha en el siguiente enlace para confirmar tu correo: http://aula2gs.edu/clinica/verificar.php?email=" . $_SESSION['email'] . "&token=" . $token;
+            pincha en el siguiente enlace para confirmar tu correo: http://aula2gs.edu/clinica/controllers/verificar/verificar.php?email=" . $_SESSION['email'] . "&token=" . $token;
             if (enviarCorreoGmail($_SESSION["email"], "Verificación de cuenta", $mensaje)) {
                 $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el usuario")</script>';
             } else {
@@ -329,7 +340,7 @@ if ($_SESSION["ruta"] == "confirmarCita") {
         if ($conexionCita->insertarCita($idU, $_SESSION['idMedico'], $_SESSION["fecha"], $idHora, $estado, $idEspecialidad)) {
             $token = hash('sha512', rand(1, 15000));
             $mensaje = "<h1>Cita médica</h1> Hola ".$nombreUsuario.", has recibido este correo porque has solicitado una cita médica con el doctor/a ".$nombreMedico." en ".strtolower($_SESSION['especialidad'])." el día ".$_SESSION['fecha']." a las ".$_SESSION['hora']."
-            , pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/verificarCita.php?idMedicoC=" . $_SESSION['idMedico'] . "&fechaC=" . $_SESSION["fecha"] . "&idhora=" . $idHora . "&token=" . $token;
+            , pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/controllers/verificar/verificarCita.php?idMedicoC=" . $_SESSION['idMedico'] . "&fechaC=" . $_SESSION["fecha"] . "&idhora=" . $idHora . "&token=" . $token;
             if (enviarCorreoGmail($conexion->getEmail($idU), "Verificación de cita", $mensaje)) {
                 $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar la cita")</script>';
             } else {

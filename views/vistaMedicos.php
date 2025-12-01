@@ -112,11 +112,15 @@
                 ?>
 
             </div>
+            <div class="div__button-table">
+                <form action="index.php" method="post">
+                    <input class="button-table button__back" type="submit" name="especialidades" value="Volver">
+                </form>
+            </div>
+
         </section>
     </section>
 
-    <form action="index.php" method="post">
-        <input type="submit" name="especialidades" value="Volver">
-    </form>
+
 </body>
 </html>

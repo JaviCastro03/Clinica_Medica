@@ -37,6 +37,10 @@ class UsuarioDDBB
         }
     }
 
+    public function updateEmail($correo){
+
+    }
+
     public function setRol($email, $rol){
         try{
             $sql = "UPDATE usuarios SET rol=:rol WHERE email=:email";
@@ -101,6 +105,19 @@ class UsuarioDDBB
 
 
     }
+
+    public function actualizarEmail($idUsuario, $email){
+        $sql = "UPDATE usuarios SET email=:email WHERE id = :idUsuario";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':idUsuario', $idUsuario);
+        if (!$consulta->execute()) {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
     public function getUsuario($email)
     {
         $sql = "SELECT dni, apellidos, nombre, email, password,rol FROM usuarios WHERE email = :email";
@@ -133,10 +150,9 @@ class UsuarioDDBB
         return $consulta->execute();
     }
 
-    public function actualizarDatosUsuario($dni, $apellidos, $nombre, $idU){
-        $sql = "UPDATE usuarios SET dni=:dni,apellidos=:apellidos,nombre=:nombre where id = :idU";
+    public function actualizarDatosUsuario($apellidos, $nombre, $idU){
+        $sql = "UPDATE usuarios SET apellidos=:apellidos,nombre=:nombre where id = :idU";
         $consulta = $this->conexion->prepare($sql);
-        $consulta->bindParam(':dni', $dni);
         $consulta->bindParam(':apellidos', $apellidos);
         $consulta->bindParam(':nombre', $nombre);
         $consulta->bindParam(':idU', $idU);

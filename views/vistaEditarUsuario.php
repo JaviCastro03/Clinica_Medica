@@ -33,7 +33,7 @@
 
                 echo '
                 <form class="formulario" action="index.php" method="post" onsubmit=\'return confirm("¿Quieres confirmar la información del usuario?");\'>
-                    <input type="text" name="dni" placeholder="dni" value="'.$dni.'">
+         
                     <input type="text" name="nombre" placeholder="nombre" value="'.$nombre.'">
                     <input type="text" name="apellidos" placeholder="apellidos" value="'.$apellidos.'">
                     <input type="submit" name="editarInfoUsuario" value="Guardar cambios">
@@ -51,6 +51,9 @@
     </form>
     <form action="index.php" method="post">
         <input type="submit" name="cambiarPassword" value="Cambiar contraseña">
+    </form>
+    <form action="index.php" method="post">
+        <input type="submit" name="cambiarEmail" value="Cambiar email">
     </form>
 </body>
 </html>

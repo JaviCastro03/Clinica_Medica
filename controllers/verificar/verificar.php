@@ -1,7 +1,7 @@
 <?php
-require_once "./models/Usuario.php";
-require_once "./models/UsuarioDDBB.php";
-require "./models/ConexionDB.php";
+require_once "../../models/Usuario.php";
+require_once "../../models/UsuarioDDBB.php";
+require "../../models/ConexionDB.php";
 
 session_start();
 $conexion = new UsuarioDDBB();
@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo "Serás redirigido en 5 segundos...";
         $_SESSION["mensaje"] = "<p id='success'>Usuario registrado correctamente</p>";
 
-        header("Refresh: 5; URL=index.php");
+        header("Refresh: 5; URL=../../index.php");
         exit;
     } else {
         echo "Error al verificar el usuario";
-        header("Refresh: 5; URL=index.php");
+        header("Refresh: 5; URL=../../index.php");
         exit;
     }
 

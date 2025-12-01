@@ -56,9 +56,11 @@
         </form>
     </nav>
 </header>
-    <section>
+<section>
+    <section id="servicios" class="services">
+        <h2 class="services__title">Mis citas</h2>
+
         <div>
-            <h1>Mis citas</h1>
             <?php
             if(isset($_SESSION["mensaje"])){
                 echo $_SESSION["mensaje"];
@@ -66,7 +68,7 @@
             }
             if($consulta!=null){
                 echo
-                "<table class='table table-striped'>
+                "<table class='tabla'>
                 <tr>
                     <th>Especialidad</th>
                     <th>Médico</th>
@@ -88,7 +90,7 @@
                         <input type='hidden' name='fechaC' value='".$fila["fecha"]."'>
                         <input type='hidden' name='idhoraC' value='".$fila["idhora"]."'>
                         <input type='hidden' name='idMedicoC' value='".$fila["idMedico"]."'>
-                        <input type='submit' name='cancelarCita' value='Cancelar cita' class='btn btn-danger'>
+                        <button class='button-table button__danger' type='submit' name='cancelarCita'>Cancelar cita</button>
                     </form>
                     </td>";
                 }
@@ -98,23 +100,17 @@
             else{
                 echo "<h2>No tienes citas</h2>";
             }
-             ?>
+            ?>
 
-
-
+        </div>
+        <div class="div__button-table">
             <form action="index.php" method="post">
-                <input type="submit" name="usuario" value="Volver al panel de usuario">
-
-            </form>
-            <form action="index.php" method="post">
-                <input type="submit" name="especialidades" value="Pedir cita">
-
-            </form>
-
-            <form action="index.php" method="post">
-                <input type="submit" name="usuario" value="Volver">
+                <input class="button-table button__back" type="submit" name="usuario" value="Volver">
             </form>
         </div>
+
     </section>
+</section>
+
 </body>
 </html>

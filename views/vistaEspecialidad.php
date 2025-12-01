@@ -97,10 +97,13 @@
 
             ?>
         </div>
+        <div class="div__button-table">
+            <form action="index.php" method="post">
+                <input class="button-table button__back" type="submit" name="citas" value="Volver">
+            </form>
+        </div>
     </section>
-    <br><form action="index.php" method="post">
-        <input type="submit" name="citas" value="Volver">
-    </form>
+
 
 </section>
 </body>

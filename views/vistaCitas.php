@@ -103,11 +103,20 @@
             ?>
 
         </div>
-        <div class="div__button-table">
-            <form action="index.php" method="post">
-                <input class="button-table button__back" type="submit" name="usuario" value="Volver">
-            </form>
+        <div class="div__button-container ">
+            <div class="div__button-table grid-3">
+                <form action="index.php" method="post">
+                    <input class="button-table button__back " type="submit" name="especialidades" value="Pedir cita">
+                </form>
+
+            </div>
+            <div class="grid-2"></div>
+            <div class="div__button-table grid-1">
+
+            </div>
+
         </div>
+
 
     </section>
 </section>

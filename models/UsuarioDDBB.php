@@ -61,8 +61,8 @@ class UsuarioDDBB
     public function insertarUsuario($usuario)
     {
         try{
-            $sql = "INSERT INTO usuarios (dni, apellidos, nombre, email, password, rol) 
-            VALUES (:dni, :apellidos, :nombre, :email, :password, :rol)";
+            $sql = "INSERT INTO usuarios (dni, apellidos, nombre, email, password,telefono,direccion,cp, rol) 
+            VALUES (:dni, :apellidos, :nombre, :email, :password,:telefono,:direccion,:cp, :rol)";
             $consulta = $this->conexion->prepare($sql);
 
             $dni = $usuario->dni;
@@ -71,12 +71,18 @@ class UsuarioDDBB
             $email = $usuario->email;
             $password = $usuario->password;
             $rol = $usuario->rol;
+            $direccion = $usuario->direccion;
+            $cp = $usuario->cp;
+            $telefono = $usuario->telefono;
 
             $consulta->bindParam(':dni', $dni);
             $consulta->bindParam(':apellidos', $apellidos);
             $consulta->bindParam(':nombre', $nombre);
             $consulta->bindParam(':email', $email);
             $consulta->bindParam(':password', $password);
+            $consulta->bindParam(':direccion', $direccion);
+            $consulta->bindParam(':cp', $cp);
+            $consulta->bindParam(':telefono', $telefono);
             $consulta->bindParam(':rol', $rol);
 
             return $consulta->execute();
@@ -120,7 +126,7 @@ class UsuarioDDBB
     }
     public function getUsuario($email)
     {
-        $sql = "SELECT dni, apellidos, nombre, email, password,rol FROM usuarios WHERE email = :email";
+        $sql = "SELECT dni, apellidos, nombre, email, password,rol,direccion,telefono,cp FROM usuarios WHERE email = :email";
         $consulta = $this->conexion->prepare($sql);
         $consulta->bindParam(':email', $email, PDO::PARAM_STR);
         $consulta->execute();
@@ -134,7 +140,10 @@ class UsuarioDDBB
                 $fila['nombre'],
                 $fila['email'],
                 $fila['password'],
-                $fila['rol']
+                $fila['rol'],
+                $fila['direccion'],
+                $fila['telefono'],
+                $fila['cp']
             );
             return $usuario;
         } else {
@@ -150,12 +159,15 @@ class UsuarioDDBB
         return $consulta->execute();
     }
 
-    public function actualizarDatosUsuario($apellidos, $nombre, $idU){
-        $sql = "UPDATE usuarios SET apellidos=:apellidos,nombre=:nombre where id = :idU";
+    public function actualizarDatosUsuario($apellidos, $nombre, $idU,$direccion,$telefono,$cp){
+        $sql = "UPDATE usuarios SET apellidos=:apellidos,nombre=:nombre,direccion=:direccion,telefono=:telefono,cp=:cp where id = :idU";
         $consulta = $this->conexion->prepare($sql);
         $consulta->bindParam(':apellidos', $apellidos);
         $consulta->bindParam(':nombre', $nombre);
         $consulta->bindParam(':idU', $idU);
+        $consulta->bindParam(':direccion', $direccion);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->bindParam(':cp', $cp);
         if($consulta->execute()){
             return true;
         }
@@ -232,6 +244,20 @@ class UsuarioDDBB
             return null;
         }
     }
+
+    public function getApellidosUsuario($idUsuario){
+        $sql = "SELECT apellidos FROM usuarios WHERE id = :idUsuario";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':idUsuario', $idUsuario);
+        $consulta->execute();
+        if ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            return $fila['apellidos'];
+        }
+        else{
+            return null;
+        }
+    }
+
 
 
 }

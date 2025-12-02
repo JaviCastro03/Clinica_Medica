@@ -83,6 +83,7 @@
 
 
                 if($consulta!=null){
+                    echo "<div class='table-flex'>";
                     echo "<table class='tabla'>";
                     echo "<tr>";
                     echo "<th>Nombre</th>";
@@ -104,6 +105,7 @@
 
                     }
                     echo "</table>";
+                    echo "</div>";
                 }
                 else{
                     echo"<h1>No hay médicos</h1>";

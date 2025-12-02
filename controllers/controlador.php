@@ -141,7 +141,7 @@ if ($_SESSION["ruta"] == "editarUsuario") {
     }
 
     if (isset($_POST["editarInfoUsuario"])) {
-        if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU)) {
+        if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
             $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
@@ -213,6 +213,9 @@ if ($_SESSION["ruta"] == "registro") {
                 $_SESSION["dni"] = $_POST["dni"];
                 $_SESSION["nombre"] = $_POST["nombre"];
                 $_SESSION["apellidos"] = $_POST["apellidos"];
+                $_SESSION["direccion"] = $_POST["direccion"];
+                $_SESSION["telefono"] = $_POST["telefono"];
+                $_SESSION["cp"] = $_POST["cp"];
                 $_SESSION["email"] = $_POST["email"];
                 $_SESSION["password"] = $_POST["password"];
                 $_SESSION["cpassword"] = $_POST["cpassword"];
@@ -227,7 +230,7 @@ if ($_SESSION["ruta"] == "registro") {
 
     if (isset($_SESSION["insertarUsuario"])) {
         $hash = password_hash($_SESSION["password"], PASSWORD_DEFAULT);
-        $usuario = new Usuario($_SESSION["dni"], $_SESSION["apellidos"], $_SESSION["nombre"], $_SESSION["email"], $hash, 2);
+        $usuario = new Usuario($_SESSION["dni"], $_SESSION["apellidos"], $_SESSION["nombre"], $_SESSION["email"], $hash, $_SESSION['direccion'],$_SESSION['telefono'],$_SESSION['cp'],2);
         if ($conexion->insertarUsuario($usuario)) {
 
 
@@ -331,15 +334,18 @@ if ($_SESSION["ruta"] == "horas") {
 
 //Confirmar cita
 if ($_SESSION["ruta"] == "confirmarCita") {
+    $nombreUsuario=$conexion->getNombreUsuario($idU);
+    $nombreMedico=$conexion->getNombreUsuario($_SESSION["idMedico"]);
+    $apellidosMedico=$conexion->getApellidosUsuario($_SESSION["idMedico"]);
+    $apellidosUsuario=$conexion->getApellidosUsuario($idU);
     if (isset($_POST["confirmarCita"])) {
         $estado = 'Por verificar';
-        $nombreUsuario=$conexion->getNombreUsuario($idU);
-        $nombreMedico=$conexion->getNombreUsuario($_SESSION["idMedico"]);
+
         $idHora = $conexionCita->getIdHora($_SESSION['hora']);
         $idEspecialidad = $conexionEspecialidad->getId($_SESSION["especialidad"]);
         if ($conexionCita->insertarCita($idU, $_SESSION['idMedico'], $_SESSION["fecha"], $idHora, $estado, $idEspecialidad)) {
             $token = hash('sha512', rand(1, 15000));
-            $mensaje = "<h1>Cita médica</h1> Hola ".$nombreUsuario.", has recibido este correo porque has solicitado una cita médica con el doctor/a ".$nombreMedico." en ".strtolower($_SESSION['especialidad'])." el día ".$_SESSION['fecha']." a las ".$_SESSION['hora']."
+            $mensaje = "<h1>Cita médica</h1> Hola ".$nombreUsuario.", has recibido este correo porque has solicitado una cita médica con el doctor/a ".$nombreMedico." ".$apellidosMedico." en ".strtolower($_SESSION['especialidad'])." el día ".$_SESSION['fecha']." a las ".$_SESSION['hora']."
             , pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/controllers/verificar/verificarCita.php?idMedicoC=" . $_SESSION['idMedico'] . "&fechaC=" . $_SESSION["fecha"] . "&idhora=" . $idHora . "&token=" . $token;
             if (enviarCorreoGmail($conexion->getEmail($idU), "Verificación de cita", $mensaje)) {
                 $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar la cita")</script>';

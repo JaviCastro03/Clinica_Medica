@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/verificar/cambiarEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/verificar/verificarCambioEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaCambiarEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaOlvidarPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cambiarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/verificar/cambiarPassword.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Usuario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olvidarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/verificar/olvidarPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/verificar/verificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verificarCita.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/verificar/verificarCita.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/vistaCitas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCitas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaConfirmarCita.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaConfirmarCita.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/vistaEditarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEditarUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaEspecialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEspecialidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaFecha.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaFecha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaHora.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaHora.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/vistaMedicos.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaMedicos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaRegistro.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaRegistro.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +109,9 @@
       <workItem from="1764315919637" duration="6443000" />
       <workItem from="1764514323677" duration="17053000" />
       <workItem from="1764577343057" duration="11332000" />
-      <workItem from="1764614247654" duration="6217000" />
+      <workItem from="1764614247654" duration="10914000" />
+      <workItem from="1764677589243" duration="6155000" />
+      <workItem from="1764697969797" duration="7022000" />
     </task>
     <servers />
   </component>

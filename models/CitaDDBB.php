@@ -45,9 +45,10 @@ class CitaDDBB
     }
 
     public function getCitas($idU){
-        $sql="SELECT citas.idMedico, citas.idhora, especialidades.nombre nombreEspecialidad, medicos.nombre nombreMedico, medicos.apellidos, horas.hora, citas.fecha,citas.estado 
+        $sql="SELECT citas.idMedico,usuarios.id idPaciente, usuarios.nombre nombrePaciente, usuarios.apellidos apellidosPaciente, citas.idhora, especialidades.nombre nombreEspecialidad, medicos.nombre nombreMedico, medicos.apellidos, horas.hora, citas.fecha,citas.estado 
                 FROM especialidades
                 INNER JOIN citas on especialidades.id = citas.idEspecialidad
+                inner join usuarios on usuarios.id = citas.idPaciente
                 INNER JOIN medicos on citas.idMedico = medicos.id
                 INNER JOIN horas on citas.idhora = horas.id 
                 where citas.idPaciente=:idU";
@@ -61,6 +62,40 @@ class CitaDDBB
             return null;
         }
     }
+
+    public function getCitasMedico($idU,$fecha){
+        if($fecha==null){
+            $sql="SELECT citas.idMedico,usuarios.id idPaciente, usuarios.nombre nombrePaciente, usuarios.apellidos apellidosPaciente, citas.idhora, especialidades.nombre nombreEspecialidad, medicos.nombre nombreMedico, medicos.apellidos, horas.hora, citas.fecha,citas.estado 
+                FROM especialidades
+                INNER JOIN citas on especialidades.id = citas.idEspecialidad
+                inner join usuarios on usuarios.id = citas.idPaciente
+                INNER JOIN medicos on citas.idMedico = medicos.id
+                INNER JOIN horas on citas.idhora = horas.id 
+                where citas.idMedico=:idU and citas.estado='Confirmada'";
+        }
+        else{
+            $sql="SELECT citas.idMedico,usuarios.id idPaciente, usuarios.nombre nombrePaciente, usuarios.apellidos apellidosPaciente, citas.idhora, especialidades.nombre nombreEspecialidad, medicos.nombre nombreMedico, medicos.apellidos, horas.hora, citas.fecha,citas.estado 
+                FROM especialidades
+                INNER JOIN citas on especialidades.id = citas.idEspecialidad
+                inner join usuarios on usuarios.id = citas.idPaciente
+                INNER JOIN medicos on citas.idMedico = medicos.id
+                INNER JOIN horas on citas.idhora = horas.id 
+                where citas.idMedico=:idU and citas.estado='Confirmada' and citas.fecha='$fecha'";
+        }
+
+
+        $consulta=$this->conexion->prepare($sql);
+        $consulta->bindParam(':idU',$idU);
+        $consulta->execute();
+        if($consulta->rowCount()>0){
+            return $consulta;
+        }
+        else{
+            return null;
+        }
+    }
+
+
 
     public function borrarCita($fecha,$idMedico,$idHora){
         $sql="DELETE FROM citas WHERE fecha=:fecha && idMedico=:idMedico && idhora=:idHora";

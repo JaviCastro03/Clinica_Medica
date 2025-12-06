@@ -55,7 +55,6 @@
 </header>
 <section>
 
-
     <section id="servicios" class="services">
         <h2 class="services__title">Especialidades Médicas</h2>
         <div class="stepper-wrapper">

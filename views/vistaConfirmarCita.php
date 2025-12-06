@@ -54,6 +54,12 @@
     </nav>
 </header>
 <section>
+    <?php
+    if(isset($_SESSION['mensaje'])){
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    }
+    ?>
     <section id="servicios" class="services">
 
         <h2 class="services__title">Confirmar cita</h2>
@@ -83,12 +89,7 @@
 
         <div class="cita-info">
 
-            <?php
-            if(isset($_SESSION['mensaje'])){
-                echo $_SESSION['mensaje'];
-                unset($_SESSION['mensaje']);
-            }
-            ?>
+
 
             <div class="task" draggable="true">
 
@@ -98,11 +99,11 @@
                         <!-- SVG -->
                     </button>
                 </div>
-                <?php echo "<h2>Paciente: ".$nombreUsuario." ".$apellidosUsuario."</h2>"; ?>
-                <?php echo "<h2>Médico: ".$nombreMedico." ".$apellidosMedico."</h2>"; ?>
-                <?php echo "<h2>Especialidad: ".$_SESSION['especialidad']."</h2>" ?>
-                <?php echo "<h2>Fecha: ".$_SESSION['fecha']."</h2>" ?>
-                <?php echo "<h2>Hora: ".$_SESSION['hora']."</h2>" ?>
+                <?php echo "<p>Paciente: ".$nombreUsuario." ".$apellidosUsuario."</p>"; ?>
+                <?php echo "<p>Médico: ".$nombreMedico." ".$apellidosMedico."</p>"; ?>
+                <?php echo "<p>Especialidad: ".$_SESSION['especialidad']."</p>" ?>
+                <?php echo "<p>Fecha: ".$_SESSION['fecha']."</p>" ?>
+                <?php echo "<p>Hora: ".$_SESSION['hora']."</p>" ?>
 
 
                 <div class="stats">

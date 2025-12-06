@@ -57,15 +57,18 @@
     </nav>
 </header>
 <section>
+    <?php
+    if(isset($_SESSION["mensaje"])){
+        echo $_SESSION["mensaje"];
+        unset($_SESSION["mensaje"]);
+    }
+    ?>
     <section id="servicios" class="services">
         <h2 class="services__title">Mis citas</h2>
 
         <div>
             <?php
-            if(isset($_SESSION["mensaje"])){
-                echo $_SESSION["mensaje"];
-                unset($_SESSION["mensaje"]);
-            }
+
             if($consulta!=null){
                 echo
                 "<table class='tabla'>
@@ -90,7 +93,7 @@
                         <input type='hidden' name='fechaC' value='".$fila["fecha"]."'>
                         <input type='hidden' name='idhoraC' value='".$fila["idhora"]."'>
                         <input type='hidden' name='idMedicoC' value='".$fila["idMedico"]."'>
-                        <button class='button-table button__danger' type='submit' name='cancelarCita'>Cancelar cita</button>
+                        <button class='button-table button__danger' type='submit' name='cancelarCita'>Cancelar</button>
                     </form>
                     </td>";
                 }

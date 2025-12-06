@@ -177,6 +177,23 @@ class UsuarioDDBB
 
     }
 
+    public function getDNI($idUsuario){
+        $sql = "SELECT dni FROM usuarios WHERE id = :idUsuario";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':idUsuario', $idUsuario);
+        $consulta->execute();
+        if($fila=$consulta->fetch(PDO::FETCH_ASSOC)){
+            return $fila['dni'];
+        }
+        else{
+            return null;
+        }
+    }
+
+
+
+
+
     public function getInfoUsuario($idU){
         $sql = "SELECT * FROM usuarios WHERE id = :idU";
         $consulta = $this->conexion->prepare($sql);

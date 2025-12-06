@@ -1229,7 +1229,8 @@ strong {
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
     margin-bottom: 1rem;
     border: 3px dashed transparent;
-    max-width: 550px;
+    width:50%;
+    overflow-wrap: break-word;
 }
 
 .task h2{
@@ -1242,8 +1243,8 @@ strong {
 }
 
 .task p {
-    font-size: 15px;
-    margin: 1.2rem 0;
+    font-size: 20px;
+    margin: 1rem 0 0 0;
 }
 
 .tag {
@@ -1321,6 +1322,7 @@ strong {
     display: flex;
     justify-content: center;
     text-align: left;
+    width: 100%;
 }
 
 
@@ -1329,6 +1331,15 @@ strong {
         font-size: 10px;
     }
 
+    .task{
+        width: 90%;
+    }
+
+    .buttons-user{
+        display: flex;
+        flex-direction: column;
+        overflow-wrap: break-word;
+    }
     .button-table{
         display: flex;
         height: 1.8rem;
@@ -1348,6 +1359,7 @@ strong {
     }
     .button__back{
         background-color: var(--color-blue-hard);
+
     }
 
     .button__danger{

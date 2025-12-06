@@ -7,12 +7,13 @@ require_once "models/Usuario.php";
 require_once "models/EspecialidadDDBB.php";
 require_once "models/MedicoDDBB.php";
 require_once "models/CitaDDBB.php";
-
+require_once "models/InformesDDBB.php";
 //Conexion
 $conexion = new UsuarioDDBB();
 $conexionEspecialidad = new EspecialidadDDBB();
 $conexionMedico = new MedicoDDBB();
 $conexionCita = new CitaDDBB();
+$conexionInforme = new InformesDDBB();
 
 //PHP Mailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -24,9 +25,12 @@ use PHPMailer\PHPMailer\Exception;
 session_start();
 if (isset($_SESSION["idU"])) {
     $idU = $_SESSION["idU"];
+    $email = $conexion->getEmail($idU);
+    $rol = $conexion->getRol($email);
 } else {
     //idU para usuario invitado
     $idU = 0;
+    $rol = 0;
 }
 
 
@@ -37,6 +41,26 @@ if (!isset($_SESSION["ruta"]) || empty($_SESSION["ruta"]) || isset($_POST["login
 
 if (isset($_POST["especialidades"])) {
     $_SESSION["ruta"] = "especialidades";
+}
+
+if(isset($_POST["loginMedico"])){
+    $_SESSION["ruta"] = "loginMedico";
+}
+
+if(isset($_POST["usuarioMedico"])){
+    $_SESSION["ruta"] = "usuarioMedico";
+}
+
+if(isset($_POST["citasMedico"])){
+    $_SESSION["ruta"] = "citasMedico";
+}
+
+if(isset($_POST["informe"])){
+    $_SESSION["ruta"] = "informe";
+}
+
+if(isset($_POST["crearInforme"])){
+    $_SESSION["ruta"] = "crearInforme";
 }
 
 if (isset($_POST["editarUsuario"])) {
@@ -93,24 +117,17 @@ if ($_SESSION["ruta"] == "landingpage") {
 
 //Panel de usuario
 if ($_SESSION["ruta"] == "usuario") {
-    if (isset($_SESSION["hash"])) {
-        $hash = $_SESSION["hash"];
-        if ($conexion->actualizarPassword($idU, $hash)) {
-            $_SESSION["mensaje"] = "<p>Contraseña actualizada correctamente</p>";
-        } else {
-            $_SESSION["mensaje"] = "<p>Error al cambiar contraseña, vuelve a intentarlo más tarde</p>";
-        }
-        unset($_SESSION["hash"]);
-        header("Location: index.php");
-        exit;
-    }
-    //Va a haber dos vistas, usuario invitado y usuario logueado
     $consulta = $conexion->getInfoUsuario($idU);
-    if ($idU != 0) {
-        require_once "./views/vistaUsuario.php";
-    } else {
-        require_once "./views/vistaUsuarioInvitado.php";
-    }
+    require_once "./views/vistaUsuario.php";
+
+
+}
+
+if ($_SESSION["ruta"] == "usuarioMedico") {
+
+    $consulta = $conexion->getInfoUsuario($idU);
+    require_once "./views/vistaUsuarioMedico.php";
+
 
 
 }
@@ -142,11 +159,20 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
     if (isset($_POST["editarInfoUsuario"])) {
         if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
-            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente".$rol."</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
             $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
         }
+        if($rol==3){
+            if ($conexionMedico->actualizarDatosMedico($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
+                $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+                $_SESSION["ruta"] = "usuarioMedico";
+            } else {
+                $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
+            }
+        }
+
         header("Location: index.php");
         exit();
     }
@@ -155,6 +181,8 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 }
 
 //Login
+
+
 if ($_SESSION["ruta"] == "login") {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST['iniciarSesion']))) {
         if (!$conexion->emailExiste($_POST["email"])) {
@@ -165,15 +193,6 @@ if ($_SESSION["ruta"] == "login") {
             $usuario = $conexion->getUsuario($_POST["email"]);
 
             if (password_verify($_POST["password"], $usuario->password)) {
-                /* if (isset($_POST["rlogin"])) {
-                     setcookie("email", $usuario->email, time() + (86400));
-                     setcookie("password", $_POST["password"], time() + (86400));
-                     setcookie("recordar", "checked", time() + (86400));
-                 } else {
-                     setcookie("email", "", time() + (86400));
-                     setcookie("password", "", time() + (86400));
-                     setcookie("recordar", "", time() + (86400));
-                 }*/
                 if ($conexion->getRol($usuario->email) != 2) {
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuario';
@@ -200,6 +219,45 @@ if ($_SESSION["ruta"] == "login") {
 
     require_once "./views/vistaLogin.php";
 }
+
+
+
+if($_SESSION["ruta"] == "loginMedico") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST['iniciarSesion']))) {
+        if (!$conexion->emailExiste($_POST["email"])) {
+            $_SESSION["mensaje"] = "<p id='error'>Credenciales incorrectas.</p>";
+            header("Location: index.php");
+            exit();
+        } else {
+            $usuario = $conexion->getUsuario($_POST["email"]);
+
+            if (password_verify($_POST["password"], $usuario->password)) {
+                if ($conexion->getRol($usuario->email) == 3) {
+                    $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
+                    $_SESSION["ruta"] = 'usuarioMedico';
+                    $_SESSION["mensaje"] = "<p>Sesión iniciada correctamente.</p>";
+                    header("Location: index.php");
+                    exit;
+                } else {
+                    $_SESSION["mensaje"] = "<p >Este usuario no es médico.</p>";
+                    header("Location: index.php");
+                    exit();
+                }
+
+            } else {
+                $_SESSION["mensaje"] = "<p>Credenciales incorrectas.</p>";
+                header("Location: index.php");
+                exit;
+            }
+
+
+        }
+
+
+    }
+    require_once "./views/vistaLoginMedico.php";
+}
+
 
 //Registro
 if ($_SESSION["ruta"] == "registro") {
@@ -273,6 +331,48 @@ if ($_SESSION["ruta"] == "citas") {
 
     $consulta = $conexionCita->getCitas($idU);
     require_once "./views/vistaCitas.php";
+}
+
+if($_SESSION["ruta"] == "citasMedico"){
+    if(isset($_POST["buscar"])){
+        $fecha = $_POST["fecha"];
+    }
+    else{
+        $fecha=null;
+    }
+    $consulta = $conexionCita->getCitasMedico($idU,$fecha);
+    require_once "./views/vistaCitasMedico.php";
+}
+
+if($_SESSION["ruta"] == "informe"){
+    if(isset($_POST["idPaciente"])){
+        $_SESSION["idPaciente"] = $_POST["idPaciente"];
+    }
+    $idUsuario = $_SESSION["idPaciente"];
+    $nombrePaciente = $conexion->getNombreUsuario($idUsuario);
+    $apellidosPaciente = $conexion->getApellidosUsuario($idUsuario);
+    $dni = $conexion->getDni($idUsuario);
+    $consulta = $conexionInforme->getInformes($idUsuario);
+    require_once "./views/vistaInforme.php";
+}
+
+if($_SESSION["ruta"] == "crearInforme"){
+    if(isset($_POST["crear"])){
+        $idPaciente = $_SESSION["idPaciente"];
+        $motivo = $_POST["motivo"];
+        $fecha = $_POST["fecha"];
+        $diagnostico = $_POST["diagnostico"];
+        if($conexionInforme->crearInforme($idPaciente,$idU, $motivo, $fecha, $diagnostico)){
+            $_SESSION["mensaje"] = "<p>Informe creado correctamente.</p>";
+        }else{
+            $_SESSION["mensaje"] = "<p>No se pudo crear el informe.</p>";
+        }
+        $_SESSION["ruta"] = "informe";
+        header("Location: index.php");
+        exit;
+
+    }
+    require_once "./views/vistaCrearInforme.php";
 }
 
 //Especialidades

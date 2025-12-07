@@ -5,6 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../controllers/script/validacionesFormularios.js" defer></script>
+    <link rel="stylesheet" href="estiloMensajeErrores.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +16,8 @@
 } ?>
 <h1>Cambiar contraseña</h1>
 <form method="POST" action="cambiarPassword.php">
-    <input type="password" name="npassword" placeholder="Nueva contraseña">
+    <input type="password" name="npassword" placeholder="Nueva contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]).{8}$">
+    <div id="mensajeError-password"></div>
     <input type="password" name="ncpassword" placeholder="Confirmar contraseña">
     <input type="submit" name="confirmarCambioPassword" value="Confirmar">
 </form>

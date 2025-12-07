@@ -25,6 +25,9 @@
         <input type="text" name="dni" placeholder="Dni">
         <input type="text" name="nombre" placeholder="Nombre">
         <input type="text" name="apellidos" placeholder="Apellidos">
+        <input type="tel" name="telefono" placeholder="Teléfono">
+        <input type="text" name="cp" placeholder="Código postal">
+        <input type="text" name="direccion" placeholder="Direccion">
         <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Contraseña">
         <input type="password" name="cpassword" placeholder="Confirmar contraseña">

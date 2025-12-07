@@ -31,9 +31,12 @@
         <input type="submit" name="registro" value="¿No tienes una cuenta?">
     </form>
     <form action="index.php" method="post">
+        <input type="submit" name="loginMedico" value="¿Eres médico?">
+    </form>
+    <form action="index.php" method="post">
         <input type="submit" name="landingpage" value="Seguir como invitado">
     </form>
-    <form action="olvidarPassword.php" method="post">
+    <form action="./controllers/verificar/olvidarPassword.php" method="post">
         <input type="submit" name="landingpage" value="¿Has olvidado tu contraseña?">
     </form>
 

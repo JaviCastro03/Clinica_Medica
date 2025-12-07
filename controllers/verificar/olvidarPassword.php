@@ -1,6 +1,6 @@
 <?php
-require_once "./models/conexionDB.php";
-require_once "./models/UsuarioDDBB.php";
+require_once "../../models/ConexionDB.php";
+require_once "../../models/UsuarioDDBB.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,8 +10,8 @@ $conexion = new UsuarioDDBB();
         if($conexion->existeCorreo($_POST['email'])){
             $token = hash('sha512', rand(1, 15000));
             $mensaje = "Has recibido este correo porque has solicitado cambiar la contraseña, 
-            pincha en el siguiente enlace para confirmar el cambio de contraseña: http://localhost/clinica/cambiarPassword.php?email=".$_POST['email']."&token=".$token;
-            if (enviarCorreoGmail($_POST['email'], "Verificación de cita", $mensaje)) {
+            pincha en el siguiente enlace para confirmar el cambio de contraseña: http://localhost/clinica/controllers/verificar/cambiarPassword.php?email=".$_POST['email']."&token=".$token;
+            if (enviarCorreoGmail($_POST['email'], "Cambio de contraseña", $mensaje)) {
                 $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de contraseña")</script>';
             } else {
                 $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
@@ -20,7 +20,7 @@ $conexion = new UsuarioDDBB();
 
 
             $_SESSION['ruta'] = "usuario";
-            header('location:index.php');
+            header('location: ../../index.php');
             exit();
         }
         else{
@@ -29,12 +29,12 @@ $conexion = new UsuarioDDBB();
             exit();
         }
     }
-
+require_once "../../views/vistaOlvidarPassword.php";
 function enviarCorreoGmail($email, $asunto, $mensaje)
 {
     try {
 
-        require './models/vendor/autoload.php';
+        require '../../models/vendor/autoload.php';
 
 //Create an instance; passing true enables exceptions
         $mail = new PHPMailer(true);
@@ -69,30 +69,6 @@ function enviarCorreoGmail($email, $asunto, $mensaje)
 
     }
 
-
 }
-
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-        if(isset($_SESSION['mensaje'])){
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']);
-        }
-    ?>
-    <form method="POST" action="olvidarPassword.php">
-        <input type="email" name="email" placeholder="Email">
-        <input type ="submit" name="enviarCorreo" value ="Enviar">
-    </form>
-</body>
-</html>

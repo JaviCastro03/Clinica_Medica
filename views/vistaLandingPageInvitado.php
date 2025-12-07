@@ -37,20 +37,22 @@
             <!-- ELEMENTO: Grupo de Autenticación -->
             <div class="nav__auth-group">
                 <form action="index.php" method="post">
-                    <button type="submit" class="nav__item" name="login" >Panel de Usuario</button>
+                    <button type="submit" class="nav__item" name="login" >Acceder</button>
                 </form>
             </div>
 
             <!-- BOTON PEDIR CITA -->
-            <button class="button">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
+            <form action="index.php" method="post">
+                <button type="submit" class="button" name="login">
+                    <div class="wrap">
+                        <p>
+                            <span>✧</span>
+                            <span>✦</span>
+                            Solicitar Cita
+                        </p>
+                    </div>
+                </button>
+            </form>
         </nav>
     </header>
 

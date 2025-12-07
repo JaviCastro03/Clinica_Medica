@@ -5,8 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/models/InformesDDBB.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/vistaCitasMedico.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/vistaCrearInforme.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/vistaInforme.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/vistaLoginMedico.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/vistaUsuarioMedico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/CitaDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/CitaDDBB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MedicoDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/MedicoDDBB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaCitas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCitas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaConfirmarCita.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaConfirmarCita.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaEspecialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEspecialidad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaUsuarioInvitado.php" beforeDir="false" />
+>>>>>>> 59466ae3753ea8dbdfdf88d1eb0e33053fa2e3ed
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +82,11 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+<<<<<<< HEAD
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/clinica&quot;,
+=======
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/clinica/views&quot;,
+>>>>>>> 59466ae3753ea8dbdfdf88d1eb0e33053fa2e3ed
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -72,10 +97,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\clinica" />
       <recent name="C:\xampp\htdocs\clinica\views" />
+      <recent name="C:\xampp\htdocs\clinica" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\clinica\controllers\verificar" />
       <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
   </component>
@@ -96,13 +122,33 @@
       <updated>1764315918503</updated>
       <workItem from="1764315919637" duration="6443000" />
       <workItem from="1764514323677" duration="17053000" />
+<<<<<<< HEAD
       <workItem from="1764577343057" duration="203000" />
       <workItem from="1764681473375" duration="114000" />
       <workItem from="1765124781676" duration="1800000" />
+=======
+      <workItem from="1764577343057" duration="11332000" />
+      <workItem from="1764614247654" duration="10914000" />
+      <workItem from="1764677589243" duration="6155000" />
+      <workItem from="1764697969797" duration="10361000" />
+      <workItem from="1764760733646" duration="20431000" />
+      <workItem from="1764834043121" duration="4856000" />
+>>>>>>> 59466ae3753ea8dbdfdf88d1eb0e33053fa2e3ed
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/controllers/verificar/olvidarPassword.php</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

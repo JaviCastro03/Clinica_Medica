@@ -37,7 +37,7 @@
         <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
-                <button type="submit" class="nav__item" name="usuario" >Panel de Usuario</button>
+                <button type="submit" class="nav__item" name="usuario" >Mi cuenta</button>
             </form>
         </div>
 
@@ -54,7 +54,6 @@
     </nav>
 </header>
 <section>
-
 
     <section id="servicios" class="services">
         <h2 class="services__title">Especialidades Médicas</h2>
@@ -97,10 +96,13 @@
 
             ?>
         </div>
+        <div class="div__button-table">
+            <form action="index.php" method="post">
+                <input class="button-table button__back" type="submit" name="citas" value="Volver">
+            </form>
+        </div>
     </section>
-    <br><form action="index.php" method="post">
-        <input type="submit" name="citas" value="Volver">
-    </form>
+
 
 </section>
 </body>

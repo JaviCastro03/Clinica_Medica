@@ -11,16 +11,24 @@ class Usuario
 
     private $email;
     private $password;
+
+    private $direccion;
+    private $telefono;
+    private $cp;
     private $rol;
 
 
-    function __construct($dni,$apellidos,$nombre,$email,$password,$rol){
+
+    function __construct($dni,$apellidos,$nombre,$email,$password,$direccion,$telefono,$cp,$rol){
         $this->dni = $dni;
         $this->apellidos = $apellidos;
         $this->nombre = $nombre;
         $this->email = $email;
         $this->password = $password;
         $this->rol = $rol;
+        $this->direccion = $direccion;
+        $this->telefono = $telefono;
+        $this->cp = $cp;
     }
 
     function __get($atributo){

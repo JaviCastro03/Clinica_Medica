@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2025 a las 09:25:14
+-- Tiempo de generación: 01-12-2025 a las 14:23:53
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `clinica`
 --
-DROP DATABASE IF EXISTS `clinica`;
 CREATE DATABASE IF NOT EXISTS `clinica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `clinica`;
 
@@ -46,7 +45,6 @@ CREATE TABLE `citas` (
 
 INSERT INTO `citas` (`idMedico`, `idPaciente`, `fecha`, `idhora`, `idEspecialidad`, `estado`) VALUES
 (7, 5, '2025-11-26', 9, 5, 'Por verificar'),
-(7, 8, '2025-11-26', 10, 5, 'Por verificar'),
 (7, 6, '2025-12-04', 24, 5, 'Por verificar');
 
 -- --------------------------------------------------------
@@ -138,7 +136,8 @@ CREATE TABLE `medicos` (
 --
 
 INSERT INTO `medicos` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`, `idEspecialidad`) VALUES
-(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3, 5);
+(7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3, 5),
+(9, '77101132J', 'Francisco', 'Vico Pérez', 'drvicoperez@gmail.com', '$2y$10$OrLm1aF4SAu..8lIGeeDQOWsdWorBmGW0wZ61koZKcLObWZpjyLc2', 3, 5);
 
 -- --------------------------------------------------------
 
@@ -165,7 +164,8 @@ INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`,
 (5, '78475412h', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1),
 (6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$mevUr4OtQ1i2a4AJ68q/j.J/iFmmBT2q2Mh8TzI6mhNceWxmnkMv2', 1),
 (7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3),
-(8, '78107726W', 'Luis Miguel ', 'Prieto Pareja', 'luismiluismpp@gmail.com', '$2y$10$xBVOb6zSOd7dHec9zXKP.et1Iq1In5r9hRpQyScQHNoLpprXoKuMy', 1);
+(8, '78107726W', 'Luis Miguel ', 'Prieto Pareja', 'luismiluismpp@gmail.com', '$2y$10$yBMRvSDacOCmQfTKP/GYneDKgpNhDn9ADl9EnRsR86chK3OLW2yMC', 1),
+(9, '74132312J', 'Francisco', 'Vico Pérez', 'drvicoperez@gmail.com', '$2y$10$OrLm1aF4SAu..8lIGeeDQOWsdWorBmGW0wZ61koZKcLObWZpjyLc2', 3);
 
 --
 -- Índices para tablas volcadas
@@ -229,13 +229,13 @@ ALTER TABLE `horas`
 -- AUTO_INCREMENT de la tabla `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

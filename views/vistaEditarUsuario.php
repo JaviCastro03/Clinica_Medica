@@ -30,12 +30,18 @@
                 $dni = $fila["dni"];
                 $nombre = $fila["nombre"];
                 $apellidos = $fila["apellidos"];
+                $direccion = $fila["direccion"];
+                $telefono = $fila["telefono"];
+                $cp = $fila["cp"];
 
                 echo '
                 <form class="formulario" action="index.php" method="post" onsubmit=\'return confirm("¿Quieres confirmar la información del usuario?");\'>
-                    <input type="text" name="dni" placeholder="dni" value="'.$dni.'">
-                    <input type="text" name="nombre" placeholder="nombre" value="'.$nombre.'">
-                    <input type="text" name="apellidos" placeholder="apellidos" value="'.$apellidos.'">
+         
+                    <input type="text" name="nombre" placeholder="Nombre" value="'.$nombre.'">
+                    <input type="text" name="apellidos" placeholder="Apellidos" value="'.$apellidos.'">
+                    <input type="tel" name="telefono" placeholder="Teléfono" value="'.$telefono.'">
+                    <input type="text" name="cp" placeholder="Código postal" value="'.$cp.'">
+                    <input type="text" name="direccion" placeholder="Direccion" value="'.$direccion.'">
                     <input type="submit" name="editarInfoUsuario" value="Guardar cambios">
                 </form>
                 ';
@@ -51,6 +57,9 @@
     </form>
     <form action="index.php" method="post">
         <input type="submit" name="cambiarPassword" value="Cambiar contraseña">
+    </form>
+    <form action="index.php" method="post">
+        <input type="submit" name="cambiarEmail" value="Cambiar email">
     </form>
 </body>
 </html>

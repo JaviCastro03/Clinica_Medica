@@ -37,7 +37,7 @@
         <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
-                <button type="submit" class="nav__item" name="usuario" >Panel de Usuario</button>
+                <button type="submit" class="nav__item" name="usuario" >Mi cuenta</button>
             </form>
         </div>
 
@@ -83,6 +83,7 @@
 
 
                 if($consulta!=null){
+                    echo "<div class='table-flex'>";
                     echo "<table class='tabla'>";
                     echo "<tr>";
                     echo "<th>Nombre</th>";
@@ -97,25 +98,31 @@
                         echo "<td>".$fila['email']."</td>";
                         echo "<td> <form action='index.php' method='post'>
                     <input type='hidden' name='idM' value='".$fila['id']."'>
-                    <input type='submit' name='doctor' value='Seleccionar'>
+             
+                    <button class='button-table' type='submit' name='doctor'>Seleccionar</button>
                 </form></td>";
                         echo "</tr>";
 
                     }
                     echo "</table>";
+                    echo "</div>";
                 }
                 else{
-                    echo"<h2>No hay médicos</h2>";
+                    echo"<h1>No hay médicos</h1>";
                 }
 
                 ?>
 
             </div>
+            <div class="div__button-table">
+                <form action="index.php" method="post">
+                    <input class="button-table button__back" type="submit" name="especialidades" value="Volver">
+                </form>
+            </div>
+
         </section>
     </section>
 
-    <form action="index.php" method="post">
-        <input type="submit" name="especialidades" value="Volver">
-    </form>
+
 </body>
 </html>

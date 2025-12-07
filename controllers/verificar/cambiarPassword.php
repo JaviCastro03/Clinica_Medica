@@ -1,8 +1,7 @@
-
 <?php
-require_once "./models/Usuario.php";
-require_once "./models/UsuarioDDBB.php";
-require_once "./models/ConexionDB.php";
+require_once "../../models/Usuario.php";
+require_once "../../models/UsuarioDDBB.php";
+require_once "../../models/ConexionDB.php";
 $conexion = new UsuarioDDBB();
 session_start();
 if (isset($_GET["email"])) {
@@ -22,7 +21,7 @@ if(isset($_POST["confirmarCambioPassword"])&&isset($_SESSION["email"])){
         }
         unset($_SESSION["email"]);
         $_SESSION["ruta"]="usuario";
-        header("Location: index.php");
+        header("Location: ../../index.php");
         exit();
     }
     else{
@@ -31,5 +30,5 @@ if(isset($_POST["confirmarCambioPassword"])&&isset($_SESSION["email"])){
         exit();
     }
 }
-require_once "./views/vistaCambiarPassword.php";
+require_once "../../views/vistaCambiarPassword.php";
 ?>

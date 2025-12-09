@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="" />
+    <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaCambiarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCambiarPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaEditarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEditarUsuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaRegistro.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaRegistro.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="PHP File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -29,12 +37,12 @@
     &quot;assignee&quot;: &quot;antoniobolivar&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/antoniobolivar/Proyecto-Cl-nica.git&quot;,
-    &quot;accountId&quot;: &quot;53dc3d51-9c80-482f-83d6-27bb6bdc9cbf&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/antoniobolivar/clinica.git",
+    "accountId": "101e27cf-c363-4418-a4cf-a7c8a9770cbb"
   }
-}</component>
+}]]></component>
   <component name="PhpDebugGeneral" break_at_first_line="true" />
   <component name="PhpServers">
     <servers>
@@ -51,29 +59,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/clinica/views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "js",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/clinica",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\clinica\views" />
       <recent name="C:\xampp\htdocs\clinica" />
+      <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\clinica\controllers\verificar" />
       <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
   </component>
@@ -94,27 +104,23 @@
       <updated>1764315918503</updated>
       <workItem from="1764315919637" duration="6443000" />
       <workItem from="1764514323677" duration="17053000" />
-      <workItem from="1764577343057" duration="11332000" />
-      <workItem from="1764614247654" duration="10914000" />
-      <workItem from="1764677589243" duration="6155000" />
-      <workItem from="1764697969797" duration="10361000" />
-      <workItem from="1764760733646" duration="20431000" />
-      <workItem from="1764834043121" duration="4856000" />
+      <workItem from="1764577343057" duration="7589000" />
+      <workItem from="1765123846430" duration="8592000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/controllers/verificar/olvidarPassword.php</url>
-          <line>26</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

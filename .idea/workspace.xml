@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/InformesDDBB.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaCitasMedico.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaCrearInforme.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaInforme.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaLoginMedico.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaUsuarioMedico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/CitaDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/CitaDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MedicoDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/MedicoDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaCitas.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCitas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaConfirmarCita.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaConfirmarCita.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaEspecialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEspecialidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaUsuarioInvitado.php" beforeDir="false" />
-    </list>
+    <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

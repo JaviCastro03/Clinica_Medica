@@ -31,6 +31,7 @@ if (isset($_SESSION["idU"])) {
     //idU para usuario invitado
     $idU = 0;
     $rol = 0;
+    $email = "";
 }
 
 
@@ -87,6 +88,13 @@ if (isset($_POST["landingpage"])) {
     $_SESSION["ruta"] = "landingpage";
 }
 
+if (isset($_POST["usuariosAdmin"])) {
+    $_SESSION["ruta"] = "usuariosAdmin";
+}
+if (isset($_POST["medicosAdmin"])) {
+    $_SESSION["ruta"] = "medicosAdmin";
+}
+
 if (isset($_POST["usuario"])) {
     $_SESSION["ruta"] = "usuario";
 }
@@ -107,7 +115,12 @@ if (isset($_POST["confirmarCita"])) {
 //Landingpage
 if ($_SESSION["ruta"] == "landingpage") {
     if($idU != 0){
-        require_once "./views/vistaLandingPage.php";
+        if($conexion->getRol($email)==100){
+            require_once "views/vistaLandingAdmin.php";
+        }else{
+            require_once "./views/vistaLandingPage.php";
+        }
+
     }
     else{
         require_once "./views/vistaLandingPageInvitado.php";
@@ -118,11 +131,53 @@ if ($_SESSION["ruta"] == "landingpage") {
 //Panel de usuario
 if ($_SESSION["ruta"] == "usuario") {
     $consulta = $conexion->getInfoUsuario($idU);
-    require_once "./views/vistaUsuario.php";
+    if ($rol==100) {
+        require_once "./views/vistaUsuarioAdmin.php";
+    }else{
+        require_once "./views/vistaUsuario.php";
+
+    }
 
 
 }
 
+if($_SESSION["ruta"] == "usuariosAdmin"){
+    if(isset($_POST['guardar'])){
+        $id=$_POST["id"];
+        $dni = $_POST['dni'];
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $email = $_POST['email'];
+        $rol = $_POST['rol'];
+        $telefono = $_POST['telefono'];
+        $direccion = $_POST['direccion'];
+        $cp = $_POST['cp'];
+        if($conexion->updateUsuariosAdmin($id,$dni,$nombre,$apellidos,$email,$rol,$telefono,$direccion,$cp)){
+            $_SESSION["mensaje"] = "Usuario actualizado correctamente";
+
+        }
+        else{
+            $_SESSION["mensaje"] = "Error al actualizar el usuario";
+        }
+
+        header("Location: index.php");
+        exit();
+
+    }
+    if(isset($_POST['eliminar'])){
+        $id=$_POST["id"];
+        if($conexion->eliminarUsuario($id)){
+            $_SESSION["mensaje"] = "Usuario eliminado correctamente";
+        }
+        else{
+            $_SESSION["mensaje"] = "Error al eliminar el usuario";
+        }
+        header("Location: index.php");
+    }
+
+    $consulta = $conexion->getUsuariosAdmin();
+    require_once "./views/vistaUsuariosAdmin.php";
+}
 if ($_SESSION["ruta"] == "usuarioMedico") {
 
     $consulta = $conexion->getInfoUsuario($idU);

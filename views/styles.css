@@ -520,6 +520,18 @@ strong {
 
 }
 
+.err{
+    display: flex;
+    justify-content: left;
+}
+
+.formulario-login-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
 
  .button-especialidad{
     display: flex;

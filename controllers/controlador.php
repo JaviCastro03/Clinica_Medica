@@ -24,9 +24,11 @@ use PHPMailer\PHPMailer\Exception;
 //Sesion
 session_start();
 if (isset($_SESSION["idU"])) {
+
     $idU = $_SESSION["idU"];
     $email = $conexion->getEmail($idU);
     $rol = $conexion->getRol($email);
+
 } else {
     //idU para usuario invitado
     $idU = 0;
@@ -130,7 +132,13 @@ if ($_SESSION["ruta"] == "landingpage") {
 
 //Panel de usuario
 if ($_SESSION["ruta"] == "usuario") {
+
     $consulta = $conexion->getInfoUsuario($idU);
+    if($consulta ==null){
+        header("Location:./controllers/logout.php");
+        exit();
+    }
+
     if ($rol==100) {
         require_once "./views/vistaUsuarioAdmin.php";
     }else{

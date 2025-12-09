@@ -520,6 +520,10 @@ strong {
 
 }
 
+.err{
+    display: flex;
+    justify-content: left;
+}
 
  .button-especialidad{
     display: flex;

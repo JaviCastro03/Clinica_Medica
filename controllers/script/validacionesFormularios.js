@@ -118,6 +118,6 @@
     if (esValido) {
     alert("Formulario enviado correctamente ");
     formulario.submit();
-}
-}
+}}
+
 

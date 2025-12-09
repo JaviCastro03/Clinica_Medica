@@ -94,6 +94,18 @@ class UsuarioDDBB
 
     }
 
+    public function eliminarUsuario($id){
+        $sql="DELETE FROM usuarios WHERE id=:id";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':id', $id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function emailExiste($email){
 
         $sql="SELECT id FROM Usuarios WHERE email=:email";
@@ -177,6 +189,25 @@ class UsuarioDDBB
 
     }
 
+    public function updateUsuariosAdmin($id,$dni,$nombre,$apellidos,$email,$rol,$telefono,$direccion,$cp){
+        $sql="UPDATE usuarios SET dni=:dni,nombre=:nombre,apellidos=:apellidos,email=:email,rol=:rol,telefono=:telefono,direccion=:direccion,cp=:cp where id = :id ";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':dni', $dni);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':apellidos', $apellidos);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':rol', $rol);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->bindParam(':direccion', $direccion);
+        $consulta->bindParam(':cp', $cp);
+        $consulta->bindParam(':id', $id);
+        if($consulta->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function getDNI($idUsuario){
         $sql = "SELECT dni FROM usuarios WHERE id = :idUsuario";
         $consulta = $this->conexion->prepare($sql);
@@ -218,6 +249,17 @@ class UsuarioDDBB
         if ($fila) {
             return $fila['id'];
         } else {
+            return null;
+        }
+    }
+
+    public function getUsuariosAdmin(){
+        $sql = "SELECT * FROM usuarios";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->execute();
+        if($consulta->rowCount()>0){
+            return $consulta;
+        }else{
             return null;
         }
     }

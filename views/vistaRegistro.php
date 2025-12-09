@@ -44,8 +44,8 @@
         <!--Hace que sea de 8 caracteres, y contengan al menos 1 mayusucula, 1 minuscula y 1 caracter especial-->
        <input id="password" type="password" name="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]).{8}$">
        <div id="mensajeError-password"></div>
-       <input id="passwordConfrim" type="password" name="cpassword" placeholder="Confirmar contraseña" required>
-       <div id="mensajeError-passwordConfrim"></div>
+       <input id="passwordConfirm" type="password" name="cpassword" placeholder="Confirmar contraseña" required>
+       <div id="mensajeError-passwordConfirm"></div>
        <input type="submit" name="registrar" value="Registrar">
    </form>
 </section>

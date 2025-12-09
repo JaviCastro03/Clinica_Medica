@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/vistaLandingAdmin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaUsuarioAdmin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vistaUsuariosAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaCambiarPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaCambiarPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaEditarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaEditarUsuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaRegistro.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaRegistro.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="PHP File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -37,12 +37,12 @@
     &quot;assignee&quot;: &quot;antoniobolivar&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/antoniobolivar/Proyecto-Cl-nica.git&quot;,
-    &quot;accountId&quot;: &quot;53dc3d51-9c80-482f-83d6-27bb6bdc9cbf&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/antoniobolivar/clinica.git",
+    "accountId": "101e27cf-c363-4418-a4cf-a7c8a9770cbb"
   }
-}</component>
+}]]></component>
   <component name="PhpDebugGeneral" break_at_first_line="true" />
   <component name="PhpServers">
     <servers>
@@ -65,24 +65,25 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "js",
+    "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "C:/xampp/htdocs/clinica",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\clinica\views" />
       <recent name="C:\xampp\htdocs\clinica" />
+      <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\clinica\controllers\verificar" />
       <recent name="C:\xampp\htdocs\clinica\views" />
     </key>
   </component>
@@ -103,33 +104,23 @@
       <updated>1764315918503</updated>
       <workItem from="1764315919637" duration="6443000" />
       <workItem from="1764514323677" duration="17053000" />
-      <workItem from="1764577343057" duration="11332000" />
-      <workItem from="1764614247654" duration="10914000" />
-      <workItem from="1764677589243" duration="6155000" />
-      <workItem from="1764697969797" duration="10361000" />
-      <workItem from="1764760733646" duration="20431000" />
-      <workItem from="1764834043121" duration="4856000" />
-      <workItem from="1765026071756" duration="8731000" />
-      <workItem from="1765205094765" duration="67000" />
-      <workItem from="1765205295906" duration="7913000" />
-      <workItem from="1765223354855" duration="2671000" />
-      <workItem from="1765266203516" duration="595000" />
-      <workItem from="1765271389643" duration="411000" />
+      <workItem from="1764577343057" duration="7589000" />
+      <workItem from="1765123846430" duration="8592000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/controllers/verificar/olvidarPassword.php</url>
-          <line>26</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

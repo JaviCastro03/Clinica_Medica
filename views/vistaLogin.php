@@ -22,8 +22,8 @@
     </header>
     <section>
         <form action="index.php" method="post">
-            <input type="text" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Contraseña">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
             <input type="submit" name="iniciarSesion" value="Iniciar Sesión">
         </form>
     </section>

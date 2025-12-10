@@ -138,11 +138,10 @@
             mensajeDireccion.style.color="red";
         }
     if (esValido) {
-        formulario.submit();
-    }
-    else{
+    formulario.submit();
+}else {
         e.preventDefault();
-    }
-}
+    }}
+
 
 

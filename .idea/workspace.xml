@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa39c07-05b7-4589-a3fd-30a13bc3a23f" name="Changes" comment="Merge branch 'main' of https://github.com/antoniobolivar/Proyecto-Cl-nica&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;controllers/controlador.php&#10;#&#9;models/UsuarioDDBB.php&#10;#&#9;views/vistaUsuariosAdmin.php">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto-Cl-nica" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controlador.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/UsuarioDDBB.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsuarioDDBB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLandingPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLandingPageInvitado.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLandingPageInvitado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vistaUsuariosAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaUsuariosAdmin.php" afterDir="false" />
-    </list>
+    <list default="true" id="afa39c07-05b7-4589-a3fd-30a13bc3a23f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -72,7 +72,7 @@
             <h2 class="services__title">Usuarios</h2>
 
             <form action="index.php" method="post" class="form-buscar">
-                <input type="date" name="fecha" placeholder="Fecha">
+                <input type="email" name="email" placeholder="Email">
                 <button type="submit" name="buscar">Buscar</button>
             </form>
 

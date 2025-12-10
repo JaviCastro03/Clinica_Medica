@@ -183,7 +183,14 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
         header("Location: index.php");
     }
 
-    $consulta = $conexion->getUsuariosAdmin();
+    if(isset($_POST['buscar'])){
+        $consulta = $conexion->getUsuariosAdmin($_POST['email']);
+    }
+    else{
+        $consulta = $conexion->getUsuariosAdmin("");
+    }
+
+
     require_once "./views/vistaUsuariosAdmin.php";
 }
 if ($_SESSION["ruta"] == "usuarioMedico") {

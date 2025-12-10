@@ -1621,3 +1621,95 @@ strong {
         width: 140px;
     }
 }
+
+/* ----------------------------------- */
+/* 12. ESTILOS DE FORMULARIO LOGIN
+/* ----------------------------------- */
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    color: var(--color-text-grey);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-field:focus {
+    border-color: var(--color-blue-soft);
+    box-shadow: 0 0 0 0.2rem rgba(42, 136, 179, 0.25);
+    outline: none;
+}
+
+.formulario-login {
+    width: 100%;
+    padding: 20px 10px;
+}
+
+.formulario-login > form {
+    margin-bottom: 10px;
+}
+
+.formulario-login .nav__auth-link {
+    display: block;
+    width: auto;
+    margin: 10px auto;
+    text-align: center;
+    background: none;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 5px 0;
+    cursor: pointer;
+    color: var(--color-blue-dark);
+}
+
+.formulario-login .nav__auth-link:hover {
+    color: var(--color-blue-soft);
+    text-decoration: underline;
+}
+
+.cita-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.task {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--color-white);
+    border-radius: 12px;
+}
+
+.task-header {
+    color: var(--color-blue-hard);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.btn--medium {
+    padding: 10px 25px;
+    font-size: 1em;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .task {
+        width: 95%;
+        padding: 1rem;
+    }
+    .btn--large {
+        padding: 12px 20px;
+        font-size:1em;
+        }
+}

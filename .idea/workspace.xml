@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b48b079d-4521-4e37-86af-9717b2a1ac76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/clinica.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_12_2025_13_44_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_12_2025_13_44__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/script/validacionesFormularios.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/script/validacionesFormularios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vistaRegistro.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vistaRegistro.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +104,7 @@
       <workItem from="1764514323677" duration="17053000" />
       <workItem from="1764577343057" duration="7589000" />
       <workItem from="1765123846430" duration="8592000" />
-      <workItem from="1765353659655" duration="2104000" />
+      <workItem from="1765353659655" duration="582000" />
     </task>
     <servers />
   </component>
@@ -133,7 +127,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/script/validacionesFormularios.js</url>
-          <line>116</line>
+          <line>117</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

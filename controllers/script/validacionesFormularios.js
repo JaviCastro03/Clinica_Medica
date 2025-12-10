@@ -138,14 +138,7 @@
             }
             mensajeDireccion.style.color="red";
         }
-
-
-
-
-
-
     if (esValido) {
-    alert("Formulario enviado correctamente ");
     formulario.submit();
 }}
 

@@ -13,7 +13,6 @@
         <img src="./views/images/logo/logo.webp" alt="Logo 4Ever Young">
     </div>
 
-    <!-- BLOQUE: NAV -->
     <input type="checkbox" id="menu-toggle" class="nav__toggle">
     <label for="menu-toggle" class="nav__hamburger">
         <span></span>
@@ -33,14 +32,12 @@
         </form>
 
 
-        <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item nav__item--active" name="usuario" >Mi cuenta</button>
             </form>
         </div>
 
-        <!-- BOTON PEDIR CITA -->
         <form action="index.php" method="post">
             <button type="submit" class="button" name="especialidades">
                 <div class="wrap">
@@ -66,42 +63,36 @@
         <h2 class="services__title">Login</h2>
 
 
-
         <div class="cita-info">
 
-
-
-            <div class="task" draggable="true">
+            <div class="task" >
+                <h2 class="task-header">Acceso de Usuarios</h2>
                 <div class="formulario-login">
-                <section >
-                    <form action="index.php" method="post" class = "formulario-login-input">
-                        <input type="text" name="email" placeholder="Email" required>
-                        <input type="password" name="password" placeholder="Contraseña" required>
-                        <input type="submit" name="iniciarSesion" value="Iniciar Sesión">
+                    <section>
+                        <form action="index.php" method="post" class = "formulario-login-input">
+                            <input type="text" name="email" placeholder="Email" required class="input-field">
+                            <input type="password" name="password" placeholder="Contraseña" required class="input-field">
+                            <input type="submit" name="iniciarSesion" value="Iniciar Sesión" class="btn btn--secondary btn--medium">
+                        </form>
+                    </section>
+
+                    <form action="index.php" method="post">
+                        <button type="submit" name="registro" class="nav__auth-link">¿No tienes una cuenta?</button>
                     </form>
-                </section>
-                <form action="index.php" method="post">
-                    <input type="submit" name="registro" value="¿No tienes una cuenta?">
-                </form>
-                <form action="index.php" method="post">
-                    <input type="submit" name="loginMedico" value="¿Eres médico?">
-                </form>
-                <form action="index.php" method="post">
-                    <input type="submit" name="landingpage" value="Seguir como invitado">
-                </form>
-                <form action="./controllers/verificar/olvidarPassword.php" method="post">
-                    <input type="submit" name="landingpage" value="¿Has olvidado tu contraseña?">
-                </form>
+                    <form action="index.php" method="post">
+                        <button type="submit" name="loginMedico" class="nav__auth-link">¿Eres médico?</button>
+                    </form>
+                    <form action="index.php" method="post">
+                        <button type="submit" name="landingpage" class="nav__auth-link">Seguir como invitado</button>
+                    </form>
+                    <form action="./controllers/verificar/olvidarPassword.php" method="post">
+                        <button type="submit" name="olvidarPassword" class="nav__auth-link">¿Has olvidado tu contraseña?</button>
+                    </form>
                 </div>
             </div>
 
 
-            </div> <!-- cierre correcto de .task -->
-
-        </div> <!-- cierre de services__card-grid -->
-
-
-    </section>
+        </div> </div> </section>
 </section>
 
 

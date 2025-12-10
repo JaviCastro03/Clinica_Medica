@@ -51,7 +51,7 @@
         </form>
     </nav>
 </header>
-<section>
+<section >
     <?php
     if(isset($_SESSION['mensaje'])){
         echo $_SESSION['mensaje'];
@@ -66,7 +66,7 @@
         <div class="cita-info">
 
             <div class="task" >
-                <h2 class="task-header">Acceso de Usuarios</h2>
+
                 <div class="formulario-login">
                     <section>
                         <form action="index.php" method="post" class = "formulario-login-input">
@@ -82,9 +82,7 @@
                     <form action="index.php" method="post">
                         <button type="submit" name="loginMedico" class="nav__auth-link">¿Eres médico?</button>
                     </form>
-                    <form action="index.php" method="post">
-                        <button type="submit" name="landingpage" class="nav__auth-link">Seguir como invitado</button>
-                    </form>
+
                     <form action="./controllers/verificar/olvidarPassword.php" method="post">
                         <button type="submit" name="olvidarPassword" class="nav__auth-link">¿Has olvidado tu contraseña?</button>
                     </form>

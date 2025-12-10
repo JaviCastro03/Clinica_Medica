@@ -28,7 +28,7 @@
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item nav__item--active" name="landingpage" >Inicio</button>
             </form>
-            <button><a href="#servicios" class="nav__item">Servicios</a></button>
+
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item" name="login" >Mis citas</button>
             </form>

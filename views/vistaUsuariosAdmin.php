@@ -97,7 +97,7 @@
                 echo "<th>Eliminar</th>";
 
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
-                    echo "<form action='index.php' method='post'>";
+                    echo "<form action='index.php' method='post' onsubmit=\"return confirm('¿Seguro que quiere realizar esta acción?');\">";
                     echo "<tr>";
 
                     echo "<td><input type='hidden' name='id' value='".$fila["id"]."'>".$fila["id"]."</td>";

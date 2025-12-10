@@ -229,7 +229,7 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
     if (isset($_POST["editarInfoUsuario"])) {
         if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
-            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente".$rol."</p>";
+            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
             $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
@@ -332,8 +332,12 @@ if($_SESSION["ruta"] == "loginMedico") {
 //Registro
 if ($_SESSION["ruta"] == "registro") {
     if (isset($_POST["registrar"])) {
-        if ($conexion->existeCorreo($_POST["correo"])) {
+
+        if ($conexion->existeCorreo($_POST["correo"]) || $conexion->existeDni($_POST["dni"])) {
             $_SESSION["mensaje"] = "El correo ya existe";
+            if($conexion->existeDni($_POST["dni"])){
+                $_SESSION["mensaje"] = "El dni ya se encuentra registrado";
+            }
         } else {
             if (!Usuario::comprobarPassword($_POST["password"], $_POST["cpassword"])) {
                 $_SESSION["mensaje"] = "<p id='error'>Las contraseñas no coinciden</p>";

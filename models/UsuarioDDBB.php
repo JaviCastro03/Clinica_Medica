@@ -253,6 +253,19 @@ class UsuarioDDBB
         }
     }
 
+    public function existeDni($dni){
+        $sql = "SELECT id FROM usuarios WHERE dni = :dni";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':dni', $dni);
+        $consulta->execute();
+        if($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function getUsuariosAdmin($email){
         if($email==''){
             $sql = "SELECT * FROM usuarios";

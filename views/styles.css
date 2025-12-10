@@ -1528,6 +1528,10 @@ strong {
     display: inline-block;
 }
 
+.pagina-usuarios-admin table{
+    border: none;
+}
+
 .pagina-usuarios-admin .button__back {
     background-color: var(--color-blue-soft);
     color: var(--color-white);
@@ -1549,10 +1553,10 @@ strong {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+
 }
 
-.pagina-usuarios-admin .form-buscar input[type="date"] {
+.pagina-usuarios-admin .form-buscar input[type="email"] {
     margin-top: 0;
     padding: 10px;
     width: 180px;

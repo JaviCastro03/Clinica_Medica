@@ -150,9 +150,7 @@ if ($_SESSION["ruta"] == "usuario") {
 }
 
 if($_SESSION["ruta"] == "usuariosAdmin"){
-
     if(isset($_POST['guardar'])){
-
         $id=$_POST["id"];
         $dni = $_POST['dni'];
         $nombre = $_POST['nombre'];
@@ -184,6 +182,7 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
         }
         header("Location: index.php");
     }
+
     if(isset($_POST['buscar'])){
         $consulta = $conexion->getUsuariosAdmin($_POST['email']);
     }
@@ -191,13 +190,9 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
         $consulta = $conexion->getUsuariosAdmin("");
     }
 
+
     require_once "./views/vistaUsuariosAdmin.php";
 }
-
-if($_SESSION["ruta"]=="medicosAdmin"){
-    require_once "./views/vistaMedicosAdmin.php";
-}
-
 if ($_SESSION["ruta"] == "usuarioMedico") {
 
     $consulta = $conexion->getInfoUsuario($idU);
@@ -337,7 +332,7 @@ if($_SESSION["ruta"] == "loginMedico") {
 //Registro
 if ($_SESSION["ruta"] == "registro") {
     if (isset($_POST["registrar"])) {
-        if ($conexion->existeCorreo($_POST["email"])) {
+        if ($conexion->existeCorreo($_POST["correo"])) {
             $_SESSION["mensaje"] = "El correo ya existe";
         } else {
             if (!Usuario::comprobarPassword($_POST["password"], $_POST["cpassword"])) {

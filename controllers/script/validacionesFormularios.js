@@ -139,9 +139,9 @@
         }
     if (esValido) {
     formulario.submit();
-}
-    else{
+}else {
         e.preventDefault();
     }}
+
 
 

@@ -27,9 +27,9 @@
         <input id="dni" type="text" name="dni" placeholder="Dni" required pattern="^[0-9]{8}[A-Z]">
         <div id="mensajeError-dni"></div>
         <!--Hace que el nombre y apellidos solo tengan letras, ademas de permitir nombres compuestos y los dos empiezen por mayusuculas-->
-        <input id="nombre" type="text" name="nombre" placeholder="Nombre" required pattern="^[A-Z][a-z]+(?: [A-Z][a-z]+)*$">
+        <input id="nombre" type="text" name="nombre" placeholder="Nombre" required pattern="^[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?: [A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*$">
         <div id="mensajeError-nombre"></div>
-        <input  id="apellidos" type="text" name="apellidos" placeholder="Apellidos" required pattern="^[A-Z][a-z]+(?: [A-Z][a-z]+)*$">
+        <input  id="apellidos" type="text" name="apellidos" placeholder="Apellidos" required pattern="^[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?: [A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*$">
         <div id="mensajeError-apellidos"></div>
         <!--Permite telefonos internacionales ademas de permitir los telefonos con + y permiten tambien espacios y --->
         <input id="telefono" type="text" name="telefono" placeholder="Teléfono" required pattern="^\+?[0-9][0-9\- ]{6,20}$">
@@ -44,8 +44,8 @@
         <!--Hace que sea de 8 caracteres, y contengan al menos 1 mayusucula, 1 minuscula y 1 caracter especial-->
        <input id="password" type="password" name="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]).{8}$">
        <div id="mensajeError-password"></div>
-       <input id="passwordConfrim" type="password" name="cpassword" placeholder="Confirmar contraseña" required>
-       <div id="mensajeError-passwordConfrim"></div>
+       <input id="passwordConfirm" type="password" name="cpassword" placeholder="Confirmar contraseña" required>
+       <div id="mensajeError-passwordConfirm"></div>
        <input type="submit" name="registrar" value="Registrar">
    </form>
 </section>

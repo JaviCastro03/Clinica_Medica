@@ -113,10 +113,32 @@
         mensajePassword.style.color="red";
     }
 
+        let confirmPassword=document.getElementById("passwordConfirm");
+        let mensajeConfirmPassword=document.getElementById("mensajeError-passwordConfirm");
+        mensajeConfirmPassword.innerHTML="";
+        confirmPassword.classList.remove("err");
+        if(!confirmPassword.checkValidity()){
+            esValido=false;
+            confirmPassword.classList.add("err")
+            if (confirmPassword.validity.valueMissing){
+                mensajeConfirmPassword.innerHTML="El campo Contraseña es obligatorio";
+            }
+            mensajeConfirmPassword.style.color="red";
+        }
 
-
+        let direccion=document.getElementById("direccion");
+        let mensajeDireccion=document.getElementById("mensajeError-direccion");
+        mensajeDireccion.innerHTML="";
+        direccion.classList.remove("err");
+        if(!direccion.checkValidity()){
+            esValido=false;
+            direccion.classList.add("err")
+            if (direccion.validity.valueMissing){
+                mensajeDireccion.innerHTML="El campo Contraseña es obligatorio";
+            }
+            mensajeDireccion.style.color="red";
+        }
     if (esValido) {
-    alert("Formulario enviado correctamente ");
     formulario.submit();
 }}
 

@@ -253,10 +253,19 @@ class UsuarioDDBB
         }
     }
 
-    public function getUsuariosAdmin(){
-        $sql = "SELECT * FROM usuarios";
-        $consulta = $this->conexion->prepare($sql);
-        $consulta->execute();
+    public function getUsuariosAdmin($email){
+        if($email==null){
+            $sql = "SELECT * FROM usuarios";
+            $consulta = $this->conexion->prepare($sql);
+
+            $consulta->execute();
+        }
+        else{
+            $sql = "SELECT * FROM usuarios where email = :email";
+            $consulta = $this->conexion->prepare($sql);
+            $consulta->bindParam(':email', $email);
+            $consulta->execute();
+        }
         if($consulta->rowCount()>0){
             return $consulta;
         }else{

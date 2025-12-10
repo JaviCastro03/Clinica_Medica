@@ -3,7 +3,6 @@
     formulario.addEventListener("submit", validarFormulario, false);
 
     function validarFormulario(e) {
-    e.preventDefault();
     let esValido = true;
 
     //Validacion Dni
@@ -140,6 +139,9 @@
         }
     if (esValido) {
     formulario.submit();
-}}
+}
+    else{
+        e.preventDefault();
+    }}
 
 

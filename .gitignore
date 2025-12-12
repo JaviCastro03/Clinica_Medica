@@ -1,7 +1,3 @@
-# Ignorar configuración generada por PhpStorm
-.idea/*
-!.idea/.gitignore
-!.idea/codeStyles
-!.idea/runConfigurations
+
 # Ignorar específicamente workspace.xml
 .idea/workspace.xml

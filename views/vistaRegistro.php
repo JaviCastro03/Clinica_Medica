@@ -54,13 +54,6 @@
         unset($_SESSION['mensaje']);
     }
     ?>
-    <section>
-        <?php
-        if(isset($_SESSION['mensaje'])){
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']);
-        }
-        ?>
         <section id="login" class="services">
 
             <div class="login-card-container">

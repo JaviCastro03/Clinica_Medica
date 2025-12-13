@@ -219,7 +219,8 @@ if($_SESSION["ruta"] == "medicosAdmin"){
     $especialidades=$conexionMedico->getEspecialidades();
 
     if(isset($_POST['addMedico'])){
-        if($conexion->emailExiste($email)){
+        if(!$conexion->emailExiste($email)){
+            $_SESSION["mensaje"] = "Este email no está registrado";
 
         }
     }

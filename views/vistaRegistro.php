@@ -66,11 +66,11 @@
             <div class="login-card-container">
                 <div class="login-left-side">
                     <h2 class="login-left-side__title">Registro</h2>
-                    <p class="login-left-side__subtitle">Registrate para gestionar tus citas.</p>
+                    <p class="login-left-side__subtitle">Regístrate para gestionar tus citas.</p>
 
 
                     <div class="formulario-login">
-                        <form action="index.php" method="post" id="vistaRegistro" novalidate>
+                        <form action="index.php" method="post" id="vistaRegistro" class="login-form-group"" novalidate>
                             <input id="dni" type="text" name="dni" placeholder="Dni" required pattern="^[0-9]{8}[A-Z]" class="login-input-field">
                             <div id="mensajeError-dni"></div>
                             <!--Hace que el nombre y apellidos solo tengan letras, ademas de permitir nombres compuestos y los dos empiezen por mayusuculas-->

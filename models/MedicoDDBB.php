@@ -53,6 +53,20 @@ class MedicoDDBB
             return false;
         }
     }
+
+
+
+    public function existeMedico($id){
+        $sql = "SELECT id FROM medicos WHERE id=$id";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->execute();
+        if($consulta->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public function getMedicosAdmin($email){
         if($email=='') {
             $sql = "SELECT * FROM medicos";
@@ -90,5 +104,17 @@ class MedicoDDBB
             return false;
         }
 
+    }
+
+    public function getEspecialidades(){
+        $sql="SELECT * FROM especialidades";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->execute();
+        if($consulta->rowCount() > 0){
+            return $consulta;
+        }
+        else{
+            return null;
+        }
     }
 }

@@ -75,6 +75,20 @@
                 <input type="email" name="email" placeholder="Email">
                 <button type="submit" name="buscar">Buscar</button>
             </form>
+            <form action="index.php" method="post" class="form-buscar">
+                <input type="email" name="email" placeholder="Email">
+                <select name="especialidad" required>
+
+                    <option value="" disabled selected>Especialidad</option>
+
+                    <?php
+                        while($fila=$especialidades->fetch(PDO::FETCH_ASSOC)){
+                            echo '<option value="'.$fila['id'].'">'.$fila['nombre'].'</option>';
+                        }
+                    ?>
+                </select>
+                <button type="submit" name="addMedico">Añadir medico</button>
+            </form>
 
             <?php
 

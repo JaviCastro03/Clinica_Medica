@@ -268,12 +268,12 @@ class UsuarioDDBB
 
     public function getUsuariosAdmin($email){
         if($email==''){
-            $sql = "SELECT * FROM usuarios";
+            $sql = "SELECT * FROM usuarios where rol!=3";
             $consulta = $this->conexion->prepare($sql);
             $consulta->execute();
         }
         else{
-            $sql = "SELECT * FROM usuarios where email = :email";
+            $sql = "SELECT * FROM usuarios where email = :email and rol!=3";
             $consulta = $this->conexion->prepare($sql);
             $consulta->bindParam(':email', $email, PDO::PARAM_STR);
             $consulta->execute();

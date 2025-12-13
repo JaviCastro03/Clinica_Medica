@@ -112,15 +112,17 @@ strong {
 .nav__auth-link {
     font-size: 1em; 
     color: var(--color-blue-dark); 
-    margin-left: 12px;
+
     font-weight: 500;
     border: none;
     background-color: white;
+    transition: color 0.3s
 
 }
 
 .nav__auth-link:hover {
     color: var(--color-blue-soft);
+    text-decoration: underline;
 }
 /* ----------------------------------- */
 /* HAMBURGUESA */
@@ -1550,16 +1552,29 @@ strong {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 
 }
 
-.pagina-usuarios-admin .form-buscar input[type="email"] {
+.pagina-usuarios-admin .form-buscar input {
     margin-top: 0;
     padding: 10px;
     width: 180px;
 }
 
-.pagina-usuarios-admin .form-buscar button[name="buscar"] {
+
+.pagina-usuarios-admin .form-buscar select {
+    margin-top: 0;
+    padding: 10px;
+    width: 180px;
+    background-color: white;
+    border: 1px solid var(--color-blue-hard);
+    border-radius: 8px;
+
+
+}
+
+.pagina-usuarios-admin .form-buscar button {
     padding: 10px 20px;
     margin-left: 15px;
     background-color: var(--color-blue-hard);
@@ -1651,7 +1666,7 @@ strong {
     line-height: 1.1;
 }
 .nav__auth-link{
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 0;
 }
 .login-left-side__subtitle {
     font-size: 1.1em;
@@ -1731,7 +1746,8 @@ strong {
     text-align: left;
 }
 
-/* ----------------------------------- */
-/* 14. ESTILOS DE FORMULARIO REGISTRO
-/* ----------------------------------- */
+.mensaje-error{
+    text-align: left;
+    color: #900000;
+}
 

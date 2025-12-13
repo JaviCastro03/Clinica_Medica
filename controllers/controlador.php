@@ -160,8 +160,10 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
         $cp = $_POST['cp'];
+
+
         if($conexion->updateUsuariosAdmin($id,$dni,$nombre,$apellidos,$email,$rol,$telefono,$direccion,$cp)){
-            $_SESSION["mensaje"] = "Usuario actualizado correctamente";
+            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
 
         }
         else{
@@ -212,6 +214,14 @@ if($_SESSION["ruta"] == "medicosAdmin"){
     }
     else{
         $consulta = $conexionMedico->getMedicosAdmin("");
+    }
+
+    $especialidades=$conexionMedico->getEspecialidades();
+
+    if(isset($_POST['addMedico'])){
+        if($conexion->emailExiste($email)){
+
+        }
     }
     require_once "./views/vistaMedicosAdmin.php";
 }

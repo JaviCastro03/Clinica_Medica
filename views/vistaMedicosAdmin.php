@@ -97,7 +97,7 @@
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
                     echo "<form action='index.php' method='post' onsubmit=\"return confirm('¿Seguro que quiere realizar esta acción?');\">";
                     echo "<tr>";
-
+                    echo "<input type='hidden' name='id' value='".$fila["id"]."'>";
                     echo "<td>".$fila["id"]."</td>";
                     echo "<td>".$fila["dni"]."</td>";
                     echo "<td>".$fila["nombre"]."</td>";

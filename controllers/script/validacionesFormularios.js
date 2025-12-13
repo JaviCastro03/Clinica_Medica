@@ -16,7 +16,7 @@
     }else if(dni.validity.patternMismatch){
         mensajeDni.innerHTML="Introduce un DNI valido, comprueba que tenga 8 numeros y la letra sea mayuscula"
             }
-        mensajeDni.style.color="#363960";
+        mensajeDni.style.color="#B00020";
         mensajeDni.style.textAlign="left";
     }
 
@@ -30,7 +30,7 @@
 }   else if(nombre.validity.patternMismatch){
         mensajeNombre.innerHTML="Introduce un nombre valido, comprueba que comience por mayusucla"
     }
-        mensajeNombre.style.color="#363960";
+        mensajeNombre.style.color="#B00020";
         mensajeNombre.style.textAlign="left";
     }
 
@@ -44,7 +44,7 @@
     }else if(apellidos.validity.patternMismatch){
         mensajeApellidos.innerHTML="Introduce apellidos validos, comprueba que comiencen por mayusucla"
         }
-        mensajeApellidos.style.color="#363960";
+        mensajeApellidos.style.color="#B00020";
     mensajeApellidos.style.textAlign="left";
 }
 
@@ -58,7 +58,7 @@
     }else if(telefono.validity.patternMismatch){
         mensajetelefono.innerHTML="Introduce un numero de telefono valido"
     }
-    mensajetelefono.style.color="#363960";
+    mensajetelefono.style.color="#B00020";
     mensajetelefono.style.textAlign="left";
     }
 
@@ -72,7 +72,7 @@
     }else if(codP.validity.patternMismatch){
         mensajecodP.innerHTML="Introduce un Codigo Postal valido"
     }
-    mensajecodP.style.color="#363960";
+    mensajecodP.style.color="#B00020";
     mensajecodP.style.textAlign="left";
 
     }
@@ -87,7 +87,7 @@
 }else if(email.validity.patternMismatch){
         mensajeEmail.innerHTML="Introduce un Email valido"
     }
-        mensajeEmail.style.color="#363960";
+        mensajeEmail.style.color="#B00020";
     mensajeEmail.style.textAlign="left";
     }
 
@@ -101,7 +101,7 @@
     }else if(password.validity.patternMismatch){
         mensajePassword.innerHTML="Introduce una contraseña valida, asegurate de que contenga 8 caracteres con al menos una letra mayuscula, una minuscula y un caracter especial"
 }
-        mensajePassword.style.color="#363960";
+        mensajePassword.style.color="#B00020";
     mensajePassword.style.textAlign="left";
     }
 
@@ -114,7 +114,7 @@
             if (confirmPassword.validity.valueMissing){
                 mensajeConfirmPassword.innerHTML="El campo Contraseña es obligatorio";
             }
-            mensajeConfirmPassword.style.color="#363960";
+            mensajeConfirmPassword.style.color="#B00020";
             mensajeConfirmPassword.style.textAlign="left";
         }
 
@@ -127,7 +127,7 @@
             if (direccion.validity.valueMissing){
                 mensajeDireccion.innerHTML="El campo Contraseña es obligatorio";
             }
-            mensajeDireccion.style.color="#363960";
+            mensajeDireccion.style.color="#B00020";
             mensajeDireccion.style.textAlign="left";
         }
     if (esValido) {

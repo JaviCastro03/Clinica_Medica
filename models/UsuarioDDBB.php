@@ -286,27 +286,7 @@ class UsuarioDDBB
         }
     }
 
-    public function getMedicosAdmin($email){
-        if($email=='') {
-            $sql = "SELECT * FROM medicos";
-            $consulta = $this->conexion->prepare($sql);
-            $consulta->execute();
-        }
-        else{
-            $sql = "SELECT * FROM medicos where email = :email";
-            $consulta = $this->conexion->prepare($sql);
-            $consulta->bindParam(':email', $email);
-            $consulta->execute();
 
-        }
-        if($consulta->rowCount()>0){
-            return $consulta;
-        }
-        else{
-            return null;
-        }
-
-    }
     public function getRol($email)
     {
         $sql = "SELECT rol FROM usuarios WHERE email = :email";

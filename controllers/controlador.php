@@ -181,6 +181,7 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
             $_SESSION["mensaje"] = "Error al eliminar el usuario";
         }
         header("Location: index.php");
+        exit();
     }
 
     if(isset($_POST['buscar'])){
@@ -195,11 +196,22 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 }
 
 if($_SESSION["ruta"] == "medicosAdmin"){
+    if(isset($_POST['eliminar'])){
+        $id=$_POST["id"];
+        if($conexionMedico->eliminarMedico($id)){
+            $_SESSION["mensaje"] = "Medico eliminado correctamente";
+        }
+        else{
+            $_SESSION["mensaje"] = "Error al eliminar el medico";
+        }
+        header("Location: index.php");
+        exit();
+    }
     if(isset($_POST['buscar'])){
-        $consulta = $conexion->getMedicosAdmin($_POST['email']);
+        $consulta = $conexionMedico->getMedicosAdmin($_POST['email']);
     }
     else{
-        $consulta = $conexion->getMedicosAdmin("");
+        $consulta = $conexionMedico->getMedicosAdmin("");
     }
     require_once "./views/vistaMedicosAdmin.php";
 }

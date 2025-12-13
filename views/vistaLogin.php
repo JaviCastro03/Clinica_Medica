@@ -47,19 +47,16 @@
     </nav>
 </header>
 <section>
+
     <section>
-        <?php
-        if(isset($_SESSION['mensaje'])){
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']);
-        }
-        ?>
+
         <section id="login" class="services">
 
             <div class="login-card-container">
                 <div class="login-left-side">
                     <h2 class="login-left-side__title">Login</h2>
                     <p class="login-left-side__subtitle">Inicia sesión para gestionar tus citas.</p>
+
 
                     <div class="formulario-login">
                         <form action="index.php" method="post" class="login-form-group">

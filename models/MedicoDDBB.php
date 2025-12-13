@@ -106,6 +106,30 @@ class MedicoDDBB
 
     }
 
+    public function insertarMedico($id,$dni,$nombre,$apellidos,$email,$password,$rol,$idEspecialidad,$telefono,$direccion,$cp){
+        $sql="INSERT INTO `medicos` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`, `idEspecialidad`, `telefono`, `direccion`, `cp`) VALUES (:id, :dni, :nombre, :apellidos, :email, :password, :rol, :idEspecialidad, :telefono, :direccion, :cp) ";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':id', $id);
+        $consulta->bindParam(':dni', $dni);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':apellidos', $apellidos);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':password', $password);
+        $consulta->bindParam(':rol', $rol);
+        $consulta->bindParam(':idEspecialidad', $idEspecialidad);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->bindParam(':direccion', $direccion);
+        $consulta->bindParam(':cp', $cp);
+
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
     public function getEspecialidades(){
         $sql="SELECT * FROM especialidades";
         $consulta = $this->conexion->prepare($sql);

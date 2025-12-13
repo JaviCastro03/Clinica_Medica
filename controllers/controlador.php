@@ -163,6 +163,11 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 
 
         if($conexion->updateUsuariosAdmin($id,$dni,$nombre,$apellidos,$email,$rol,$telefono,$direccion,$cp)){
+
+            if($rol==3){
+                $conexionMedico->actualizarDatosMedico($apellidos,$nombre,$id,$direccion,$telefono,$cp);
+            }
+
             $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
 
         }
@@ -170,12 +175,19 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
             $_SESSION["mensaje"] = "Error al actualizar el usuario";
         }
 
+
+
         header("Location: index.php");
         exit();
 
     }
     if(isset($_POST['eliminar'])){
         $id=$_POST["id"];
+        $rol = $conexion->getRol($id);
+
+        if($rol==3){
+            $conexionMedico->eliminarMedico($id);
+        }
         if($conexion->eliminarUsuario($id)){
             $_SESSION["mensaje"] = "Usuario eliminado correctamente";
         }
@@ -219,10 +231,23 @@ if($_SESSION["ruta"] == "medicosAdmin"){
     $especialidades=$conexionMedico->getEspecialidades();
 
     if(isset($_POST['addMedico'])){
+        $email=$_POST['email'];
         if(!$conexion->emailExiste($email)){
             $_SESSION["mensaje"] = "Este email no está registrado";
 
         }
+        else{
+            $id=$conexion->getIDUsuario($email);
+
+            $usuario = $conexion->getInfoUsuario($id);
+            $fila = $usuario->fetch(PDO::FETCH_ASSOC);
+            $conexion->setRol($email,3);
+            $conexionMedico->insertarMedico($fila['id'],$fila['dni'],$fila['nombre'],$fila['apellidos'],$fila['email'],$fila['password'],3,$_POST['especialidad'],$fila['telefono'],$fila['direccion'],$fila['cp']);
+
+
+        }
+        header("Location: index.php");
+        exit();
     }
     require_once "./views/vistaMedicosAdmin.php";
 }

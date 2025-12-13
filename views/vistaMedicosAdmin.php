@@ -87,7 +87,7 @@
                         }
                     ?>
                 </select>
-                <button type="submit" name="addMedico">Añadir medico</button>
+                <button type="submit" name="addMedico">Añadir médico</button>
             </form>
 
             <?php
@@ -106,6 +106,7 @@
                 echo "<th>Teléfono</th>";
                 echo "<th>Direccion</th>";
                 echo "<th>CP</th>";
+                echo "<th>Especialidad</th>";
                 echo "<th>Eliminar</th>";
 
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
@@ -119,7 +120,9 @@
                     echo "<td>".$fila["email"]."</td>";
                     echo "<td>".$fila["telefono"]."</td>";
                     echo "<td>".$fila["direccion"]."</td>";
+
                     echo "<td>".$fila["cp"]."</td>";
+                    echo "<td>".$fila["idEspecialidad"]."</td>";
                     echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
 
                     echo "</tr>";

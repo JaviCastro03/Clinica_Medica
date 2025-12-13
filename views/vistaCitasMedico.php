@@ -57,12 +57,7 @@
     </nav>
 </header>
 <section>
-    <?php
-    if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    }
-    ?>
+
     <section id="servicios" class="services">
         <h2 class="services__title">Mis citas</h2>
         <form action="index.php" method="post">
@@ -107,6 +102,12 @@
             else{
                 echo "<h2>No tienes citas</h2>";
             }
+
+            if (isset($_SESSION["mensaje"])) {
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            }
+
             ?>
 
         </div>

@@ -61,12 +61,7 @@
 </header>
 
 <section>
-    <?php
-    if(isset($_SESSION['mensaje'])){
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-    }
-    ?>
+
     <section id="servicios" class="services">
 
         <h2 class="services__title">Información usuario</h2>

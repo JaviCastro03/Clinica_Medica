@@ -1747,7 +1747,15 @@ strong {
 }
 
 .mensaje-error{
-    text-align: left;
     color: #900000;
+}
+.mensaje-exito{
+    color: #009900;
+}
+hr{
+    opacity: 0.3;
+}
+.mensaje-error .citas{
+    margin: 10px;
 }
 

@@ -24,7 +24,7 @@ $conexion = new UsuarioDDBB();
             exit();
         }
         else{
-            $_SESSION['mensaje']="<p>El correo no existe</p>";
+            $_SESSION['mensaje']="<p class='mensaje-error'>El correo no existe</p>";
             header('location:olvidarPassword.php');
             exit();
         }

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         echo "Verificación exitosa <br>";
         echo "Serás redirigido en 5 segundos...";
-        $_SESSION["mensaje"] = "<p id='success'>Cambio de correo realizado</p>";
+        $_SESSION["mensaje"] = "<p class='mensaje-exito'>Cambio de correo realizado</p>";
 
         header("Refresh: 5; URL=../../index.php");
         exit;

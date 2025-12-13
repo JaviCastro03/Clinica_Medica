@@ -64,7 +64,7 @@
                             <input type="password" name="password" placeholder="Password" required class="login-input-field">
                             <button type="submit" name="iniciarSesion" class="btn--green">Log In</button>
                         </form>
-                        <div class="mensaje-error">
+                        <div>
                            <?php
                                 if(isset($_SESSION["mensaje"])){
                                     echo $_SESSION["mensaje"];
@@ -72,7 +72,7 @@
                                 }
                             ?>
                         </div>
-                        <hr style="opacity: 0.3;">
+                        <hr>
                         <div class="enlaces-login">
                             <form action="index.php" method="post">
                                 <button type="submit" name="registro" class="nav__auth-link">¿No tienes una cuenta?</button>

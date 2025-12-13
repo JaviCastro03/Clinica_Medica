@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 session_start();
 if(isset($_POST["enviarCorreoNuevo"])){
     if($conexion->existeCorreo($_POST["email"])){
-        $_SESSION['mensaje']="<p>Este correo ya esta asociado a una cuenta</p>";
+        $_SESSION['mensaje']="<p class='mensaje-error'>Este correo ya esta asociado a una cuenta</p>";
         header("location: cambiarEmail.php");
         exit();
     }

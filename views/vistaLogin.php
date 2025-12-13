@@ -71,7 +71,7 @@
                         <form action="index.php" method="post" class="login-form-group">
                             <input type="email" name="email" placeholder="Email Address" required class="login-input-field">
                             <input type="password" name="password" placeholder="Password" required class="login-input-field">
-                            <button type="submit" name="iniciarSesion" class="btn--green">Sign In</button>
+                            <button type="submit" name="iniciarSesion" class="btn--green">Log In</button>
                         </form>
 
                         <div class="enlaces-login">

@@ -523,6 +523,7 @@ strong {
 .err{
     display: flex;
     justify-content: left;
+    text-align: left;
 }
 
 .formulario-login-input{

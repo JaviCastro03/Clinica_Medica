@@ -24,17 +24,11 @@
         <form action="index.php" method="post">
             <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
         </form>
-        <form action="index.php" method="post">
-            <button id="#servicios" type="submit" class="nav__item" name="landingpage" >Servicios</button>
-        </form>
-        <form action="index.php" method="post">
-            <button type="submit" class="nav__item" name="citas" >Mis citas</button>
-        </form>
 
 
         <div class="nav__auth-group">
             <form action="index.php" method="post">
-                <button type="submit" class="nav__item nav__item--active" name="usuario" >Mi cuenta</button>
+                <button type="submit" class="nav__item nav__item--active" name="usuario" >Acceder</button>
             </form>
         </div>
 

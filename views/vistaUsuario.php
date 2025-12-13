@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image" href="./views/images/logo/logoSinLetras.png">
 </head>
-<body>
+<body >
 <header class="header">
     <div class="header__logo">
         <img src="./views/images/logo/logo.webp" alt="Logo 4Ever Young">
@@ -54,7 +54,7 @@
         </form>
     </nav>
 </header>
-<section>
+<section >
     <?php
     if(isset($_SESSION['mensaje'])){
         echo $_SESSION['mensaje'];

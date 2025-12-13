@@ -390,6 +390,11 @@ if ($_SESSION["ruta"] == "registro") {
 }
 //Citas
 if ($_SESSION["ruta"] == "citas") {
+    if($idU==0){
+        $_SESSION["ruta"] = "login";
+        header("Location: index.php");
+        exit();
+    }
     if (isset($_POST["cancelarCita"]) && isset($_POST["idMedicoC"]) && isset($_POST["idhoraC"]) && isset($_POST["fechaC"])) {
         if ($conexionCita->borrarCita($_POST["fechaC"], $_POST["idMedicoC"], $_POST["idhoraC"])) {
             $_SESSION["mensaje"] = "<p>Cita cancelada correctamente.</p>";
@@ -408,6 +413,11 @@ if ($_SESSION["ruta"] == "citas") {
 }
 
 if($_SESSION["ruta"] == "citasMedico"){
+    if($idU==0){
+        $_SESSION["ruta"] = "login";
+        header("Location: index.php");
+        exit();
+    }
     if(isset($_POST["buscar"])){
         $fecha = $_POST["fecha"];
     }
@@ -451,6 +461,12 @@ if($_SESSION["ruta"] == "crearInforme"){
 
 //Especialidades
 if ($_SESSION["ruta"] == "especialidades") {
+    if($idU==0){
+        $_SESSION["ruta"] = "login";
+        header("Location: index.php");
+        exit();
+    }
+
     if (isset($_POST["especialidad"])) {
         $_SESSION["especialidad"] = $_POST["especialidad"];
         $_SESSION["ruta"] = 'medicos';

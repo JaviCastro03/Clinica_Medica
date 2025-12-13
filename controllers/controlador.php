@@ -167,8 +167,8 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
             if($rol==3){
                 $conexionMedico->actualizarDatosMedico($apellidos,$nombre,$id,$direccion,$telefono,$cp);
             }
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
 
-            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
 
         }
         else{
@@ -213,10 +213,10 @@ if($_SESSION["ruta"] == "medicosAdmin"){
     if(isset($_POST['eliminar'])){
         $id=$_POST["id"];
         if($conexionMedico->eliminarMedico($id)){
-            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Medico eliminado correctamente</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Médico eliminado correctamente</p>";
         }
         else{
-            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al eliminar el medico</p>>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al eliminar el médico</p>>";
         }
         header("Location: index.php");
         exit();
@@ -550,7 +550,7 @@ if ($_SESSION["ruta"] == "medicos") {
     }
 
     $idEspecialidad = $conexionEspecialidad->getId($_SESSION["especialidad"]);
-    $consulta = $conexionMedico->getMedicosEspecialidad($idEspecialidad);
+    $consulta = $conexionMedico->getMedicosEspecialidad($idEspecialidad,$idU);
     require_once "./views/vistaMedicos.php";
 }
 

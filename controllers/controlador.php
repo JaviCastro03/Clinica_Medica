@@ -195,6 +195,12 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 }
 
 if($_SESSION["ruta"] == "medicosAdmin"){
+    if(isset($_POST['buscar'])){
+        $consulta = $conexion->getMedicosAdmin($_POST['email']);
+    }
+    else{
+        $consulta = $conexion->getMedicosAdmin("");
+    }
     require_once "./views/vistaMedicosAdmin.php";
 }
 

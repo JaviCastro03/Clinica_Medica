@@ -89,28 +89,23 @@
                 echo "<th>Nombre</th>";
                 echo "<th>Apellidos</th>";
                 echo "<th>Email</th>";
-                echo "<th>Rol</th>";
                 echo "<th>Teléfono</th>";
                 echo "<th>Direccion</th>";
                 echo "<th>CP</th>";
-                echo "<th>Guardar</th>";
                 echo "<th>Eliminar</th>";
 
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
                     echo "<form action='index.php' method='post' onsubmit=\"return confirm('¿Seguro que quiere realizar esta acción?');\">";
                     echo "<tr>";
 
-                    echo "<td><input type='hidden' name='id' value='".$fila["id"]."'>".$fila["id"]."</td>";
-                    echo "<td><input type='text' name='dni' value='".$fila["dni"]."'></td>";
-                    echo "<td><input type='text' name='nombre' value='".$fila["nombre"]."'></td>";
-                    echo "<td><input type='text' name='apellidos' value='".$fila["apellidos"]."'></td>";
-                    echo "<td><input type='email' name='email' value='".$fila["email"]."'></td>";
-                    echo "<td><input type='number' name='rol' value='".$fila["rol"]."'></td>";
-                    echo "<td><input type='text' name='telefono' value='".$fila["telefono"]."'></td>";
-                    echo "<td><input type='text' name='direccion' value='".$fila["direccion"]."'></td>";
-                    echo "<td><input type='number' name='cp' value='".$fila["cp"]."'></td>";
-
-                    echo "<td><button type='submit' class='button-table button__back' name='guardar'>Guardar</button></td>";
+                    echo "<td>".$fila["id"]."</td>";
+                    echo "<td>".$fila["dni"]."</td>";
+                    echo "<td>".$fila["nombre"]."</td>";
+                    echo "<td>".$fila["apellidos"]."</td>";
+                    echo "<td>".$fila["email"]."</td>";
+                    echo "<td>".$fila["telefono"]."</td>";
+                    echo "<td>".$fila["direccion"]."</td>";
+                    echo "<td>".$fila["cp"]."</td>";
                     echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
 
                     echo "</tr>";
@@ -122,7 +117,7 @@
                 echo "</div>";
 
             } else {
-                echo "<h2>No hay usuarios</h2>";
+                echo "<h2>No hay medicos</h2>";
             }
 
             ?>

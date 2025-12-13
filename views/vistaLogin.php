@@ -47,12 +47,6 @@
     </nav>
 </header>
 <section>
-    <?php
-    if(isset($_SESSION['mensaje'])){
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-    }
-    ?>
     <section>
         <?php
         if(isset($_SESSION['mensaje'])){

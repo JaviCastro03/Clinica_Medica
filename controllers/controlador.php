@@ -193,6 +193,11 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 
     require_once "./views/vistaUsuariosAdmin.php";
 }
+
+if($_SESSION["ruta"] == "medicosAdmin"){
+    require_once "./views/vistaMedicosAdmin.php";
+}
+
 if ($_SESSION["ruta"] == "usuarioMedico") {
 
     $consulta = $conexion->getInfoUsuario($idU);

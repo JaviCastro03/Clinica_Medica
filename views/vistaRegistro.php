@@ -55,7 +55,7 @@
     ?>
     <section id="servicios" class="services">
 
-        <h2 class="services__title">Registro</h2>
+
 
 
         <div class="cita-info">
@@ -63,7 +63,9 @@
             <div class="task" >
 
                 <div class="formulario-login">
+                    <h2 class="services__title">Registro</h2>
                     <section class="contenedor__formulario">
+
                         <form id="vistaRegistro" class="formulario" action="index.php" method="post" novalidate>
                             <!--Hace que el DNI solo tenga 8 letras y una letra en mayuscla-->
                             <input id="dni" type="text" name="dni" placeholder="Dni" required pattern="^[0-9]{8}[A-Z]">

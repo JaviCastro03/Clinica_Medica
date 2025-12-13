@@ -32,15 +32,11 @@
             <button type="submit" class="nav__item" name="citas" >Mis citas</button>
         </form>
 
-
-        <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item nav__item--active" name="usuario" >Mi cuenta</button>
             </form>
         </div>
-
-        <!-- BOTON PEDIR CITA -->
         <form action="index.php" method="post">
             <button type="submit" class="button" name="especialidades">
                 <div class="wrap">
@@ -55,28 +51,16 @@
     </nav>
 </header>
 <section >
-    <?php
-    if(isset($_SESSION['mensaje'])){
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-    }
-    ?>
+
     <section id="servicios" class="services">
 
         <h2 class="services__title">Información usuario</h2>
-
-
-
         <div class="cita-info">
-
-
-
             <div class="task" draggable="true">
 
                 <div class="tags">
                     <span class="tag">Usuario</span>
                     <button class="options">
-                        <!-- SVG -->
                     </button>
                 </div>
                 <?php
@@ -98,15 +82,18 @@
                 <p>Direccion:   ".$direccion."</p>
                 <p>Telefono:   ".$telefono."</p>
                 
-            </div>";
+            </div>" ;
+                    if (isset($_SESSION['mensaje'])) {
+                        echo $_SESSION['mensaje'];
+                        unset($_SESSION['mensaje']);
+                    }
+                    ;
 
                 }
 
                 ?>
-
-
-
                 <div class="div__button-container">
+
                     <div class="div__button-table grid-1">
                         <form action="./controllers/logout.php" method="post">
                             <input class="button-table button__back" type="submit" value="Cerrar sesión">
@@ -121,11 +108,16 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- cierre correcto de .task -->
+            </div>
 
-        </div> <!-- cierre de services__card-grid -->
+        </div>
 
-
+        <?php
+        if(isset($_SESSION['mensaje'])){
+            echo $_SESSION['mensaje'];
+            unset($_SESSION['mensaje']);
+        }
+        ?>
     </section>
 </section>
 </body>

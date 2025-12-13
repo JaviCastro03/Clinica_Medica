@@ -163,11 +163,11 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 
 
         if($conexion->updateUsuariosAdmin($id,$dni,$nombre,$apellidos,$email,$rol,$telefono,$direccion,$cp)){
-            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
 
         }
         else{
-            $_SESSION["mensaje"] = "Error al actualizar el usuario";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al actualizar el usuario</p>>";
         }
 
         header("Location: index.php");
@@ -177,10 +177,10 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
     if(isset($_POST['eliminar'])){
         $id=$_POST["id"];
         if($conexion->eliminarUsuario($id)){
-            $_SESSION["mensaje"] = "Usuario eliminado correctamente";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario eliminado correctamente </p>";
         }
         else{
-            $_SESSION["mensaje"] = "Error al eliminar el usuario";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al eliminar el usuario</p>";
         }
         header("Location: index.php");
         exit();
@@ -201,10 +201,10 @@ if($_SESSION["ruta"] == "medicosAdmin"){
     if(isset($_POST['eliminar'])){
         $id=$_POST["id"];
         if($conexionMedico->eliminarMedico($id)){
-            $_SESSION["mensaje"] = "Medico eliminado correctamente";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Medico eliminado correctamente</p>";
         }
         else{
-            $_SESSION["mensaje"] = "Error al eliminar el medico";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al eliminar el medico</p>>";
         }
         header("Location: index.php");
         exit();
@@ -220,7 +220,7 @@ if($_SESSION["ruta"] == "medicosAdmin"){
 
     if(isset($_POST['addMedico'])){
         if(!$conexion->emailExiste($email)){
-            $_SESSION["mensaje"] = "Este email no está registrado";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Este email no está registrado</p>";
 
         }
     }
@@ -263,17 +263,17 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
     if (isset($_POST["editarInfoUsuario"])) {
         if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
-            $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
-            $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al actualizar usuario</p>";
         }
         if($rol==3){
             if ($conexionMedico->actualizarDatosMedico($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
-                $_SESSION["mensaje"] = "<p>Usuario actualizado correctamente</p>";
+                $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
                 $_SESSION["ruta"] = "usuarioMedico";
             } else {
-                $_SESSION["mensaje"] = "<p>Error al actualizar usuario</p>";
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al actualizar usuario</p>";
             }
         }
 
@@ -290,7 +290,7 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 if ($_SESSION["ruta"] == "login") {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['iniciarSesion']))) {
         if (!$conexion->emailExiste($_POST["email"])) {
-            $_SESSION["mensaje"] = "<p id='error'>Credenciales incorrectas.</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
             header("Location: index.php");
             exit();
         } else {
@@ -300,17 +300,17 @@ if ($_SESSION["ruta"] == "login") {
                 if ($conexion->getRol($usuario->email) != 2) {
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuario';
-                    $_SESSION["mensaje"] = "<p>Sesión iniciada correctamente.</p>";
+                    $_SESSION["mensaje"] = "<p class='mensaje-exito'>Sesión iniciada correctamente.</p>";
                     header("Location: index.php");
                     exit;
                 } else {
-                    $_SESSION["mensaje"] = "<p >Este usuario no está verificado.</p>";
+                    $_SESSION["mensaje"] = "<p class='mensaje-error'>Este usuario no está verificado.</p>";
                     header("Location: index.php");
                     exit();
                 }
 
             } else {
-                $_SESSION["mensaje"] = "<p>Credenciales incorrectas.</p>";
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
                 header("Location: index.php");
                 exit;
             }
@@ -329,7 +329,7 @@ if ($_SESSION["ruta"] == "login") {
 if($_SESSION["ruta"] == "loginMedico") {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST['iniciarSesion']))) {
         if (!$conexion->emailExiste($_POST["email"])) {
-            $_SESSION["mensaje"] = "<p id='error'>Credenciales incorrectas.</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
             header("Location: index.php");
             exit();
         } else {
@@ -339,17 +339,17 @@ if($_SESSION["ruta"] == "loginMedico") {
                 if ($conexion->getRol($usuario->email) == 3) {
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuarioMedico';
-                    $_SESSION["mensaje"] = "<p>Sesión iniciada correctamente.</p>";
+                    $_SESSION["mensaje"] = "<p class='mensaje-exito'>Sesión iniciada correctamente.</p>";
                     header("Location: index.php");
                     exit;
                 } else {
-                    $_SESSION["mensaje"] = "<p >Este usuario no es médico.</p>";
+                    $_SESSION["mensaje"] = "<p class='mensaje-error'>Este usuario no es médico.</p>";
                     header("Location: index.php");
                     exit();
                 }
 
             } else {
-                $_SESSION["mensaje"] = "<p>Credenciales incorrectas.</p>";
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
                 header("Location: index.php");
                 exit;
             }
@@ -368,13 +368,13 @@ if ($_SESSION["ruta"] == "registro") {
     if (isset($_POST["registrar"])) {
 
         if ($conexion->existeCorreo($_POST["correo"]) || $conexion->existeDni($_POST["dni"])) {
-            $_SESSION["mensaje"] = "El correo ya existe";
+            $_SESSION["mensaje"] = " <p class='mensaje-error'>El correo ya existe</p>";
             if($conexion->existeDni($_POST["dni"])){
-                $_SESSION["mensaje"] = "El dni ya se encuentra registrado";
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>El dni ya se encuentra registrado</p>";
             }
         } else {
             if (!Usuario::comprobarPassword($_POST["password"], $_POST["cpassword"])) {
-                $_SESSION["mensaje"] = "<p id='error'>Las contraseñas no coinciden</p>";
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>Las contraseñas no coinciden</p>";
             } else {
                 $_SESSION["dni"] = $_POST["dni"];
                 $_SESSION["nombre"] = $_POST["nombre"];
@@ -412,7 +412,7 @@ if ($_SESSION["ruta"] == "registro") {
             header("Location: index.php");
             exit;
         } else {
-            $_SESSION["mensaje"] = "<p id='error'>Error al registrar usuario</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al registrar usuario</p>";
             unset($_SESSION["insertarUsuario"], $_SESSION["dni"], $_SESSION["apellidos"], $_SESSION["nombre"], $_SESSION["email"], $_SESSION["password"]);
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;
@@ -431,11 +431,11 @@ if ($_SESSION["ruta"] == "citas") {
     }
     if (isset($_POST["cancelarCita"]) && isset($_POST["idMedicoC"]) && isset($_POST["idhoraC"]) && isset($_POST["fechaC"])) {
         if ($conexionCita->borrarCita($_POST["fechaC"], $_POST["idMedicoC"], $_POST["idhoraC"])) {
-            $_SESSION["mensaje"] = "<p>Cita cancelada correctamente.</p>";
+            $_SESSION["mensajeCita"] = "<p class='mensaje-exito citas'>Cita cancelada correctamente.</p>";
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;
         } else {
-            $_SESSION["mensaje"] = "<p>No se ha podido cancelar la cita.</p>";
+            $_SESSION["mensajeCita"] = "<p class='mensaje-error citas'>No se ha podido cancelar la cita.</p>";
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;
         }
@@ -481,9 +481,9 @@ if($_SESSION["ruta"] == "crearInforme"){
         $fecha = $_POST["fecha"];
         $diagnostico = $_POST["diagnostico"];
         if($conexionInforme->crearInforme($idPaciente,$idU, $motivo, $fecha, $diagnostico)){
-            $_SESSION["mensaje"] = "<p>Informe creado correctamente.</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Informe creado correctamente.</p>";
         }else{
-            $_SESSION["mensaje"] = "<p>No se pudo crear el informe.</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>No se pudo crear el informe.</p>";
         }
         $_SESSION["ruta"] = "informe";
         header("Location: index.php");

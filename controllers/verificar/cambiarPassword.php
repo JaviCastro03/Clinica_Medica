@@ -14,10 +14,10 @@ if(isset($_POST["confirmarCambioPassword"])&&isset($_SESSION["email"])){
         $_SESSION["hash"] = $hash;
         $_SESSION["ruta"]="usuario";
         if ($conexion->actualizarPassword($_SESSION['email'], $hash)) {
-            $_SESSION["mensaje"] = "<p>Contraseña actualizada correctamente</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Contraseña actualizada correctamente</p>";
 
         } else {
-            $_SESSION["mensaje"] = "<p>Error al cambiar contraseña, vuelve a intentarlo más tarde</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al cambiar contraseña, vuelve a intentarlo más tarde</p>";
         }
         unset($_SESSION["email"]);
         $_SESSION["ruta"]="usuario";
@@ -25,7 +25,7 @@ if(isset($_POST["confirmarCambioPassword"])&&isset($_SESSION["email"])){
         exit();
     }
     else{
-        $_SESSION["mensaje"]="<p>Las contraseñas no coinciden</p>";
+        $_SESSION["mensaje"]="<p class='mensaje-error'>Las contraseñas no coinciden</p>";
         header("Location: cambiarPassword.php");
         exit();
     }

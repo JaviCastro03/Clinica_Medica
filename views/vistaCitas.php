@@ -27,9 +27,7 @@
         <form action="index.php" method="post">
             <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
         </form>
-        <form action="index.php" method="post">
-            <button id="#servicios" type="submit" class="nav__item" name="landingpage" >Servicios</button>
-        </form>
+
         <form action="index.php" method="post">
             <button type="submit" class="nav__item nav__item--active" name="citas" >Mis citas</button>
         </form>
@@ -58,10 +56,7 @@
 </header>
 <section>
     <?php
-    if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    }
+
     ?>
     <section id="servicios" class="services">
         <h2 class="services__title">Mis citas</h2>
@@ -102,6 +97,12 @@
             }
             else{
                 echo "<h2>No tienes citas</h2>";
+            }
+            ?>
+            <?php
+            if(isset($_SESSION["mensajeCita"])){
+                echo $_SESSION["mensajeCita"];
+                unset($_SESSION["mensajeCita"]);
             }
             ?>
 

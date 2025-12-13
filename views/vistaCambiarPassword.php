@@ -10,16 +10,17 @@
     <title>Document</title>
 </head>
 <body>
-<?php if(isset($_SESSION['mensaje'])){
-    echo $_SESSION['mensaje'];
-    unset($_SESSION['mensaje']);
-} ?>
+
 <h1>Cambiar contraseña</h1>
 <form method="POST" action="cambiarPassword.php">
     <input type="password" name="npassword" placeholder="Nueva contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]).{8}$">
     <div id="mensajeError-password"></div>
     <input type="password" name="ncpassword" placeholder="Confirmar contraseña">
     <input type="submit" name="confirmarCambioPassword" value="Confirmar">
+    <?php if(isset($_SESSION['mensaje'])){
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    } ?>
 </form>
 
 </body>

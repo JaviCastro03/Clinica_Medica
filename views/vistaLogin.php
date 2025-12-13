@@ -26,6 +26,7 @@
         </form>
 
 
+
         <div class="nav__auth-group">
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item nav__item--active" name="usuario" >Acceder</button>
@@ -45,47 +46,58 @@
         </form>
     </nav>
 </header>
-<section >
+<section>
     <?php
     if(isset($_SESSION['mensaje'])){
         echo $_SESSION['mensaje'];
         unset($_SESSION['mensaje']);
     }
     ?>
-    <section id="servicios" class="services">
+    <section>
+        <?php
+        if(isset($_SESSION['mensaje'])){
+            echo $_SESSION['mensaje'];
+            unset($_SESSION['mensaje']);
+        }
+        ?>
+        <section id="login" class="services">
 
-        <h2 class="services__title">Login</h2>
+            <div class="login-card-container">
+                <div class="login-left-side">
+                    <h2 class="login-left-side__title">Login</h2>
+                    <p class="login-left-side__subtitle">Inicia sesión para gestionar tus citas.</p>
 
-
-        <div class="cita-info">
-
-            <div class="task" >
-
-                <div class="formulario-login">
-                    <section>
-                        <form action="index.php" method="post" class = "formulario-login-input">
-                            <input type="text" name="email" placeholder="Email" required class="input-field">
-                            <input type="password" name="password" placeholder="Contraseña" required class="input-field">
-                            <input type="submit" name="iniciarSesion" value="Iniciar Sesión" class="btn btn--secondary btn--medium">
+                    <div class="formulario-login">
+                        <form action="index.php" method="post" class="login-form-group">
+                            <input type="email" name="email" placeholder="Email Address" required class="login-input-field">
+                            <input type="password" name="password" placeholder="Password" required class="login-input-field">
+                            <button type="submit" name="iniciarSesion" class="btn--green">Sign In</button>
                         </form>
-                    </section>
 
-                    <form action="index.php" method="post">
-                        <button type="submit" name="registro" class="nav__auth-link">¿No tienes una cuenta?</button>
-                    </form>
-                    <form action="index.php" method="post">
-                        <button type="submit" name="loginMedico" class="nav__auth-link">¿Eres médico?</button>
-                    </form>
+                        <div class="enlaces-login">
+                            <form action="index.php" method="post">
+                                <button type="submit" name="registro" class="nav__auth-link">¿No tienes una cuenta?</button>
+                            </form>
+                            <form action="index.php" method="post">
+                                <button type="submit" name="loginMedico" class="nav__auth-link">¿Eres médico?</button>
+                            </form>
 
-                    <form action="./controllers/verificar/olvidarPassword.php" method="post">
-                        <button type="submit" name="olvidarPassword" class="nav__auth-link">¿Has olvidado tu contraseña?</button>
-                    </form>
+                            <form action="./controllers/verificar/olvidarPassword.php" method="post">
+                                <button type="submit" name="olvidarPassword" class="nav__auth-link">¿Has olvidado tu contraseña?</button>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="login-right-side">
+
                 </div>
             </div>
 
-
-        </div> </div> </section>
-</section>
+        </section>
+    </section>
 
 
 </body>

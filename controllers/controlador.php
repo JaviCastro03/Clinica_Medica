@@ -259,7 +259,7 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
 
 if ($_SESSION["ruta"] == "login") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST['iniciarSesion']))) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['iniciarSesion']))) {
         if (!$conexion->emailExiste($_POST["email"])) {
             $_SESSION["mensaje"] = "<p id='error'>Credenciales incorrectas.</p>";
             header("Location: index.php");

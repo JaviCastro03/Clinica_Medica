@@ -17,7 +17,14 @@
     }
     ?>
     <input type="email" name="email" placeholder="Email">
+    <?php
+    if(isset($_SESSION['mensaje'])){
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    }
+    ?>
     <input type ="submit" name="enviarCorreo" value ="Enviar">
+
 </form>
 <form method="post" action="../../index.php">
     <input type="submit" value ="Volver">

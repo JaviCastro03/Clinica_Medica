@@ -49,7 +49,7 @@
 
 <section class="services">
     <div>
-        <h1>Crear Informe</h1>
+        <h1>Editar Informe</h1>
     </div>
     <div class="login-card-container">
 
@@ -58,12 +58,12 @@
             <div class="formulario-login">
 
                 <form class="login-form-group" action="index.php" method="post">
-                    <input type="date" name="fecha" placeholder="Fecha" required class="login-input-field">
-                    <textarea name="motivo" cols="100" rows="3" placeholder="Motivo" required class="login-input-field"></textarea>
-                    <textarea name="diagnostico" cols="100" rows="3" placeholder="Diagnóstico" required class="login-input-field"></textarea>
-                    <textarea name="tratamiento" cols="100" rows="3" placeholder="Tratamiento" required class="login-input-field"></textarea>
+                    <input type="date" name="fecha" placeholder="Fecha" required class="login-input-field" value="<?php echo $fila['fecha'] ?>">
+                    <textarea name="motivo" cols="100" rows="3" placeholder="Motivo" required class="login-input-field" ><?php echo $fila['motivo'] ?></textarea>
+                    <textarea name="diagnostico" cols="100" rows="3" placeholder="Diagnóstico" required class="login-input-field"><?php echo $fila['diagnostico'] ?></textarea>
+                    <textarea name="tratamiento" cols="100" rows="3" placeholder="Tratamiento" required class="login-input-field"><?php echo $fila['tratamiento'] ?></textarea>
 
-                    <input type="submit" name="crear" value="Crear" class="btn--green">
+                    <input type="submit" name="editar" value="Editar" class="btn--green">
 
                 </form>
                 <form action="index.php" method="post">

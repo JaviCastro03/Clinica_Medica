@@ -569,6 +569,7 @@ if($_SESSION["ruta"] == "informe"){
 
     if(isset($_POST["editar"])){
         $_SESSION["ruta"]="editarInforme";
+        $_SESSION["idInforme"] = $_POST["id"];
         header("Location: " . $_SERVER['PHP_SELF']);
         exit;
     }
@@ -582,6 +583,27 @@ if($_SESSION["ruta"] == "informe"){
 }
 
 if($_SESSION["ruta"] == "editarInforme"){
+    if (!isset($_SESSION["idInforme"])) {
+        $_SESSION["ruta"] = "informe";
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+    $id=$_SESSION["idInforme"];
+
+    $consulta=$conexionInforme->getInforme($id);
+    $fila=$consulta->fetch(PDO::FETCH_ASSOC);
+    if(isset($_POST["editar"])){
+        if($conexionInforme->actualizarInforme($_POST["motivo"],$_POST["fecha"],$_POST["diagnostico"],$_POST["tratamiento"],$id)){
+            $_SESSION['mensaje']="<p class='mensaje-exito'>Informe actualizado correctamente</p>";
+        }
+        else{
+            $_SESSION['mensaje']="<p class='mensaje-error'>Error al actualizar informe</p>";
+        }
+        unset($_SESSION["idInforme"]);
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    }
+
     require_once "./views/vistaEditarInforme.php";
 
 }

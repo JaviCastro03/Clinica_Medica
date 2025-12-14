@@ -52,19 +52,23 @@
     </nav>
 </header>
 <section>
-
+    <div class="pagina-usuarios-admin">
     <section id="servicios" class="services">
         <h2 class="services__title">Mis citas</h2>
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" class="form-buscar">
             <input type="date" name="fecha" placeholder="Fecha">
             <button type="submit" name="buscar" value="">Buscar</button>
         </form>
-        <div>
+
+        <div >
             <?php
 
             if($consulta!=null){
                 echo
-                "<table class='tabla'>
+                "
+                <div class='tabla-responsive-container'>    
+
+                <table class='tabla'>
                 <tr>
          
                     <th>Paciente</th>
@@ -93,6 +97,7 @@
                 }
 
                 echo"</table>";
+                echo "</div>";
             }
             else{
                 echo "<h2>No tienes citas</h2>";

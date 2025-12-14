@@ -9,7 +9,7 @@ $conexion = new UsuarioDDBB();
     if(isset($_POST['enviarCorreo'])){
         if($conexion->existeCorreo($_POST['email'])){
             $token = hash('sha512', rand(1, 15000));
-            $mensaje = "Has recibido este correo porque has solicitado cambiar la contraseña, 
+            $mensaje = "<h1>Cambio de contraseña | 4EverYoung</h1>Has recibido este correo porque has solicitado cambiar la contraseña, 
             pincha en el siguiente enlace para confirmar el cambio de contraseña: http://localhost/clinica/controllers/verificar/cambiarPassword.php?email=".$_POST['email']."&token=".$token;
             if (enviarCorreoGmail($_POST['email'], "Cambio de contraseña", $mensaje)) {
                 $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de contraseña")</script>';

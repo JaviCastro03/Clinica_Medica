@@ -67,7 +67,7 @@
                 <input type="email" name="email" placeholder="Email">
                 <button type="submit" name="buscar">Buscar</button>
             </form>
-            <form action="index.php" method="post" class="form-buscar">
+            <form action="index.php" method="post" class="form-crearMedico">
                 <input type="email" name="email" placeholder="Email">
                 <select name="especialidad" required>
 

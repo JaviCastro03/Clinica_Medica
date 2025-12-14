@@ -13,7 +13,7 @@ if(isset($_POST["enviarCorreoNuevo"])){
         exit();
     }
     $token = hash('sha512', rand(1, 15000));
-    $mensaje = "Has recibido este correo para confirmar tu nuevo email, 
+    $mensaje = "<h1>Cambio de email | 4EverYoung</h1>Has recibido este correo para confirmar tu nuevo email, 
     pincha en el siguiente enlace para confirmarlo: http://localhost/clinica/controllers/verificar/verificarCambioEmail.php?email=".$_POST['email']."&token=".$token;
         if (enviarCorreoGmail($_POST['email'], "Verificar cambio de email", $mensaje)) {
         $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar el cambio de email")</script>';

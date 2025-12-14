@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +14,6 @@
         <img src="./views/images/logo/logo.webp" alt="Logo 4Ever Young">
     </div>
 
-    <!-- BLOQUE: NAV -->
     <input type="checkbox" id="menu-toggle" class="nav__toggle">
     <label for="menu-toggle" class="nav__hamburger">
         <span></span>
@@ -30,15 +30,11 @@
             <button type="submit" class="nav__item" name="citasMedico" >Mis citas</button>
         </form>
 
-
-        <!-- ELEMENTO: Grupo de Autenticación -->
         <div class="nav__auth-group">
             <form action="index.php" method="post">
                 <button type="submit" class="nav__item nav__item--active" name="usuarioMedico" >Mi cuenta</button>
             </form>
         </div>
-
-        <!-- BOTON PEDIR CITA -->
 
         <button  class="boton-admin" >
             <div class="wrap">
@@ -48,7 +44,6 @@
                 </p>
             </div>
         </button>
-
     </nav>
 </header>
 <section>
@@ -57,20 +52,15 @@
 
         <h2 class="services__title">Información usuario</h2>
 
-
-
         <div class="cita-info">
-
-
-
             <div class="task" draggable="true">
 
                 <div class="tags">
                     <span class="tag">Usuario</span>
                     <button class="options">
-                        <!-- SVG -->
                     </button>
                 </div>
+
                 <?php
                 if($fila=$consulta->fetch(PDO::FETCH_ASSOC)){
                     $dni=$fila["dni"];
@@ -80,29 +70,24 @@
                     $telefono=$fila["telefono"];
                     $cp=$fila["cp"];
                     $direccion=$fila["direccion"];
-                    echo "<div>
-                <h3>Información: </h3>
-                <p>DNI: ".$dni."</p>
-                <p>Nombre: ".$nombre."</p>
-                <p>Apellidos: ".$apellidos."</p>
-                <p>Email: ".$email."</p>
-                <p>Código Postal: ".$cp."</p>
-                <p>Direccion:   ".$direccion."</p>
-                <p>Telefono:   ".$telefono."</p>
-                
-            </div>";
 
                     if (isset($_SESSION['mensaje'])) {
                         echo $_SESSION['mensaje'];
                         unset($_SESSION['mensaje']);
                     }
 
-
+                    echo "<div>
+                        <h3>Información: </h3>
+                        <p>DNI: ".$dni."</p>
+                        <p>Nombre: ".$nombre."</p>
+                        <p>Apellidos: ".$apellidos."</p>
+                        <p>Email: ".$email."</p>
+                        <p>Código Postal: ".$cp."</p>
+                        <p>Direccion:   ".$direccion."</p>
+                        <p>Telefono:   ".$telefono."</p>
+                    </div>";
                 }
-
                 ?>
-
-
 
                 <div class="div__button-container">
                     <div class="div__button-table grid-1">
@@ -119,10 +104,9 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- cierre correcto de .task -->
+            </div>
 
-        </div> <!-- cierre de services__card-grid -->
-
+        </div>
 
     </section>
 </section>

@@ -52,12 +52,7 @@
     </nav>
 </header>
 <section>
-    <?php
-    if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    }
-    ?>
+
 
     <section id="edit-info" class="services">
         <div class="login-card-container">
@@ -76,6 +71,11 @@
                         $direccion = $fila["direccion"];
                         $telefono = $fila["telefono"];
                         $cp = $fila["cp"];
+
+                        if (isset($_SESSION["mensaje"])) {
+                            echo $_SESSION["mensaje"];
+                            unset($_SESSION["mensaje"]);
+                        }
 
                         echo '
                             <form id="vistaEditarUsuario" class="login-form-group" action="index.php" method="post" novalidate onsubmit=\'return confirm("¿Quieres confirmar la información del usuario?");\' >

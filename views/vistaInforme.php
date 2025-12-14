@@ -59,17 +59,18 @@
 <body>
 <div class="pagina-usuarios-admin">
 <section>
-    <?php
-    if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    }
-    ?>
+
     <section id="servicios" class="services">
         <h2 class="services__title">Informes</h2>
         <?php echo"<h2>". $nombrePaciente." ".$apellidosPaciente." | ".$dni."</h2>"; ?>
 
         <div>
+            <?php
+            if(isset($_SESSION["mensaje"])){
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            }
+            ?>
             <?php
 
             if($consulta!=null){

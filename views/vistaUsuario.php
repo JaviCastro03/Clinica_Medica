@@ -70,6 +70,11 @@
                     $telefono=$fila["telefono"];
                     $cp=$fila["cp"];
                     $direccion=$fila["direccion"];
+                    if (isset($_SESSION['mensaje'])) {
+                        echo $_SESSION['mensaje'];
+                        unset($_SESSION['mensaje']);
+                    }
+                    ;
                     echo "<div>
                 <h3>Información: </h3>
                 <p>DNI: ".$dni."</p>
@@ -81,11 +86,7 @@
                 <p>Telefono:   ".$telefono."</p>
                 
             </div>" ;
-                    if (isset($_SESSION['mensaje'])) {
-                        echo $_SESSION['mensaje'];
-                        unset($_SESSION['mensaje']);
-                    }
-                    ;
+
 
                 }
 

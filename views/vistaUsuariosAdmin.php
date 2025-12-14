@@ -59,12 +59,7 @@
 <div class="pagina-usuarios-admin">
 
     <section>
-        <?php
-        if(isset($_SESSION["mensaje"])){
-            echo $_SESSION["mensaje"];
-            unset($_SESSION["mensaje"]);
-        }
-        ?>
+
 
         <section id="servicios" class="usuarios-admin">
 
@@ -74,8 +69,14 @@
                 <input type="email" name="email" placeholder="Email">
                 <button type="submit" name="buscar">Buscar</button>
             </form>
-
             <?php
+            if(isset($_SESSION["mensaje"])){
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            }
+            ?>
+            <?php
+
 
             if($consulta != null){
 

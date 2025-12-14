@@ -8,13 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-if(isset($_SESSION['mensaje'])){
-    echo $_SESSION['mensaje'];
-    unset($_SESSION['mensaje']);
-}
-?>
+
 <form method="POST" action="olvidarPassword.php">
+    <?php
+    if(isset($_SESSION['mensaje'])){
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    }
+    ?>
     <input type="email" name="email" placeholder="Email">
     <input type ="submit" name="enviarCorreo" value ="Enviar">
 </form>

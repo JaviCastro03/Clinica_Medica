@@ -57,12 +57,7 @@
 <div class="pagina-usuarios-admin">
 
     <section>
-        <?php
-        if(isset($_SESSION["mensaje"])){
-            echo $_SESSION["mensaje"];
-            unset($_SESSION["mensaje"]);
-        }
-        ?>
+
 
         <section id="servicios" class="usuarios-admin">
 
@@ -77,7 +72,12 @@
                 <select name="especialidad" required>
 
                     <option value="" disabled selected>Especialidad</option>
-
+                    <?php
+                    if(isset($_SESSION["mensaje"])){
+                        echo $_SESSION["mensaje"];
+                        unset($_SESSION["mensaje"]);
+                    }
+                    ?>
                     <?php
                         while($fila=$especialidades->fetch(PDO::FETCH_ASSOC)){
                             echo '<option value="'.$fila['id'].'">'.$fila['nombre'].'</option>';

@@ -64,6 +64,10 @@
                     <textarea name="tratamiento" cols="100" rows="3" placeholder="Tratamiento" required class="login-input-field"></textarea>
 
                     <input type="submit" name="crear" value="Crear" class="btn--green">
+
+                </form>
+                <form action="index.php" method="post">
+                    <input type="submit" name="informe" value="Volver" class="nav__auth-link">
                 </form>
             </div>
 
@@ -79,10 +83,6 @@
     </div>
 </section>
 
-<div class="enlaces-login">
-    <form action="index.php" method="post">
-        <input type="submit" name="informe" value="Volver" class="nav__auth-link">
-    </form>
-</div>
+
 </body>
 </html>

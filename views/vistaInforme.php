@@ -57,6 +57,7 @@
     </nav>
 </header>
 <body>
+<div class="pagina-usuarios-admin">
 <section>
     <?php
     if(isset($_SESSION["mensaje"])){
@@ -72,29 +73,35 @@
             <?php
 
             if($consulta!=null){
-                echo
-                "<table class='tabla'>
+
+                echo "<div class='tabla-responsive-container'>";
+                echo "<table class='tabla'
                 <tr>
          
                     <th>Código de médico</th>
                     <th>Fecha</th>
                     <th>Motivo</th>
                     <th>Diagnóstico</th>
-                    
+                    <th>Tratamiento</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>";
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
+                    echo "<form action='index.php' method='post'>";
                     echo "<tr>";
-
-
                     echo "<td>".$fila["idMedico"]."</td>";
                     echo "<td>".$fila["fecha"]."</td>";
                     echo "<td>".$fila["motivo"]."</td>";
-
                     echo "<td>".$fila["diagnostico"]."</td>";
+                    echo "<td>".$fila["tratamiento"]."</td>";
+                    echo "<td><button type='submit' class='button-table button__back' name='editar'>Editar</button></td>";
+                    echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
                     echo "</tr>";
+                    echo "</form>";
                 }
 
                 echo"</table>";
+                echo "</div>";
             }
             else{
                 echo "<h2>No tiene informes</h2>";
@@ -121,6 +128,7 @@
 
     </section>
 </section>
+</div>
 </body>
 </html>
 

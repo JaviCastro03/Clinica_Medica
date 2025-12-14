@@ -45,17 +45,14 @@
         </div>
 
         <!-- BOTON PEDIR CITA -->
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
-        </form>
+        <button  class="boton-admin" >
+            <div class="wrap">
+                <p>
+                    <span>✦</span>
+                    Administrador
+                </p>
+            </div>
+        </button>
 
     </nav>
 </header>
@@ -114,16 +111,14 @@
 
                 <div class="div__button-container">
                     <div class="div__button-table grid-1">
-                        <form action="./controllers/logout.php" method="post">
-                            <input class="button-table button__back" type="submit" value="Cerrar sesión">
-                        </form>
+
                     </div>
 
                     <div class="grid-2"></div>
 
                     <div class="div__button-table grid-3">
-                        <form action="index.php" method="post">
-                            <input class="button-table button__back" type="submit" name="editarUsuario" value="Editar información">
+                        <form action="./controllers/logout.php" method="post">
+                            <input class="button-table button__back" type="submit" value="Cerrar sesión">
                         </form>
                     </div>
                 </div>

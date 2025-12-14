@@ -25,9 +25,7 @@
         <form action="index.php" method="post">
             <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
         </form>
-        <form action="index.php" method="post">
-            <button id="#servicios" type="submit" class="nav__item" name="landingpage" >Servicios</button>
-        </form>
+
         <form action="index.php" method="post">
             <button type="submit" class="nav__item" name="citasMedico" >Mis citas</button>
         </form>
@@ -41,17 +39,16 @@
         </div>
 
         <!-- BOTON PEDIR CITA -->
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
-        </form>
+
+        <button  class="boton-admin" >
+            <div class="wrap">
+                <p>
+                    <span>✦</span>
+                    Médico
+                </p>
+            </div>
+        </button>
+
     </nav>
 </header>
 <section>

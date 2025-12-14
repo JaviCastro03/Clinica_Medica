@@ -41,17 +41,14 @@
             </form>
         </div>
 
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
-        </form>
+        <button  class="boton-admin" >
+            <div class="wrap">
+                <p>
+                    <span>✦</span>
+                    Administrador
+                </p>
+            </div>
+        </button>
 
     </nav>
 </header>
@@ -107,9 +104,11 @@
                 echo "<th>Direccion</th>";
                 echo "<th>CP</th>";
                 echo "<th>Especialidad</th>";
+                echo "<th>Guardar</th>";
                 echo "<th>Eliminar</th>";
 
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
+                    $especialidadesA=$conexionMedico->getEspecialidades();
                     echo "<form action='index.php' method='post' onsubmit=\"return confirm('¿Seguro que quiere realizar esta acción?');\">";
                     echo "<tr>";
                     echo "<input type='hidden' name='id' value='".$fila["id"]."'>";
@@ -122,7 +121,21 @@
                     echo "<td>".$fila["direccion"]."</td>";
 
                     echo "<td>".$fila["cp"]."</td>";
-                    echo "<td>".$fila["idEspecialidad"]."</td>";
+                    echo "<td>";
+                    echo "<select name='especialidadM' required>";
+
+                    $especialidadesA = $conexionMedico->getEspecialidades();
+                    while ($esp = $especialidadesA->fetch(PDO::FETCH_ASSOC)) {
+
+                        $selected = ($esp['nombre'] == $fila['nombreE']) ? "selected" : "";
+
+                        echo "<option value='".$esp['id']."' $selected>".$esp['nombre']."</option>";
+                    }
+
+                    echo "</select>";
+
+                    echo "</td>";
+                    echo "<td><button type='submit' class='button-table button__back' name='guardar'>Guardar</button></td>";
                     echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
 
                     echo "</tr>";

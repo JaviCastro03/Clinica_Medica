@@ -36,14 +36,15 @@ class InformesDDBB
         }
     }
 
-    public function crearInforme($idPaciente, $idMedico, $motivo, $fecha,$diagnostico){
-        $sql = "INSERT INTO informes (idPaciente, idMedico, motivo, fecha, diagnostico) VALUES (:idPaciente, :idMedico, :motivo, :fecha, :diagnostico)";
+    public function crearInforme($idPaciente, $idMedico, $motivo, $fecha,$diagnostico,$tratamiento){
+        $sql = "INSERT INTO informes (idPaciente, idMedico, motivo, fecha, diagnostico,tratamiento) VALUES (:idPaciente, :idMedico, :motivo, :fecha, :diagnostico, :tratamiento)";
         $consulta=$this->conexion->prepare($sql);
         $consulta->bindParam(':idPaciente',$idPaciente);
         $consulta->bindParam(':idMedico',$idMedico);
         $consulta->bindParam(':motivo',$motivo);
         $consulta->bindParam(':fecha',$fecha);
         $consulta->bindParam(':diagnostico',$diagnostico);
+        $consulta->bindParam(':tratamiento',$tratamiento);
         if($consulta->execute()){
             return true;
         }else{

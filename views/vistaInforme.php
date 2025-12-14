@@ -27,9 +27,7 @@
         <form action="index.php" method="post">
             <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
         </form>
-        <form action="index.php" method="post">
-            <button id="#servicios" type="submit" class="nav__item" name="landingpage" >Servicios</button>
-        </form>
+
         <form action="index.php" method="post">
             <button type="submit" class="nav__item nav__item--active" name="citasMedico" >Mis citas</button>
         </form>
@@ -43,17 +41,14 @@
         </div>
 
         <!-- BOTON PEDIR CITA -->
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
-        </form>
+        <button  class="boton-admin" >
+            <div class="wrap">
+                <p>
+                    <span>✦</span>
+                    Médico
+                </p>
+            </div>
+        </button>
     </nav>
 </header>
 <body>
@@ -88,15 +83,23 @@
                     <th>Eliminar</th>
                 </tr>";
                 while($fila = $consulta->fetch(PDO::FETCH_ASSOC)){
-                    echo "<form action='index.php' method='post'>";
+                    echo "<form action='index.php' method='post' onsubmit=\"return confirm('¿Seguro que quiere realizar esta acción?');\"> ";
                     echo "<tr>";
+                    echo "<input type='hidden' name='id' value='".$fila["id"]."'>";
                     echo "<td>".$fila["idMedico"]."</td>";
                     echo "<td>".$fila["fecha"]."</td>";
                     echo "<td>".$fila["motivo"]."</td>";
                     echo "<td>".$fila["diagnostico"]."</td>";
                     echo "<td>".$fila["tratamiento"]."</td>";
-                    echo "<td><button type='submit' class='button-table button__back' name='editar'>Editar</button></td>";
-                    echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
+                    if($fila["idMedico"]==$idU){
+                        echo "<td><button type='submit' class='button-table button__back' name='editar'>Editar</button></td>";
+                        echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
+                    }
+                    else{
+                        echo "<td><button type='submit' class='button-table button__back' name='editar' disabled>Editar</button></td>";
+                        echo "<td><button type='submit' class='button-table button__danger' name='eliminar' disabled>Eliminar</button></td>";
+                    }
+
                     echo "</tr>";
                     echo "</form>";
                 }

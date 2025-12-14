@@ -52,5 +52,47 @@ class InformesDDBB
         }
     }
 
+    public function eliminarInforme($id){
+        $sql = "DELETE FROM informes WHERE id = :idInforme";
+        $consulta=$this->conexion->prepare($sql);
+        $consulta->bindParam(':idInforme',$id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function getInforme($id){
+        $sql = "SELECT * FROM informes WHERE id = :idInforme";
+        $consulta=$this->conexion->prepare($sql);
+        $consulta->bindParam(':idInforme',$id);
+        $consulta->execute();
+        if($consulta->rowCount()>0){
+            return $consulta;
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    public function actualizarInforme($motivo,$fecha,$diagnostico,$tratamiento,$id){
+        $sql="UPDATE informes SET motivo=:motivo, diagnostico=:diagnostico, fecha=:fecha, tratamiento=:tratamiento where id = :id ";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':motivo',$motivo);
+        $consulta->bindParam(':diagnostico',$diagnostico);
+        $consulta->bindParam(':fecha',$fecha);
+        $consulta->bindParam(':tratamiento',$tratamiento);
+        $consulta->bindParam(':id',$id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }

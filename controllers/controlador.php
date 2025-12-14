@@ -381,13 +381,19 @@ if ($_SESSION["ruta"] == "login") {
             $usuario = $conexion->getUsuario($_POST["email"]);
 
             if (password_verify($_POST["password"], $usuario->password)) {
-                if ($conexion->getRol($usuario->email) != 2) {
+                if ($conexion->getRol($usuario->email) != 2 && $conexion->getRol($usuario->email) != 3 ) {
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuario';
                     $_SESSION["mensaje"] = "<p class='mensaje-exito'>Sesión iniciada correctamente.</p>";
                     header("Location: index.php");
                     exit;
-                } else {
+                }elseif($conexion->getRol($usuario->email)==3){
+                    $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
+                    header("Location: index.php");
+                    exit();
+                }
+
+                else {
                     $_SESSION["mensaje"] = "<p class='mensaje-error'>Este usuario no está verificado.</p>";
                     header("Location: index.php");
                     exit();
@@ -547,9 +553,27 @@ if($_SESSION["ruta"] == "citasMedico"){
 }
 
 if($_SESSION["ruta"] == "informe"){
+
+    if(isset($_POST["eliminar"])){
+        $id=$_POST["id"];
+        if($conexionInforme->eliminarInforme($id)){
+            $_SESSION['mensaje']="<p class='mensaje-exito'>Informe eliminado correctamente</p>";
+        }
+        else{
+            $_SESSION['mensaje']="<p class='mensaje-error'>Error al eliminar informe</p>";
+        }
+    }
     if(isset($_POST["idPaciente"])){
         $_SESSION["idPaciente"] = $_POST["idPaciente"];
     }
+
+    if(isset($_POST["editar"])){
+        $_SESSION["ruta"]="editarInforme";
+        $_SESSION["idInforme"] = $_POST["id"];
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
     $idUsuario = $_SESSION["idPaciente"];
     $nombrePaciente = $conexion->getNombreUsuario($idUsuario);
     $apellidosPaciente = $conexion->getApellidosUsuario($idUsuario);
@@ -557,6 +581,33 @@ if($_SESSION["ruta"] == "informe"){
     $consulta = $conexionInforme->getInformes($idUsuario);
     require_once "./views/vistaInforme.php";
 }
+
+if($_SESSION["ruta"] == "editarInforme"){
+    if (!isset($_SESSION["idInforme"])) {
+        $_SESSION["ruta"] = "informe";
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+    $id=$_SESSION["idInforme"];
+
+    $consulta=$conexionInforme->getInforme($id);
+    $fila=$consulta->fetch(PDO::FETCH_ASSOC);
+    if(isset($_POST["editar"])){
+        if($conexionInforme->actualizarInforme($_POST["motivo"],$_POST["fecha"],$_POST["diagnostico"],$_POST["tratamiento"],$id)){
+            $_SESSION['mensaje']="<p class='mensaje-exito'>Informe actualizado correctamente</p>";
+        }
+        else{
+            $_SESSION['mensaje']="<p class='mensaje-error'>Error al actualizar informe</p>";
+        }
+        unset($_SESSION["idInforme"]);
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    }
+
+    require_once "./views/vistaEditarInforme.php";
+
+}
+
 
 if($_SESSION["ruta"] == "crearInforme"){
     if(isset($_POST["crear"])){

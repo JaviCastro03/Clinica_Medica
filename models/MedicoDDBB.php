@@ -71,12 +71,14 @@ class MedicoDDBB
     }
     public function getMedicosAdmin($email){
         if($email=='') {
-            $sql = "SELECT * FROM medicos";
+            $sql = "SELECT medicos.*,especialidades.nombre as nombreE FROM medicos
+            inner join especialidades on especialidades.id=medicos.idEspecialidad";
             $consulta = $this->conexion->prepare($sql);
             $consulta->execute();
         }
         else{
-            $sql = "SELECT * FROM medicosº where email = :email";
+            $sql = "SELECT medicos.*,especialidades.nombre as nombreE FROM medicos
+            inner join especialidades on especialidades.id=medicos.idEspecialidad where email = :email";
             $consulta = $this->conexion->prepare($sql);
             $consulta->bindParam(':email', $email);
             $consulta->execute();
@@ -87,6 +89,20 @@ class MedicoDDBB
         }
         else{
             return null;
+        }
+
+    }
+
+    public function setEspecialidad($id,$especialidad){
+        $sql = "UPDATE medicos SET idEspecialidad=:especialidad WHERE id=:id";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(':especialidad', $especialidad);
+        $consulta->bindParam(':id', $id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
         }
 
     }

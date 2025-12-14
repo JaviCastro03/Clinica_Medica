@@ -41,17 +41,16 @@
             </form>
         </div>
 
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
+
+            <button  class="boton-admin" >
                 <div class="wrap">
                     <p>
-                        <span>✧</span>
                         <span>✦</span>
-                        Solicitar Cita
+                        Administrador
                     </p>
                 </div>
             </button>
-        </form>
+
 
     </nav>
 </header>
@@ -89,10 +88,11 @@
                 echo "<th>Nombre</th>";
                 echo "<th>Apellidos</th>";
                 echo "<th>Email</th>";
-                echo "<th>Rol</th>";
                 echo "<th>Teléfono</th>";
                 echo "<th>Direccion</th>";
                 echo "<th>CP</th>";
+                echo "<th>Rol</th>";
+                echo "<th>Password</th>";
                 echo "<th>Guardar</th>";
                 echo "<th>Eliminar</th>";
 
@@ -105,17 +105,46 @@
                     echo "<td><input type='text' name='nombre' value='".$fila["nombre"]."'></td>";
                     echo "<td><input type='text' name='apellidos' value='".$fila["apellidos"]."'></td>";
                     echo "<td><input type='email' name='email' value='".$fila["email"]."'></td>";
-                    echo "<td><input type='number' name='rol' value='".$fila["rol"]."'></td>";
+
                     echo "<td><input type='text' name='telefono' value='".$fila["telefono"]."'></td>";
                     echo "<td><input type='text' name='direccion' value='".$fila["direccion"]."'></td>";
                     echo "<td><input type='number' name='cp' value='".$fila["cp"]."'></td>";
-
+                    echo "<td><select name='rol'";
+                    if($fila["rol"] == "3"){echo "disabled";}
+                    echo">   
+                    <option value='1' " . ($fila['rol'] == 1 ? 'selected' : '') . ">Verificado</option>
+                    <option value='2' " . ($fila['rol'] == 2 ? 'selected' : '') . ">Sin verificar</option>
+                    <option value='100' " . ($fila['rol'] == 100 ? 'selected' : '') . ">Admin</option>
+                    <option value='3' disabled " . ($fila['rol'] == 3 ? 'selected' : '') . ">Medico</option>
+                    </select>
+                    </td>";
+                    echo "<td>Oculta</td>";
                     echo "<td><button type='submit' class='button-table button__back' name='guardar'>Guardar</button></td>";
                     echo "<td><button type='submit' class='button-table button__danger' name='eliminar'>Eliminar</button></td>";
 
                     echo "</tr>";
                     echo "</form>";
                 }
+                echo "<form action='index.php' method='post' >";
+                echo "<tr>";
+                echo "<td>ID(AI)</td>";
+                echo "<td><input type='text' name='dni' value='' placeholder='dni'></td>";
+                echo "<td><input type='text' name='nombre' value='' placeholder='nombre'></td>";
+                echo "<td><input type='text' name='apellidos' value='' placeholder='apellidos'></td>";
+                echo "<td><input type='email' name='email' value='' placeholder='email'></td>";
+                echo "<td><input type='text' name='telefono' value='' placeholder='telefono'></td>";
+                echo "<td><input type='text' name='direccion' value='' placeholder='direccion'></td>";
+                echo "<td><input type='number' name='cp' value='' placeholder='cp'></td>";
+                echo "<td><select name='rol'>";
+                echo "<option value='100'>Admin</option>";
+                echo "<option value='1' selected>Confirmado</option>";
+                echo "<option value='2'>Sin verificar</option>";
+                echo "</select>";
+                echo "</td>";
+                echo "<td><input type='password' name='password' placeholder='contraseña'> </td>";
+                echo "<td colspan='2'><button type='submit' class='button-table button__dark' name='crearUsuario'>Crear usuario</button></td>";
+                echo "</tr>";
+                echo "</form>";
 
                 echo "</table>";
 

@@ -260,6 +260,28 @@ strong {
   white-space: nowrap;
 }
 
+.boton-admin {
+    display: flex;
+    height: 3em;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transition: all 0.25s linear;
+    cursor: pointer;
+    border: none;
+    background: var(--color-blue-soft);
+    color: var(--color-white);
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+
+
 .button .wrap p {
   display: flex;
   align-items: center;
@@ -1508,7 +1530,9 @@ strong {
 .pagina-usuarios-admin input[type="text"],
 .pagina-usuarios-admin input[type="number"],
 .pagina-usuarios-admin input[type="email"],
-.pagina-usuarios-admin input[type="date"] {
+.pagina-usuarios-admin input[type="date"],
+.pagina-usuarios-admin input[type="password"],
+.pagina-usuarios-admin select {
     width: 100%;
     padding: 6px;
     border-radius: 8px;
@@ -1516,6 +1540,10 @@ strong {
     background-color: var(--color-white);
     color: var(--color-text-grey);
 }
+.pagina-usuarios-admin select[disabled]{
+    background-color: #eaeaea;
+}
+
 
 .pagina-usuarios-admin .button-table {
 
@@ -1534,6 +1562,12 @@ strong {
 .pagina-usuarios-admin .button__back {
     background-color: var(--color-blue-soft);
     color: var(--color-white);
+}
+
+.pagina-usuarios-admin .button__dark {
+    background-color: var(--color-blue-hard);
+    color: var(--color-white);
+    width: 80%;
 }
 
 .pagina-usuarios-admin .button__danger {

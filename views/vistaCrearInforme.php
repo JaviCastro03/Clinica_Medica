@@ -22,6 +22,7 @@
         <input type="date" name="fecha" placeholder="Fecha">
         <textarea name="motivo" cols="100" rows="3" placeholder="Motivo"></textarea>
         <textarea name="diagnostico" cols="100" rows="3" placeholder="Diagnóstico"></textarea>
+        <textarea name="tratamiento" cols="100" rows="3" placeholder="Tratamiento"></textarea>
         <input type="submit" name="crear" value="Crear">
     </form>
     <?php if(isset($_SESSION["mensaje"])){

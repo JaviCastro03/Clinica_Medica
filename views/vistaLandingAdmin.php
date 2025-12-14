@@ -45,17 +45,14 @@
             </div>
 
             <!-- BOTON PEDIR CITA -->
-            <form action="index.php" method="post">
-                <button type="submit" class="button" name="especialidades">
-                    <div class="wrap">
-                        <p>
-                            <span>✧</span>
-                            <span>✦</span>
-                            Solicitar Cita
-                        </p>
-                    </div>
-                </button>
-            </form>
+            <button  class="boton-admin" >
+                <div class="wrap">
+                    <p>
+                        <span>✦</span>
+                        Administrador
+                    </p>
+                </div>
+            </button>
 
         </nav>
     </header>

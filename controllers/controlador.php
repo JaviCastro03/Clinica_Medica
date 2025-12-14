@@ -119,7 +119,11 @@ if ($_SESSION["ruta"] == "landingpage") {
     if($idU != 0){
         if($conexion->getRol($email)==100){
             require_once "views/vistaLandingAdmin.php";
-        }else{
+        }
+        elseif ($conexion->getRol($email)==3) {
+            require_once "views/vistaLandingMedico.php";
+        }
+        else{
             require_once "./views/vistaLandingPage.php";
         }
 
@@ -141,7 +145,11 @@ if ($_SESSION["ruta"] == "usuario") {
 
     if ($rol==100) {
         require_once "./views/vistaUsuarioAdmin.php";
-    }else{
+    }
+    elseif ($rol==3) {
+        require_once "./views/vistaUsuarioMedico.php";
+    }
+    else{
         require_once "./views/vistaUsuario.php";
 
     }
@@ -150,6 +158,38 @@ if ($_SESSION["ruta"] == "usuario") {
 }
 
 if($_SESSION["ruta"] == "usuariosAdmin"){
+
+    if(isset($_POST["crearUsuario"])){
+
+        $dni = $_POST['dni'];
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $email = $_POST['email'];
+        $rol = $_POST['rol'];
+        $telefono = $_POST['telefono'];
+        $direccion = $_POST['direccion'];
+        $cp = $_POST['cp'];
+        $password= $_POST['password'];
+
+        if($dni=='' || $nombre=='' || $apellidos=='' || $email=='' || $telefono=='' || $direccion=='' || $cp=='' || $password=='' || $rol==''){
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Todos los campos son obligatorios</p>";
+        }
+        else{
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $usuario = new Usuario($dni, $apellidos, $nombre, $email, $hash, $direccion,$telefono,$cp,$rol);
+            if($conexion->insertarUsuario($usuario)){
+                $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario insertado correctamente</p>";
+            }else{
+                $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al insertar el usuario</p>";
+            }
+        }
+
+
+        header("Location:index.php");
+        exit();
+
+
+    }
     if(isset($_POST['guardar'])){
         $id=$_POST["id"];
         $dni = $_POST['dni'];
@@ -211,6 +251,19 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
 }
 
 if($_SESSION["ruta"] == "medicosAdmin"){
+
+    if(isset($_POST['guardar'])){
+        $id=$_POST["id"];
+        $especialidad = $_POST['especialidadM'];
+        if($conexionMedico->setEspecialidad($id,$especialidad)){
+            $_SESSION['mensaje'] = "<p class='mensaje-exito'>Especialidad actualizada correctamente</p>";
+        }
+        else{
+            $_SESSION['mensaje'] = "<p class='mensaje-error'>Error al actualizar la especialidad</p>";
+        }
+        header("Location: index.php");
+        exit();
+    }
     if(isset($_POST['eliminar'])){
         $id=$_POST["id"];
         if($conexionMedico->eliminarMedico($id)){
@@ -307,7 +360,12 @@ if ($_SESSION["ruta"] == "editarUsuario") {
         exit();
     }
     $consulta = $conexion->getInfoUsuario($idU);
-    require_once "./views/vistaEditarUsuario.php";
+    if($conexion->getRol($email)==3){
+        require_once "./views/vistaEditarMedico.php";
+    }else{
+        require_once "./views/vistaEditarUsuario.php";
+    }
+
 }
 
 //Login
@@ -353,7 +411,7 @@ if ($_SESSION["ruta"] == "login") {
 
 
 if($_SESSION["ruta"] == "loginMedico") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST['iniciarSesion']))) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['iniciarSesion']))) {
         if (!$conexion->emailExiste($_POST["email"])) {
             $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
             header("Location: index.php");
@@ -506,7 +564,8 @@ if($_SESSION["ruta"] == "crearInforme"){
         $motivo = $_POST["motivo"];
         $fecha = $_POST["fecha"];
         $diagnostico = $_POST["diagnostico"];
-        if($conexionInforme->crearInforme($idPaciente,$idU, $motivo, $fecha, $diagnostico)){
+        $tratamiento = $_POST["tratamiento"];
+        if($conexionInforme->crearInforme($idPaciente,$idU, $motivo, $fecha, $diagnostico,$tratamiento)){
             $_SESSION["mensaje"] = "<p class='mensaje-exito'>Informe creado correctamente.</p>";
         }else{
             $_SESSION["mensaje"] = "<p class='mensaje-error'>No se pudo crear el informe.</p>";

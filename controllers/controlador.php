@@ -433,7 +433,7 @@ if($_SESSION["ruta"] == "loginMedico") {
                 }
 
             } else {
-                $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
+                $_SESSION["mensajeMedico"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
                 header("Location: index.php");
                 exit;
             }

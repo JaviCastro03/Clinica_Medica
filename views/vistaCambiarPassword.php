@@ -14,43 +14,6 @@
         <img src="../../views/images/logo/logo.webp" alt="Logo 4Ever Young">
     </div>
 
-    <!-- BLOQUE: NAV -->
-    <input type="checkbox" id="menu-toggle" class="nav__toggle">
-    <label for="menu-toggle" class="nav__hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-
-    <nav class="nav">
-        <form action="index.php" method="post">
-            <button type="submit" class="nav__item" name="landingpage" >Inicio</button>
-        </form>
-        <form action="index.php" method="post">
-            <button type="submit" class="nav__item" name="citas" >Mis citas</button>
-        </form>
-
-
-        <!-- ELEMENTO: Grupo de Autenticación -->
-        <div class="nav__auth-group">
-            <form action="index.php" method="post">
-                <button type="submit" class="nav__item nav__item--active" name="usuario" >Mi cuenta</button>
-            </form>
-        </div>
-
-        <!-- BOTON PEDIR CITA -->
-        <form action="index.php" method="post">
-            <button type="submit" class="button" name="especialidades">
-                <div class="wrap">
-                    <p>
-                        <span>✧</span>
-                        <span>✦</span>
-                        Solicitar Cita
-                    </p>
-                </div>
-            </button>
-        </form>
-    </nav>
 </header>
 
 <section id="change-password" class="services">

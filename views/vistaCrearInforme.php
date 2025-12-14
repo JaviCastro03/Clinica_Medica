@@ -15,10 +15,7 @@
     <div>
         <h1>Registro</h1>
     </div>
-    <?php if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    } ?>
+
 </header>
 <section class="contenedor__formulario">
     <form class="formulario" action="index.php" method="post">
@@ -28,7 +25,12 @@
         <textarea name="tratamiento" cols="100" rows="3" placeholder="Tratamiento"></textarea>
         <input type="submit" name="crear" value="Crear">
     </form>
+    <?php if(isset($_SESSION["mensaje"])){
+        echo $_SESSION["mensaje"];
+        unset($_SESSION["mensaje"]);
+    } ?>
 </section>
+
 <form action="index.php" method="post">
     <input type="submit" name="informe" value="Volver">
 </form>

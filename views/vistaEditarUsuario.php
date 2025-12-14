@@ -53,12 +53,7 @@
     </nav>
 </header>
 <section>
-    <?php
-    if(isset($_SESSION["mensaje"])){
-        echo $_SESSION["mensaje"];
-        unset($_SESSION["mensaje"]);
-    }
-    ?>
+
 
     <section id="edit-info" class="services">
         <div class="login-card-container">
@@ -97,8 +92,12 @@
                     }
 
                     ?>
-
-
+                    <?php
+                    if(isset($_SESSION["mensaje"])){
+                        echo $_SESSION["mensaje"];
+                        unset($_SESSION["mensaje"]);
+                    }
+                    ?>
                     <div class="enlaces-login">
                         <form action="index.php" method="post">
                             <button type="submit" name="usuario" class="nav__auth-link">Volver al perfil</button>

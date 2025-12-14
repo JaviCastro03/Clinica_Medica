@@ -209,6 +209,7 @@ if($_SESSION["ruta"] == "usuariosAdmin"){
             }
             $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
 
+            
 
         }
         else{
@@ -341,10 +342,10 @@ if ($_SESSION["ruta"] == "editarUsuario") {
 
     if (isset($_POST["editarInfoUsuario"])) {
         if ($conexion->actualizarDatosUsuario($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
-            $_SESSION["mensaje"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
+            $_SESSION["mensajeUsuario"] = "<p class='mensaje-exito'>Usuario actualizado correctamente</p>";
             $_SESSION["ruta"] = "usuario";
         } else {
-            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al actualizar usuario</p>";
+            $_SESSION["mensajeUsuario"] = "<p class='mensaje-error'>Error al actualizar usuario</p>";
         }
         if($rol==3){
             if ($conexionMedico->actualizarDatosMedico($_POST["apellidos"], $_POST["nombre"], $idU,$_POST["direccion"],$_POST["telefono"],$_POST["cp"])) {
@@ -656,13 +657,13 @@ if ($_SESSION["ruta"] == "confirmarCita") {
             $mensaje = "<h1>Cita médica</h1> Hola ".$nombreUsuario.", has recibido este correo porque has solicitado una cita médica con el doctor/a ".$nombreMedico." ".$apellidosMedico." en ".strtolower($_SESSION['especialidad'])." el día ".$_SESSION['fecha']." a las ".$_SESSION['hora']."
             , pincha en el siguiente enlace para confirmar tu cita: http://aula2gs.edu/clinica/controllers/verificar/verificarCita.php?idMedicoC=" . $_SESSION['idMedico'] . "&fechaC=" . $_SESSION["fecha"] . "&idhora=" . $idHora . "&token=" . $token;
             if (enviarCorreoGmail($conexion->getEmail($idU), "Verificación de cita", $mensaje)) {
-                $_SESSION['mensaje'] = '<script>alert("Correo enviado para verificar la cita")</script>';
+                $_SESSION['mensajeCita'] = '<script>alert("Correo enviado para verificar la cita")</script>';
             } else {
-                $_SESSION['mensaje'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
+                $_SESSION['mensajeCita'] = '<script>alert("No se pudo enviar el correo de verificación, intentalo más tarde")</script>';
             }
             $_SESSION["ruta"] = 'citas';
         } else {
-            $_SESSION['mensaje'] = "<p>No se ha podido registrar la cita.</p>";
+            $_SESSION['mensajeCita'] = "<p class='mensaje-error'>No se ha podido registrar la cita.</p>";
         }
 
 

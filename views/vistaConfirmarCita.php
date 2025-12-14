@@ -54,12 +54,7 @@
     </nav>
 </header>
 <section>
-    <?php
-    if(isset($_SESSION['mensaje'])){
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-    }
-    ?>
+
     <section id="servicios" class="services">
 
         <h2 class="services__title">Confirmar cita</h2>
@@ -121,6 +116,12 @@
                     <input class="button-table button__back" type="submit" name="confirmarCita" value="Confirmar cita">
                 </form>
             </div>
+            <?php
+            if(isset($_SESSION['mensaje'])){
+                echo $_SESSION['mensaje'];
+                unset($_SESSION['mensaje']);
+            }
+            ?>
 
             <div class="grid-2"></div>
 

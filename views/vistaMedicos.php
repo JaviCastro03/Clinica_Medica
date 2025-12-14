@@ -80,6 +80,11 @@
                 <?php
 
 
+                if (isset($_SESSION["mensaje"])) {
+                    echo $_SESSION["mensaje"];
+                    unset($_SESSION["mensaje"]);
+                }
+
                 if($consulta!=null){
                     echo "<div class='table-flex'>";
                     echo "<table class='tabla'>";

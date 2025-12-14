@@ -38,8 +38,6 @@
                 <button type="submit" class="nav__item" name="usuario" >Mi cuenta</button>
             </form>
         </div>
-
-        <!-- BOTON PEDIR CITA -->
         <button class="button">
             <div class="wrap">
                 <p>
@@ -82,15 +80,11 @@
 
         <div class="services__card-grid">
             <?php
+
             if($consulta!=null){
 
 
                 while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
-
-                    // Abrir fila si es el primer elemento de la fila
-
-
-
                     echo "<form action='index.php' method='POST'>";
                     echo '<button type="submit" class="button-time" name="hora" value="' . $fila["hora"] . '">
                         <p>' . $fila["hora"] . '</p>

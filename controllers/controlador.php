@@ -461,7 +461,11 @@ if ($_SESSION["ruta"] == "registro") {
             $_SESSION["mensaje"] = " <p class='mensaje-error'>El correo ya existe</p>";
             if($conexion->existeDni($_POST["dni"])){
                 $_SESSION["mensaje"] = "<p class='mensaje-error'>El dni ya se encuentra registrado</p>";
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
             }
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
         } else {
             if (!Usuario::comprobarPassword($_POST["password"], $_POST["cpassword"])) {
                 $_SESSION["mensaje"] = "<p class='mensaje-error'>Las contraseñas no coinciden</p>";
@@ -502,7 +506,7 @@ if ($_SESSION["ruta"] == "registro") {
             header("Location: index.php");
             exit;
         } else {
-            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al registrar usuario</p>";
+            $_SESSION["mensaje"] = "<p class='mensaje-error'>Error al registrar usuario, puede que el dni o el email ya estén registrados</p>";
             unset($_SESSION["insertarUsuario"], $_SESSION["dni"], $_SESSION["apellidos"], $_SESSION["nombre"], $_SESSION["email"], $_SESSION["password"]);
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;

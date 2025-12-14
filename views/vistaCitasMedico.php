@@ -62,7 +62,10 @@
 
         <div >
             <?php
-
+            if (isset($_SESSION["mensaje"])) {
+                echo $_SESSION["mensaje"];
+                unset($_SESSION["mensaje"]);
+            }
             if($consulta!=null){
                 echo
                 "
@@ -103,10 +106,7 @@
                 echo "<h2>No tienes citas</h2>";
             }
 
-            if (isset($_SESSION["mensaje"])) {
-                echo $_SESSION["mensaje"];
-                unset($_SESSION["mensaje"]);
-            }
+
 
             ?>
 

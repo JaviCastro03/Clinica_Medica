@@ -52,7 +52,10 @@
         <h1>Crear Informe</h1>
     </div>
     <div class="login-card-container">
-
+        <?php if(isset($_SESSION["mensaje"])){
+            echo $_SESSION["mensaje"];
+            unset($_SESSION["mensaje"]);
+        } ?>
         <div class="login-left-side">
 
             <div class="formulario-login">
@@ -71,10 +74,7 @@
                 </form>
             </div>
 
-            <?php if(isset($_SESSION["mensaje"])){
-                echo $_SESSION["mensaje"];
-                unset($_SESSION["mensaje"]);
-            } ?>
+
         </div>
 
         <div class="login-right-side">

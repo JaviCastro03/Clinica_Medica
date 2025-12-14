@@ -60,6 +60,12 @@
     ?>
     <section id="servicios" class="services">
         <h2 class="services__title">Mis citas</h2>
+        <?php
+        if(isset($_SESSION["mensajeCita"])){
+            echo $_SESSION["mensajeCita"];
+            unset($_SESSION["mensajeCita"]);
+        }
+        ?>
 
         <div>
             <?php
@@ -99,12 +105,7 @@
                 echo "<h2>No tienes citas</h2>";
             }
             ?>
-            <?php
-            if(isset($_SESSION["mensajeCita"])){
-                echo $_SESSION["mensajeCita"];
-                unset($_SESSION["mensajeCita"]);
-            }
-            ?>
+
 
         </div>
         <div class="div__button-container ">

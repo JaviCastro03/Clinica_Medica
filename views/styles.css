@@ -1780,12 +1780,13 @@ strong {
     text-align: left;
 }
 
-.mensaje-error{
+.mensaje-error {
     color: #900000;
 }
 .mensaje-exito{
     color: #017301;
 }
+
 hr{
     opacity: 0.3;
 }

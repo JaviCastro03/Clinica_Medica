@@ -52,5 +52,17 @@ class InformesDDBB
         }
     }
 
+    public function eliminarInforme($id){
+        $sql = "DELETE FROM informes WHERE id = :idInforme";
+        $consulta=$this->conexion->prepare($sql);
+        $consulta->bindParam(':idInforme',$id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }

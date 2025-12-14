@@ -556,11 +556,23 @@ if($_SESSION["ruta"] == "informe"){
 
     if(isset($_POST["eliminar"])){
         $id=$_POST["id"];
-
+        if($conexionInforme->eliminarInforme($id)){
+            $_SESSION['mensaje']="<p class='mensaje-exito'>Informe eliminado correctamente</p>";
+        }
+        else{
+            $_SESSION['mensaje']="<p class='mensaje-error'>Error al eliminar informe</p>";
+        }
     }
     if(isset($_POST["idPaciente"])){
         $_SESSION["idPaciente"] = $_POST["idPaciente"];
     }
+
+    if(isset($_POST["editar"])){
+        $_SESSION["ruta"]="editarInforme";
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
     $idUsuario = $_SESSION["idPaciente"];
     $nombrePaciente = $conexion->getNombreUsuario($idUsuario);
     $apellidosPaciente = $conexion->getApellidosUsuario($idUsuario);
@@ -568,6 +580,12 @@ if($_SESSION["ruta"] == "informe"){
     $consulta = $conexionInforme->getInformes($idUsuario);
     require_once "./views/vistaInforme.php";
 }
+
+if($_SESSION["ruta"] == "editarInforme"){
+    require_once "./views/vistaEditarInforme.php";
+
+}
+
 
 if($_SESSION["ruta"] == "crearInforme"){
     if(isset($_POST["crear"])){

@@ -4,7 +4,7 @@
 :root {
     --color-blue-dark:#363960;
     --color-blue-hard: #033D69;
-    --color-danger: #f15656;
+    --color-danger: #fb7d7d;
     --color-blue-soft: #2A88B3;
     --color-green: #5CB85C;
     --color-white: #FFFFFF;
@@ -1052,6 +1052,22 @@ strong {
     background-color: var(--color-danger);
     padding: 0 7px;
 }
+
+.button-table.button__danger:disabled {
+    background-color: #f26f6f;
+    opacity: 0.6;
+    transition: none;
+    box-shadow: none;
+}
+
+.button-table.button__back:disabled {
+    background-color: #7abceb;
+    opacity: 0.6;
+    transition: none;
+    box-shadow: none;
+}
+
+
 
 .card-time-cloud {
     position: relative;

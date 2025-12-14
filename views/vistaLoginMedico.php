@@ -49,7 +49,7 @@
 
     <div class="login-card-container">
         <div class="login-left-side">
-            <h2 class="login-left-side__title">Login</h2>
+            <h2 class="login-left-side__title">Iniciar Sesión</h2>
             <p class="login-left-side__subtitle">Inicia sesión para gestionar tus citas.</p>
 
             <div class="formulario-login">
@@ -65,22 +65,23 @@
                     }
                     ?>
 
-                    <input type="submit" name="iniciarSesion" value="Iniciar Sesión" class="btn--green">
+                    <input type="submit" name="iniciarSesion" value="Log In" class="btn--green">
                 </form>
             </div>
 
-            <form action="index.php" method="post">
-                <input type="submit" class="nav__auth-link" name="registro" value="¿No tienes una cuenta?">
-            </form>
-            <form action="index.php" method="post">
-                <input type="submit" class="nav__auth-link" name="login" value="¿No eres médico?">
-            </form>
-            <form action="index.php" method="post">
-                <input type="submit" class="nav__auth-link" name="landingpage" value="Seguir como invitado">
-            </form>
-            <form action="./controllers/verificar/olvidarPassword.php" method="post">
-                <input type="submit" class="nav__auth-link" name="olvidarPassword" value="¿Has olvidado tu contraseña?">
-            </form>
+            <hr>
+            <div class="enlaces-login">
+                <form action="index.php" method="post">
+                    <button type="submit" name="registro" class="nav__auth-link">¿No tienes una cuenta?</button>
+                </form>
+                <form action="index.php" method="post">
+                    <button type="submit" name="login" class="nav__auth-link">¿No eres médico?</button>
+                </form>
+
+                <form action="./controllers/verificar/olvidarPassword.php" method="post">
+                    <button type="submit" name="olvidarPassword" class="nav__auth-link">¿Has olvidado tu contraseña?</button>
+                </form>
+            </div>
         </div>
 
         <div class="login-right-side">

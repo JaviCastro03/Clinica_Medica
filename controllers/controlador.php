@@ -553,6 +553,11 @@ if($_SESSION["ruta"] == "citasMedico"){
 }
 
 if($_SESSION["ruta"] == "informe"){
+
+    if(isset($_POST["eliminar"])){
+        $id=$_POST["id"];
+
+    }
     if(isset($_POST["idPaciente"])){
         $_SESSION["idPaciente"] = $_POST["idPaciente"];
     }

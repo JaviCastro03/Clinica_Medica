@@ -54,14 +54,14 @@
 
             <div class="login-card-container">
                 <div class="login-left-side">
-                    <h2 class="login-left-side__title">Login</h2>
+                    <h2 class="login-left-side__title">Iniciar Sesión</h2>
                     <p class="login-left-side__subtitle">Inicia sesión para gestionar tus citas.</p>
 
 
                     <div class="formulario-login">
                         <form action="index.php" method="post" class="login-form-group">
-                            <input type="email" name="email" placeholder="Email Address" required class="login-input-field">
-                            <input type="password" name="password" placeholder="Password" required class="login-input-field">
+                            <input type="email" name="email" placeholder="Email" required class="login-input-field">
+                            <input type="password" name="password" placeholder="Contraseña" required class="login-input-field">
                             <button type="submit" name="iniciarSesion" class="btn--green">Log In</button>
                         </form>
                         <div>

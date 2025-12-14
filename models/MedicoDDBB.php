@@ -23,9 +23,11 @@ class MedicoDDBB
         $this->cerrarConexion();
     }
 
-    function getMedicosEspecialidad($idespecialidad){
-        $sql = "SELECT id, nombre, apellidos, email FROM medicos WHERE idEspecialidad = $idespecialidad";
+    function getMedicosEspecialidad($idespecialidad,$id){
+        $sql = "SELECT id, nombre, apellidos, email FROM medicos WHERE idEspecialidad = :idespecialidad and id!=:id";
         $consulta = $this->conexion->prepare($sql);
+        $consulta->bindParam(":idespecialidad", $idespecialidad);
+        $consulta->bindParam(":id", $id);
         $consulta->execute();
         if($consulta->rowCount() > 0){
             return $consulta;
@@ -74,7 +76,7 @@ class MedicoDDBB
             $consulta->execute();
         }
         else{
-            $sql = "SELECT * FROM medicos where email = :email";
+            $sql = "SELECT * FROM medicosº where email = :email";
             $consulta = $this->conexion->prepare($sql);
             $consulta->bindParam(':email', $email);
             $consulta->execute();

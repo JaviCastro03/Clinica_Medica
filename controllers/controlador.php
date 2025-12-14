@@ -381,13 +381,19 @@ if ($_SESSION["ruta"] == "login") {
             $usuario = $conexion->getUsuario($_POST["email"]);
 
             if (password_verify($_POST["password"], $usuario->password)) {
-                if ($conexion->getRol($usuario->email) != 2) {
+                if ($conexion->getRol($usuario->email) != 2 && $conexion->getRol($usuario->email) != 3 ) {
                     $_SESSION["idU"] = $conexion->getIDUsuario($usuario->email);
                     $_SESSION["ruta"] = 'usuario';
                     $_SESSION["mensaje"] = "<p class='mensaje-exito'>Sesión iniciada correctamente.</p>";
                     header("Location: index.php");
                     exit;
-                } else {
+                }elseif($conexion->getRol($usuario->email)==3){
+                    $_SESSION["mensaje"] = "<p class='mensaje-error'>Credenciales incorrectas.</p>";
+                    header("Location: index.php");
+                    exit();
+                }
+
+                else {
                     $_SESSION["mensaje"] = "<p class='mensaje-error'>Este usuario no está verificado.</p>";
                     header("Location: index.php");
                     exit();

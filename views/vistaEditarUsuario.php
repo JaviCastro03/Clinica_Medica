@@ -64,6 +64,12 @@
 
                 <div class="formulario-login">
                     <?php
+                    if(isset($_SESSION["mensaje"])){
+                        echo $_SESSION["mensaje"];
+                        unset($_SESSION["mensaje"]);
+                    }
+                    ?>
+                    <?php
                     if($consulta != null){
                         $fila=$consulta->fetch(PDO::FETCH_ASSOC);
                         $dni = $fila["dni"];
@@ -92,12 +98,7 @@
                     }
 
                     ?>
-                    <?php
-                    if(isset($_SESSION["mensaje"])){
-                        echo $_SESSION["mensaje"];
-                        unset($_SESSION["mensaje"]);
-                    }
-                    ?>
+
                     <div class="enlaces-login">
                         <form action="index.php" method="post">
                             <button type="submit" name="usuario" class="nav__auth-link">Volver al perfil</button>

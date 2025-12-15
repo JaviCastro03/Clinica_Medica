@@ -56,7 +56,10 @@
         <div class="login-left-side">
 
             <div class="formulario-login">
-
+                <?php if(isset($_SESSION["mensaje"])){
+                    echo $_SESSION["mensaje"];
+                    unset($_SESSION["mensaje"]);
+                } ?>
                 <form class="login-form-group" action="index.php" method="post">
                     <input type="date" name="fecha" placeholder="Fecha" required class="login-input-field" value="<?php echo $fila['fecha'] ?>">
                     <textarea name="motivo" cols="100" rows="3" placeholder="Motivo" required class="login-input-field" ><?php echo $fila['motivo'] ?></textarea>
@@ -71,10 +74,7 @@
                 </form>
             </div>
 
-            <?php if(isset($_SESSION["mensaje"])){
-                echo $_SESSION["mensaje"];
-                unset($_SESSION["mensaje"]);
-            } ?>
+
         </div>
 
         <div class="login-right-side">

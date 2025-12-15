@@ -123,7 +123,7 @@
             <div class="grid-2"></div>
             <div class="div__button-table grid-1">
                 <form action="index.php" method="post">
-                    <input class="button-table button__back " type="submit" name="crearInforme" value="Crear informe">
+                    <input class="button-table button__back " type="submit" name="crearInforme" value="Crear">
                 </form>
             </div>
 

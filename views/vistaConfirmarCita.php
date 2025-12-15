@@ -84,7 +84,12 @@
 
         <div class="cita-info">
 
-
+            <?php
+            if(isset($_SESSION['mensaje'])){
+                echo $_SESSION['mensaje'];
+                unset($_SESSION['mensaje']);
+            }
+            ?>
 
             <div class="task" draggable="true">
 
@@ -116,12 +121,7 @@
                     <input class="button-table button__back" type="submit" name="confirmarCita" value="Confirmar cita">
                 </form>
             </div>
-            <?php
-            if(isset($_SESSION['mensaje'])){
-                echo $_SESSION['mensaje'];
-                unset($_SESSION['mensaje']);
-            }
-            ?>
+
 
             <div class="grid-2"></div>
 

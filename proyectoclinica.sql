@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2025 a las 12:21:17
+-- Tiempo de generación: 15-12-2025 a las 08:39:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,10 +46,7 @@ CREATE TABLE `citas` (
 
 INSERT INTO `citas` (`idMedico`, `idPaciente`, `fecha`, `idhora`, `idEspecialidad`, `estado`) VALUES
 (7, 5, '2025-11-26', 9, 5, 'Por verificar'),
-(7, 6, '2025-12-14', 15, 5, 'Por verificar'),
-(7, 8, '2025-12-25', 12, 5, 'Por verificar'),
-(7, 6, '2025-12-27', 12, 5, 'Por verificar'),
-(24, 6, '2025-12-18', 14, 4, 'Confirmada');
+(7, 8, '2025-12-25', 12, 5, 'Por verificar');
 
 -- --------------------------------------------------------
 
@@ -134,14 +131,6 @@ CREATE TABLE `informes` (
   `tratamiento` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `informes`
---
-
-INSERT INTO `informes` (`id`, `idPaciente`, `idMedico`, `motivo`, `fecha`, `diagnostico`, `tratamiento`) VALUES
-(6, 6, 7, 'Dolor de espalda', '2025-12-12', 'Contractura', ''),
-(7, 6, 24, 'Dolor de tobillo', '2025-12-11', 'Esguince tercer grado', 'Paracetamol y fisioterapia');
-
 -- --------------------------------------------------------
 
 --
@@ -169,6 +158,7 @@ CREATE TABLE `medicos` (
 
 INSERT INTO `medicos` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`, `idEspecialidad`, `telefono`, `direccion`, `cp`) VALUES
 (7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3, 5, '687894898', 'Contubernio 49', '18560'),
+(9, '74132312J', 'Francisco', 'Vico Pérez', 'drvicoperez@gmail.com', '$2y$10$OrLm1aF4SAu..8lIGeeDQOWsdWorBmGW0wZ61koZKcLObWZpjyLc2', 3, 2, '678954234', 'Calle paseo 2', '12354'),
 (24, '9093044F', 'Agustin', 'García Vaquero', 'drgarciavaquero@gmail.com', '$2y$10$ESNTwHDH5bihNEESuyOiGuxRUvNgnnMdHgdmWs0XyB.CluhYqrAWq', 3, 4, '678902123', 'C/Contubernio 49', '29304');
 
 -- --------------------------------------------------------
@@ -197,12 +187,15 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`, `email`, `password`, `rol`, `telefono`, `direccion`, `cp`) VALUES
 (5, '78475412H', 'Javier', 'Castro Muriana', 'javiercastromuriana2006@gmail.com', '$2y$10$BmTow0EbaFCdlP1n5pnzKOg/DYiej95UiuV2c4qT9xwRLZOmJAI2K', 1, '', '', ''),
-(6, '20886606F', 'Antonio', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$rWvEschbreCxAOtkuufnd.fJi3PsQEKNwJ.s8Z9KlFI2RtyvI.1C.', 1, '681642181', 'C/Granada 47', '18566'),
 (7, '78989063M', 'Vicente', 'Marotensen', 'drmarotensen@gmail.com', '$2y$10$vFDqj.7nzMrPRlofdNYKROZUyb./jVX5QLzKUPfy24e2XEbCZloY.', 3, '687894898', 'Contubernio 49', '18560'),
 (8, '78107726W', 'Luismi', 'Prieto Pareja', 'luismiluismpp@gmail.com', '$2y$10$yBMRvSDacOCmQfTKP/GYneDKgpNhDn9ADl9EnRsR86chK3OLW2yMC', 1, '687894770', 'C/Granada 8', '12456'),
-(9, '74132312J', 'Francisco', 'Vico Pérez', 'drvicoperez@gmail.com', '$2y$10$OrLm1aF4SAu..8lIGeeDQOWsdWorBmGW0wZ61koZKcLObWZpjyLc2', 1, NULL, NULL, NULL),
+(9, '74132312J', 'Francisco', 'Vico Pérez', 'drvicoperez@gmail.com', '$2y$10$OrLm1aF4SAu..8lIGeeDQOWsdWorBmGW0wZ61koZKcLObWZpjyLc2', 3, '678954234', 'Calle paseo 2', '12354'),
 (24, '9093044F', 'Agustin', 'García Vaquero', 'drgarciavaquero@gmail.com', '$2y$10$ESNTwHDH5bihNEESuyOiGuxRUvNgnnMdHgdmWs0XyB.CluhYqrAWq', 3, '678902123', 'C/Contubernio 49', '29304'),
-(28, '00000000F', 'Administrador', ' ', 'admin@gmail.com', '$2y$10$D7aqwXvTqb2hPmiKa4dJdOSOsH4pOjOrhVPiTdhDhMvBg8PfC0XC6', 100, '66666666', 'admin', '0');
+(28, '00000000F', 'Administrador', ' ', 'admin@gmail.com', '$2y$10$D7aqwXvTqb2hPmiKa4dJdOSOsH4pOjOrhVPiTdhDhMvBg8PfC0XC6', 100, '66666666', 'admin', '0'),
+(32, '20886606L', 'Antonio', 'Bolívar Jiménez', 'aboljim1611@g.educaand.es', '$2y$10$gJre73JDZv/.D9ZQc9w1feCEIuZMv/cOBYX7YMkNDoZeFneVNC4rK', 1, '678973123', 'C/Granada 47', '18566'),
+(34, '78276539M', 'Antonio Miguel', 'Bolívar García', 'bolivargarcia@gmail.com', '$2y$10$Qdv/8WMDEHdKHJnli1opjuk/be8GNJed02EcBSOMLJWXUMsehJ5PC', 1, '678768323', 'C/Granada 47', '18566'),
+(35, '20886606F', 'Antonio Miguel', 'Bolívar Jiménez', 'antonioboliivar@gmail.com', '$2y$10$ZvJlspvjIPr.R9J2d1.xPe4U2NuAOz4LYA1wBPdFn3K5sFn/n3vmK', 1, '681642181', 'C/Granada 47', '18566'),
+(38, '20883605F', 'Antonio', 'Bolívar Jiménez', 'ala@gmail.com', '$2y$10$0Cg4hO.yLEkcylDnPX.QPeNf2MQ7fvJ3rOy54eTjgguPE2Osx1q.m', 2, '678902123', 'C/Granada 8', '18569');
 
 --
 -- Índices para tablas volcadas
@@ -234,8 +227,7 @@ ALTER TABLE `horas`
 --
 ALTER TABLE `informes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idPaciente` (`idPaciente`),
-  ADD KEY `idMedico` (`idMedico`);
+  ADD KEY `informes_ibfk_1` (`idPaciente`);
 
 --
 -- Indices de la tabla `medicos`
@@ -274,19 +266,19 @@ ALTER TABLE `horas`
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
@@ -305,8 +297,7 @@ ALTER TABLE `citas`
 -- Filtros para la tabla `informes`
 --
 ALTER TABLE `informes`
-  ADD CONSTRAINT `informes_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `informes_ibfk_2` FOREIGN KEY (`idMedico`) REFERENCES `medicos` (`id`);
+  ADD CONSTRAINT `informes_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `medicos`

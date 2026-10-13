@@ -770,5 +770,5 @@ function enviarCorreoGmail($email, $asunto, $mensaje)
 
     }
 
-
+echo "Correo enviado";
 }

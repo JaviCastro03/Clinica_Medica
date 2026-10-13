@@ -1,3 +1,6 @@
 
 # Ignorar específicamente workspace.xml
 .idea/workspace.xml
+
+.idea/
+models/MailConfig.php
